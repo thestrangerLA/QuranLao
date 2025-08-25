@@ -17,7 +17,7 @@ export default function QuranView({ navigateTo, goBack }: QuranViewProps) {
   const [searchQuery, setSearchQuery] = useState('');
 
   const handleClick = (id?: string) => {
-    if (id === 'al-fatihah' || id === 'al-baqarah' || id === 'fussilat' || id === 'aal-imran' || id === 'an-naba' || id === 'an-nisa' || id === 'al-maidah' || id === 'al-anam' || id === 'al-araf' || id === 'al-anfal') {
+    if (id === 'al-fatihah' || id === 'al-baqarah' || id === 'fussilat' || id === 'aal-imran' || id === 'an-naba' || id === 'an-nisa' || id === 'al-maidah' || id === 'al-anam' || id === 'al-araf' || id === 'al-anfal' || id === 'at-tawbah') {
       navigateTo(id as View);
     }
   };
@@ -29,9 +29,9 @@ export default function QuranView({ navigateTo, goBack }: QuranViewProps) {
   );
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col h-screen">
       <header className="flex items-center p-4 sticky top-0 bg-background z-10 border-b">
-        <Button variant="ghost" size="icon" onClick={goBack} className="mr-2">
+        <Button variant="ghost" size="icon" onClick={goBack} className="mr-2 shrink-0">
           <ArrowLeft className="w-6 h-6 text-foreground" />
           <span className="sr-only">Back</span>
         </Button>
@@ -45,7 +45,7 @@ export default function QuranView({ navigateTo, goBack }: QuranViewProps) {
           />
         </div>
       </header>
-      <main className="p-4 space-y-3">
+      <main className="flex-grow overflow-y-auto p-4 space-y-3">
         {filteredQuranData.length > 0 ? (
           filteredQuranData.map((card) => (
             <QuranCard
