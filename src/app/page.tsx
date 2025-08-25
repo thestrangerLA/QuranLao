@@ -38,6 +38,7 @@ import SurahAnNisaView from '@/components/views/SurahAnNisaView';
 import SurahAlMaidahView from '@/components/views/SurahAlMaidahView';
 import SurahAlAnamView from '@/components/views/SurahAlAnamView';
 import SurahAlArafView from '@/components/views/SurahAlArafView';
+import SurahAlAnfalView from '@/components/views/SurahAlAnfalView';
 
 export type View =
   | 'home'
@@ -68,6 +69,7 @@ export type View =
   | 'al-maidah'
   | 'al-anam'
   | 'al-araf'
+  | 'al-anfal'
   | 'shahada'
   | 'salat'
   | 'zakat'
@@ -160,6 +162,8 @@ export default function App() {
         return <SurahAlAnamView goBack={goBack} />;
       case 'al-araf':
         return <SurahAlArafView goBack={goBack} />;
+      case 'al-anfal':
+        return <SurahAlAnfalView goBack={goBack} />;
       case 'shahada':
         return <ShahadaView goBack={goBack} />;
       case 'salat':
@@ -183,7 +187,7 @@ export default function App() {
     if (['fundamentals', 'faith', 'practice', 'articles', 'halal-food', 'afterlife', 'god-exists', 'islam-what-is-it', 'belief-in-allah', 'prophet-who-is-he', 'who-is-a-muslim', 'belief-in-angels', 'belief-in-books', 'belief-in-prophets', 'belief-in-last-day', 'belief-in-destiny', 'shahada', 'salat', 'zakat', 'sawm', 'hajj'].includes(currentView)) {
       return 'home';
     }
-    if (['al-fatihah', 'al-baqarah', 'fussilat', 'aal-imran', 'an-naba', 'an-nisa', 'al-maidah', 'al-anam', 'al-araf'].includes(currentView)) {
+    if (['al-fatihah', 'al-baqarah', 'fussilat', 'aal-imran', 'an-naba', 'an-nisa', 'al-maidah', 'al-anam', 'al-araf', 'al-anfal'].includes(currentView)) {
       return 'quran';
     }
     if (['forty-hadith', 'hadith-detail'].includes(currentView)) {

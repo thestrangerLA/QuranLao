@@ -16,7 +16,7 @@ export default function QuranView({ navigateTo, goBack }: QuranViewProps) {
   const [searchQuery, setSearchQuery] = useState('');
 
   const handleClick = (id?: string) => {
-    if (id === 'al-fatihah' || id === 'al-baqarah' || id === 'fussilat' || id === 'aal-imran' || id === 'an-naba' || id === 'an-nisa' || id === 'al-maidah' || id === 'al-anam' || id === 'al-araf') {
+    if (id === 'al-fatihah' || id === 'al-baqarah' || id === 'fussilat' || id === 'aal-imran' || id === 'an-naba' || id === 'an-nisa' || id === 'al-maidah' || id === 'al-anam' || id === 'al-araf' || id === 'al-anfal') {
       navigateTo(id as View);
     }
   };
