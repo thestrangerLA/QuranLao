@@ -4,13 +4,15 @@ import ViewHeader from '@/components/shared/ViewHeader';
 import VerseCard from '@/components/shared/VerseCard';
 import SummaryCard from '@/components/shared/SummaryCard';
 import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { ArrowLeft } from 'lucide-react';
 
 interface SurahAlFatihahViewProps {
   goBack: () => void;
 }
 
 const verses = [
-  { number: "1:1", arabic: "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ", lao: "ດ້ວຍພຣະນາມຂອງອັລລໍຮ໌ ຜູ້ຊົງເມດຕາ ຜູ້ຊົງປານີສະເໝີ.", english: "In the name of Allah, the Entirely Merciful, the Especially Merciful." },
+  { number: "1:1", arabic: "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ", lao: "ດ້ວຍພຣະນາມຂອງອັລລໍຮ໌ ຜູ້ຊົງເມດຕາ ຜູ້ຊົງປານີສະເໝີ.", english: "In the name of Allah, the Entirely Merciful, the Especially Merciful." },
   { number: "1:2", arabic: "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ", lao: "ບັນດາການສັນລະເສີນທັງໝົດເປັນຂອງອັລລໍຮ໌ ຜູ້ເປັນເຈົ້າແຫ່ງສາກົນໂລກ.", english: "[All] praise is [due] to Allah, Lord of the worlds -" },
   { number: "1:3", arabic: "الرَّحْمَٰنِ الرَّحِيمِ", lao: "ຜູ້ຊົງເມດຕາຢ່າງກວ້າງຂວາງ ຜູ້ຊົງເມດຕາເປັນນິດ.", english: "The Entirely Merciful, the Especially Merciful," },
   { number: "1:4", arabic: "مَالِكِ يَوْمِ الدِّينِ", lao: "ຜູ້ຊົງຄອບຄອງວັນແຫ່ງການຕອບແທນ.", english: "Sovereign of the Day of Recompense." },
@@ -31,17 +33,22 @@ export default function SurahAlFatihahView({ goBack }: SurahAlFatihahViewProps) 
 
   return (
     <div className="flex flex-col">
-      <ViewHeader title="ສູຣໍ ອັລຟາຕີຮາ" onBack={goBack} />
-      <div className="p-4 sticky top-0 bg-background z-10">
-        <Input
-          type="text"
-          placeholder="ຄົ້ນຫາອາຍັດ..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full"
-        />
-      </div>
-      <main className="p-4 pt-0">
+       <header className="flex items-center p-4 sticky top-0 bg-background z-10 border-b">
+        <Button variant="ghost" size="icon" onClick={goBack} className="mr-2">
+          <ArrowLeft className="w-6 h-6 text-foreground" />
+          <span className="sr-only">Back</span>
+        </Button>
+        <div className="relative w-full">
+          <Input
+            type="text"
+            placeholder="ຄົ້ນຫາອາຍັດໃນ ສູຣໍ ອັລຟາຕີຮາ..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full"
+          />
+        </div>
+      </header>
+      <main className="p-4">
         {filteredVerses.length > 0 ? (
           filteredVerses.map(v => <VerseCard key={v.number} {...v} />)
         ) : (

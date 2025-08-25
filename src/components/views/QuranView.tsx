@@ -2,10 +2,11 @@
 
 import React, { useState } from 'react';
 import QuranCard from '@/components/shared/QuranCard';
-import ViewHeader from '@/components/shared/ViewHeader';
 import { Input } from '@/components/ui/input';
 import { quranCardData } from '@/data/islamic-data';
 import type { View } from '@/app/page';
+import { Button } from '@/components/ui/button';
+import { ArrowLeft } from 'lucide-react';
 
 interface QuranViewProps {
   navigateTo: (view: View) => void;
@@ -29,17 +30,22 @@ export default function QuranView({ navigateTo, goBack }: QuranViewProps) {
 
   return (
     <div className="flex flex-col">
-      <ViewHeader title="ກຸຣອານ" onBack={goBack} />
-      <div className="p-4">
-        <Input
-          type="text"
-          placeholder="ຄົ້ນຫາຊູຣະ..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full"
-        />
-      </div>
-      <main className="p-4 pt-0 space-y-3">
+      <header className="flex items-center p-4 sticky top-0 bg-background z-10 border-b">
+        <Button variant="ghost" size="icon" onClick={goBack} className="mr-2">
+          <ArrowLeft className="w-6 h-6 text-foreground" />
+          <span className="sr-only">Back</span>
+        </Button>
+        <div className="relative w-full">
+          <Input
+            type="text"
+            placeholder="ຄົ້ນຫາຊູຣະ..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full"
+          />
+        </div>
+      </header>
+      <main className="p-4 space-y-3">
         {filteredQuranData.length > 0 ? (
           filteredQuranData.map((card) => (
             <QuranCard

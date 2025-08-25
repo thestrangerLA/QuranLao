@@ -1,9 +1,10 @@
 'use client';
 import React, { useState } from 'react';
-import ViewHeader from '@/components/shared/ViewHeader';
 import VerseCard from '@/components/shared/VerseCard';
 import SummaryCard from '@/components/shared/SummaryCard';
 import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { ArrowLeft } from 'lucide-react';
 
 interface SurahFussilatViewProps {
   goBack: () => void;
@@ -44,17 +45,22 @@ export default function SurahFussilatView({ goBack }: SurahFussilatViewProps) {
 
   return (
     <div className="flex flex-col">
-      <ViewHeader title="ສູຣໍ ຟຸສຊີລັດ" onBack={goBack} />
-       <div className="p-4 sticky top-0 bg-background z-10">
-        <Input
-          type="text"
-          placeholder="ຄົ້ນຫາອາຍັດ..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full"
-        />
-      </div>
-      <main className="p-4 pt-0">
+       <header className="flex items-center p-4 sticky top-0 bg-background z-10 border-b">
+        <Button variant="ghost" size="icon" onClick={goBack} className="mr-2">
+          <ArrowLeft className="w-6 h-6 text-foreground" />
+          <span className="sr-only">Back</span>
+        </Button>
+        <div className="relative w-full">
+          <Input
+            type="text"
+            placeholder="ຄົ້ນຫາອາຍັດໃນ ສູຣໍ ຟຸສຊີລັດ..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full"
+          />
+        </div>
+      </header>
+      <main className="p-4">
         {filteredVerses.length > 0 ? (
           filteredVerses.map(v => <VerseCard key={v.number} {...v} />)
         ) : (

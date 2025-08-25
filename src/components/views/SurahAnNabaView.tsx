@@ -1,9 +1,10 @@
 'use client';
 import React, { useState } from 'react';
-import ViewHeader from '@/components/shared/ViewHeader';
 import VerseCard from '@/components/shared/VerseCard';
 import SummaryCard from '@/components/shared/SummaryCard';
 import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { ArrowLeft } from 'lucide-react';
 
 interface SurahAnNabaViewProps {
   goBack: () => void;
@@ -23,7 +24,7 @@ const verses = [
   { number: "78:11", arabic: "وَجَعَلْنَا النَّهَارَ مَعَاشًا", lao: "ແລະເຮັດໃຫ້ກາງເວັນເປັນການຫາລ້ຽງຊີບ.", english: "And made the day for livelihood?" },
   { number: "78:12", arabic: "وَبَنَيْنَا فَوْقَكُمْ سَبْعًا شِدَادًا", lao: "ແລະໄດ້ສ້າງຂ້າງເທິງພວກເຈົ້າຊັ້ນຟ້າທີ່ເຂັ້ມແຂງເຈັດຊັ້ນ?", english: "And built above you seven strong [heavens]?" },
   { number: "78:13", arabic: "وَجَعَلْنَا سِرَاجًا وَهَّاجًا", lao: "ແລະໄດ້ເຮັດໃຫ້ (ຢູ່ໃນນັ້ນ) ໂຄມໄຟທີ່ເຜົາໄໝ້ (ດວງອາທິດ)?", english: "And made [therein] a burning lamp?" },
-  { number: "78:14", arabic: "وَأَنزَلْنَا مِنَ الْمُعْصِرَاتِ مَاءً ثَجَّاجًا", lao: "ແລະໄດ້ສົ່ງນໍ້າທີ່ຕົກລົງມາຢ່າງຫຼວງຫຼາຍຈາກເມກຝົນ.", english: "And sent down from the rainclouds a pouring water" },
+  { number: "78:14", arabic: "وَأَنZَلْنَا مِنَ الْمُعْصِرَاتِ مَاءً ثَجَّاجًا", lao: "ແລະໄດ້ສົ່ງນໍ້າທີ່ຕົກລົງມາຢ່າງຫຼວງຫຼາຍຈາກເມກຝົນ.", english: "And sent down from the rainclouds a pouring water" },
   { number: "78:15", arabic: "لِّنُخْرِجَ بِهِ حَبًّا وَنَبَاتًا", lao: "ເພື່ອເຮົາຈະນໍາເອົາເມັດພືດ ແລະພືດພັນຕ່າງໆອອກມາ.", english: "That We may bring forth thereby grain and herbs" },
   { number: "78:16", arabic: "وَجَنَّاتٍ أَلْفَافًا", lao: "ແລະສວນຕ່າງໆທີ່ເຕັມໄປດ້ວຍຕົ້ນໄມ້ໜາແໜ້ນ.", english: "And gardens of dense shrubbery?" },
   { number: "78:17", arabic: "إِنَّ يَوْمَ الْفَصْلِ كَانَ مِيقَاتًا", lao: "ແທ້ຈິງແລ້ວ, ວັນແຫ່ງການພິພາກສານັ້ນເປັນວັນທີ່ໄດ້ກຳນົດໄວ້ແລ້ວ.", english: "Indeed, the Day of Judgment is a fixed appointment—" },
@@ -44,17 +45,22 @@ export default function SurahAnNabaView({ goBack }: SurahAnNabaViewProps) {
 
   return (
     <div className="flex flex-col">
-      <ViewHeader title="ສູຣໍ ອັນນະບາ" onBack={goBack} />
-      <div className="p-4 sticky top-0 bg-background z-10">
-        <Input
-          type="text"
-          placeholder="ຄົ້ນຫາອາຍັດ..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full"
-        />
-      </div>
-      <main className="p-4 pt-0">
+      <header className="flex items-center p-4 sticky top-0 bg-background z-10 border-b">
+        <Button variant="ghost" size="icon" onClick={goBack} className="mr-2">
+          <ArrowLeft className="w-6 h-6 text-foreground" />
+          <span className="sr-only">Back</span>
+        </Button>
+        <div className="relative w-full">
+          <Input
+            type="text"
+            placeholder="ຄົ້ນຫາອາຍັດໃນ ສູຣໍ ອັນນະບາ..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full"
+          />
+        </div>
+      </header>
+      <main className="p-4">
         {filteredVerses.length > 0 ? (
           filteredVerses.map(v => <VerseCard key={v.number} {...v} />)
         ) : (
