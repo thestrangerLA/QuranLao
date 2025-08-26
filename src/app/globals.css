@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: 240 60% 98%; /* Very light lavender */
+    --background: 240 10% 94%; /* Light grayish blue */
     --foreground: 240 10% 15%; /* Dark grayish blue */
     --card: 0 0% 100%;
     --card-foreground: 240 10% 15%;
@@ -32,15 +32,15 @@
   }
 
   .dark {
-    --background: 240 10% 10%; /* Dark slate blue */
+    --background: 240 10% 4%; /* Very dark slate blue */
     --foreground: 240 5% 95%; /* Light gray */
-    --card: 240 5% 15%;
+    --card: 240 5% 12%; /* Slightly lighter than background */
     --card-foreground: 240 5% 95%;
-    --popover: 240 10% 10%;
+    --popover: 240 10% 4%;
     --popover-foreground: 240 5% 95%;
     --primary: 250 80% 70%; /* Lighter Purple */
     --primary-foreground: 240 5% 10%;
-    --secondary: 240 5% 20%;
+    --secondary: 240 5% 15%;
     --secondary-foreground: 240 5% 95%;
     --muted: 240 5% 25%;
     --muted-foreground: 240 5% 65%;
@@ -48,8 +48,8 @@
     --accent-foreground: 240 5% 10%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 5% 25%;
-    --input: 240 5% 25%;
+    --border: 240 5% 15%;
+    --input: 240 5% 15%;
     --ring: 250 80% 70%;
   }
 }
