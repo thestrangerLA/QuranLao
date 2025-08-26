@@ -4,25 +4,25 @@
 
 @layer base {
   :root {
-    --background: 220 20% 96%; /* A soft, light grayish-blue */
-    --foreground: 220 15% 25%; /* A deep, readable charcoal */
+    --background: 206 50% 97%; /* Very light blue-gray */
+    --foreground: 204 90% 10%; /* Very dark desaturated cyan */
     --card: 0 0% 100%;
-    --card-foreground: 220 15% 25%;
+    --card-foreground: 204 90% 10%;
     --popover: 0 0% 100%;
-    --popover-foreground: 220 15% 25%;
-    --primary: 210 40% 30%; /* A distinguished, deep blue */
+    --popover-foreground: 204 90% 10%;
+    --primary: 202 44% 26%; /* #294D61 */
     --primary-foreground: 0 0% 100%;
-    --secondary: 215 20% 90%; /* A slightly darker gray for secondary elements */
-    --secondary-foreground: 220 15% 25%;
-    --muted: 215 20% 90%;
-    --muted-foreground: 220 10% 55%; /* A softer gray for muted text */
-    --accent: 210 40% 94%; /* A very light blue accent */
-    --accent-foreground: 210 40% 30%;
+    --secondary: 184 89% 33%; /* #072E33 */
+    --secondary-foreground: 0 0% 100%;
+    --muted: 210 20% 94%;
+    --muted-foreground: 210 10% 45%;
+    --accent: 183 91% 32%; /* #0C7075 */
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 210 30% 80%; /* A matching blue-gray border */
-    --input: 210 20% 98%;
-    --ring: 210 40% 30%;
+    --border: 206 30% 85%;
+    --input: 206 40% 95%;
+    --ring: 202 44% 26%;
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
@@ -32,25 +32,25 @@
   }
 
   .dark {
-    --background: 220 15% 10%; /* A very dark blue */
-    --foreground: 210 20% 95%; /* A light, soft gray for text */
-    --card: 220 15% 15%; /* A slightly lighter dark blue for cards */
-    --card-foreground: 210 20% 95%;
-    --popover: 220 15% 10%;
-    --popover-foreground: 210 20% 95%;
-    --primary: 210 60% 70%; /* A brighter, more vibrant blue for dark mode */
-    --primary-foreground: 220 15% 10%;
-    --secondary: 220 15% 25%; /* A deep charcoal for secondary elements */
-    --secondary-foreground: 210 20% 95%;
-    --muted: 220 15% 25%;
-    --muted-foreground: 210 15% 65%;
-    --accent: 220 15% 25%;
-    --accent-foreground: 210 20% 95%;
+    --background: 204 90% 5%; /* #010809 - near #05161A */
+    --foreground: 200 25% 95%; /* Light blue-gray */
+    --card: 204 90% 8%; /* #021011 - slightly lighter */
+    --card-foreground: 200 25% 95%;
+    --popover: 204 90% 5%;
+    --popover-foreground: 200 25% 95%;
+    --primary: 206 50% 75%; /* Lighter version of #6DA5C0 */
+    --primary-foreground: 204 90% 10%;
+    --secondary: 185 85% 25%; /* #0A3C40 - related to #072E33 */
+    --secondary-foreground: 200 25% 95%;
+    --muted: 204 90% 12%; /* Darker card-like color */
+    --muted-foreground: 200 15% 65%;
+    --accent: 184 89% 33%; /* #0F969C */
+    --accent-foreground: 200 25% 95%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 220 15% 30%;
-    --input: 220 15% 25%;
-    --ring: 210 60% 70%;
+    --border: 204 90% 15%;
+    --input: 204 90% 15%;
+    --ring: 206 50% 75%;
   }
 }
 
