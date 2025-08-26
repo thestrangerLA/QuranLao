@@ -4,7 +4,7 @@ import ViewHeader from '@/components/shared/ViewHeader';
 import ContentSection from '@/components/shared/ContentSection';
 import QuoteCard from '@/components/shared/QuoteCard';
 import SummaryCard from '@/components/shared/SummaryCard';
-import { BookOpen, Crosshair, History, ListChecks, Target, Star, Shield, BookHeart, Users, CheckCircle, HandHeart } from 'lucide-react';
+import { BookOpen, Crosshair, History, ListChecks, Target, Star, Shield, BookHeart, Users, CheckCircle, HandHeart, HelpCircle } from 'lucide-react';
 
 interface WhatIsIslamViewProps {
   goBack: () => void;
