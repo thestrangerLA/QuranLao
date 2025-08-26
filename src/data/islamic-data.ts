@@ -2,13 +2,22 @@
 import { Bot, BookOpen, HandHeart, HeartHandshake, HelpCircle, History, ListChecks, LucideIcon, ScrollText, Sparkles, TrendingUp, Users, Utensils, Hourglass, BookHeart, Shield, HandCoins } from 'lucide-react';
 import React from 'react';
 
-export const homeCardData = [
-    { title: "ພື້ນຖານ", emoji: "📖", id: "fundamentals" },
-    { title: "ຫຼັກຄວາມເຊື່ອ", emoji: "✨", id: "faith" },
-    { title: "ຫຼັກປະຕິບັດ", emoji: "🤲", id: "practice" },
-    { title: "ບົດຄວາມ", emoji: "📝", id: "articles" },
-    
+interface HomeCard {
+    id: "islam-what-is-it" | "belief-in-allah" | "prophet-who-is-he" | "who-is-a-muslim" | "faith" | "practice" | "articles";
+    title: string;
+    emoji: string;
+}
+
+export const homeCardData: HomeCard[] = [
+    { id: "islam-what-is-it", title: "ອິສລາມແມ່ນຫຍັງ?", emoji: "🕌" },
+    { id: "belief-in-allah", title: "ອັລລໍຮ໌ແມ່ນໃຜ?", emoji: "✨" },
+    { id: "prophet-who-is-he", title: "ນະບີແມ່ນໃຜ?", emoji: "🗣️" },
+    { id: "who-is-a-muslim", title: "ໃຜແມ່ນມຸດສະລິມ?", emoji: "🤝" },
+    { id: "faith", title: "ຫຼັກຄວາມເຊື່ອ", emoji: "📖" },
+    { id: "practice", title: "ຫຼັກປະຕິບັດ", emoji: "🤲" },
+    { id: "articles", title: "ບົດຄວາມ", emoji: "📝" },
 ];
+
 
 interface FundamentalCard {
     id: "islam-what-is-it" | "belief-in-allah" | "prophet-who-is-he" | "who-is-a-muslim";
@@ -278,7 +287,7 @@ export const fortyHadithData = [
     {
         id: "hadith-12",
         title: "ຫະດີຊ 12: ການປະຖິ້ມສິ່ງທີ່ບໍ່ກ່ຽວຂ້ອງ",
-        arabic: `عَنْ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ قَالَ: قَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم: " مِنْ حُسْنِ إسْلَامِ الْمَرْءِ تَرْكُهُ مَا لَا يَعْنِيهِ "`,
+        arabic: `عَنْ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ قَالَ: قَالَ rَسُولُ اللَّهِ صلى الله عليه وسلم: " مِنْ حُسْنِ إسْلَامِ الْمَرْءِ تَرْكُهُ مَا لَا يَعْنِيهِ "`,
         lao: "Placeholder",
         explanation: ["Placeholder"]
     },
@@ -439,7 +448,7 @@ export const fortyHadithData = [
     {
         id: "hadith-35",
         title: "ຫະດີຊ 35: ຄວາມເປັນອ້າຍນ້ອງໃນອິດສະລາມ",
-        arabic: `عَنْ أَبِي هُرَيْرَةَ rَضِيَ اللَّهُ عَنْهُ قَالَ: قَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم: " لَا تَحَاسَدُوا، وَلَا تَنَاجَشُوا، وَلَا تَبَاغَضُوا، وَلَا تَدَابَرُوا، وَلَا يَبِعْ بَعْضُكُمْ عَلَى بَيْعِ bَعْضٍ، وَكُونُوا عِبَادَ اللَّهِ إخْوَانًا، الْمُسْلِمُ أَخُو الْمُسْلِمِ، لَا يَظْلِمُهُ، وَلَا يَخْذُلُهُ، وَلَا يَكْذِبُهُ، وَلَا يَحْقِرُهُ، التَّقْوَى هَاهُنَا " وَيُشِيرُ إلَى صَدْرِهِ ثَلَاثَ مَرَّاتٍ " بِحَسْبِ امْرِئٍ مِنْ الشَّرِّ أَنْ يَحْقِرَ أَخَاهُ الْمُスْلِمَ، كُلُّ الْمُسْلِمِ عَلَى الْمُスْلِمِ حَرَامٌ: دَمُهُ وَمَالُهُ وَعِرْضُهُ "`,
+        arabic: `عَنْ أَبِي هُرَيْرَةَ rَضِيَ اللَّهُ عَنْهُ قَالَ: قَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم: " لَا تَحَاسَدُوا، وَلَا تَنَاجَشُوا، وَلَا تَبَاغَضُوا، وَلَا تَدَابَرُوا، وَلَا يَبِعْ بَعْضُكُمْ عَلَى بَيْعِ bَعْضٍ، وَكُونُوا عِبَادَ اللَّهِ إخْوَانًا، الْمُسْلِمُ أَخُو الْمُسْلِمِ، لَا يَظْلِمُهُ، وَلَا يَخْذُلُهُ، وَلَا يَكْذِبُهُ، وَلَا يَحْقِرُهُ، التَّقْوَى هَاهُنَا " وَيُشِيرُ إلَى صَدْرِهِ ثَلَاثَ مَرَّاتٍ " بِحَسْبِ امْرِئٍ مِنْ الشَّرِّ أَنْ يَحْقِرَ أَخَاهُ الْمُスْلِمَ، كُلُّ الْمُスْلِمِ عَلَى الْمُスْلِمِ حَرَامٌ: دَمُهُ وَمَالُهُ وَعِرْضُهُ "`,
         lao: "Placeholder",
         explanation: ["Placeholder"]
     },
@@ -479,4 +488,5 @@ export const fortyHadithData = [
         explanation: ["Placeholder"]
     }
 ];
+
 
