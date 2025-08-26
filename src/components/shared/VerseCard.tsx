@@ -8,9 +8,10 @@ interface VerseCardProps {
   arabic: string;
   lao: string;
   english: string;
+  showEnglish: boolean;
 }
 
-export default function VerseCard({ number, arabic, lao, english }: VerseCardProps) {
+export default function VerseCard({ number, arabic, lao, english, showEnglish }: VerseCardProps) {
   return (
     <Card className="shadow-sm mb-4">
       <CardContent className="p-4 space-y-4">
@@ -21,10 +22,14 @@ export default function VerseCard({ number, arabic, lao, english }: VerseCardPro
         <div>
           <p className="text-lg font-bold text-card-foreground leading-relaxed">{lao}</p>
         </div>
-        <Separator />
-        <div>
-          <p className="text-md text-muted-foreground leading-relaxed italic">"{english}"</p>
-        </div>
+        {showEnglish && (
+          <>
+            <Separator />
+            <div>
+              <p className="text-md text-muted-foreground leading-relaxed italic">"{english}"</p>
+            </div>
+          </>
+        )}
       </CardContent>
     </Card>
   );
