@@ -2,7 +2,6 @@
 
 import React, { useState, useMemo } from 'react';
 import HomeView from '@/components/views/HomeView';
-import FundamentalsView from '@/components/views/FundamentalsView';
 import FaithView from '@/components/views/FaithView';
 import PracticeView from '@/components/views/PracticeView';
 import QuranView from '@/components/views/QuranView';
@@ -47,7 +46,6 @@ export type View =
   | 'home'
   | 'quran'
   | 'hadith'
-  | 'fundamentals'
   | 'faith'
   | 'practice'
   | 'articles'
@@ -114,8 +112,6 @@ export default function App() {
     switch (currentView) {
       case 'home':
         return <HomeView navigateTo={navigateTo} />;
-      case 'fundamentals':
-        return <FundamentalsView navigateTo={navigateTo} goBack={goBack} />;
       case 'faith':
         return <FaithView navigateTo={navigateTo} goBack={goBack} />;
       case 'practice':
@@ -196,7 +192,7 @@ export default function App() {
   };
   
   const activeTab = useMemo(() => {
-    if (['fundamentals', 'faith', 'practice', 'articles', 'halal-food', 'afterlife', 'god-exists', 'islam-what-is-it', 'belief-in-allah', 'prophet-who-is-he', 'who-is-a-muslim', 'belief-in-angels', 'belief-in-books', 'belief-in-prophets', 'belief-in-last-day', 'belief-in-destiny', 'shahada', 'salat', 'zakat', 'sawm', 'hajj'].includes(currentView)) {
+    if (['faith', 'practice', 'articles', 'halal-food', 'afterlife', 'god-exists', 'islam-what-is-it', 'belief-in-allah', 'prophet-who-is-he', 'who-is-a-muslim', 'belief-in-angels', 'belief-in-books', 'belief-in-prophets', 'belief-in-last-day', 'belief-in-destiny', 'shahada', 'salat', 'zakat', 'sawm', 'hajj'].includes(currentView)) {
       return 'home';
     }
     if (['al-fatihah', 'al-baqarah', 'fussilat', 'aal-imran', 'an-naba', 'an-nisa', 'al-maidah', 'al-anam', 'al-araf', 'al-anfal', 'at-tawbah', 'yunus', 'hud'].includes(currentView)) {
