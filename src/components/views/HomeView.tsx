@@ -1,6 +1,7 @@
 'use client';
 
 import ListCard from '@/components/shared/ListCard';
+import HomeCard from '@/components/shared/HomeCard';
 import { fundamentalsCardData, otherHomeCards } from '@/data/islamic-data';
 import type { View } from '@/app/page';
 
@@ -27,18 +28,17 @@ export default function HomeView({ navigateTo }: HomeViewProps) {
         <p className="text-sm mt-2 opacity-90">"ແທ້ຈິງ ການລະນຶກເຖິງອັລລໍຮ໌ເຮັດໃຫ້ຫົວໃຈສະຫງົບ." (ກຸຣອານ 13:28)</p>
       </header>
       <main className="p-4 space-y-4">
-        <div className='space-y-4'>
+        <div className='grid grid-cols-2 gap-4'>
             {fundamentalsCardData.map((card) => (
-                <ListCard
+                <HomeCard
                     key={card.id}
-                    icon={card.icon}
+                    emoji={card.emoji}
                     title={card.title}
-                    subtitle={card.subtitle}
                     onClick={() => handleCardClick(card.id)}
                 />
             ))}
         </div>
-        <div className="grid grid-cols-2 gap-4 pt-4">
+        <div className="space-y-4 pt-4">
             {otherHomeCards.map((card) => (
             <ListCard
                 key={card.id}
