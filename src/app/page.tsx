@@ -40,11 +40,14 @@ import SurahAlAnfalView from '@/components/views/SurahAlAnfalView';
 import SurahAtTawbahView from '@/components/views/SurahAtTawbahView';
 import SurahYunusView from '@/components/views/SurahYunusView';
 import SurahHudView from '@/components/views/SurahHudView';
+import NamesOfAllahView from '@/components/views/NamesOfAllahView';
+import AIGuideView from '@/components/views/AIGuideView';
 
 export type View =
   | 'home'
   | 'quran'
   | 'hadith'
+  | 'ai-guide'
   | 'faith'
   | 'practice'
   | 'articles'
@@ -81,7 +84,8 @@ export type View =
   | 'hadith-detail'
   | 'glossary'
   | 'duas'
-  | 'prophet-history';
+  | 'prophet-history'
+  | 'names-of-allah';
 
 export type HadithDetail = {
   id: string;
@@ -121,6 +125,8 @@ export default function App() {
         return <QuranView navigateTo={navigateTo} goBack={goBack} />;
       case 'hadith':
         return <HadithView goBack={goBack} navigateTo={navigateTo} />;
+      case 'ai-guide':
+        return <AIGuideView goBack={goBack} />;
       case 'articles':
         return <ArticlesView navigateTo={navigateTo} goBack={goBack} />;
       case 'halal-food':
@@ -185,13 +191,15 @@ export default function App() {
         return <FortyHadithView goBack={goBack} navigateTo={navigateTo} />;
       case 'hadith-detail':
         return <HadithDetailView goBack={goBack} hadith={selectedHadith} />;
+      case 'names-of-allah':
+        return <NamesOfAllahView goBack={goBack} />;
       default:
         return <HomeView navigateTo={navigateTo} />;
     }
   };
   
   const activeTab = useMemo(() => {
-    if (['faith', 'practice', 'articles', 'halal-food', 'afterlife', 'god-exists', 'islam-what-is-it', 'belief-in-allah', 'belief-in-angels', 'belief-in-books', 'belief-in-prophets', 'belief-in-last-day', 'belief-in-destiny', 'shahada', 'salat', 'zakat', 'sawm', 'hajj', 'prophet-who-is-he', 'glossary', 'duas', 'prophet-history'].includes(currentView)) {
+    if (['faith', 'practice', 'articles', 'halal-food', 'afterlife', 'god-exists', 'islam-what-is-it', 'belief-in-allah', 'belief-in-angels', 'belief-in-books', 'belief-in-prophets', 'belief-in-last-day', 'belief-in-destiny', 'shahada', 'salat', 'zakat', 'sawm', 'hajj', 'prophet-who-is-he', 'glossary', 'duas', 'prophet-history', 'names-of-allah'].includes(currentView)) {
       return 'home';
     }
     if (['al-fatihah', 'al-baqarah', 'fussilat', 'aal-imran', 'an-naba', 'an-nisa', 'al-maidah', 'al-anam', 'al-araf', 'al-anfal', 'at-tawbah', 'yunus', 'hud'].includes(currentView)) {
