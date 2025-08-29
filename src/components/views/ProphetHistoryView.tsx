@@ -4,15 +4,22 @@ import ContentSection from '@/components/shared/ContentSection';
 import { History, ChevronRight } from 'lucide-react';
 import { prophetsData } from '@/data/prophet-history-data';
 import { Card, CardContent } from '@/components/ui/card';
+import type { View } from '@/app/page';
 
 interface ProphetHistoryViewProps {
   goBack: () => void;
+  navigateTo: (view: View) => void;
 }
 
-export default function ProphetHistoryView({ goBack }: ProphetHistoryViewProps) {
-  const handleClick = (prophetName: string) => {
-    // This function is ready for when you want to add detail views.
-    console.log(`Clicked on ${prophetName}`);
+export default function ProphetHistoryView({ goBack, navigateTo }: ProphetHistoryViewProps) {
+  const handleClick = (id: string) => {
+    if (id === 'adam') {
+      navigateTo('prophet-adam');
+    }
+    // Future prophets can be handled here
+    // else if (id === 'idris') {
+    //   navigateTo('prophet-idris');
+    // }
   };
 
   return (
@@ -27,11 +34,11 @@ export default function ProphetHistoryView({ goBack }: ProphetHistoryViewProps) 
         </ContentSection>
         <div className="space-y-3">
           {prophetsData.map((prophet, index) => (
-            <Card key={index} className="shadow-sm cursor-pointer hover:bg-secondary" onClick={() => handleClick(prophet)}>
+            <Card key={prophet.id} className="shadow-sm cursor-pointer hover:bg-secondary" onClick={() => handleClick(prophet.id)}>
               <CardContent className="flex items-center justify-between p-4">
                 <div className="flex items-center gap-4">
                     <span className="text-sm text-muted-foreground">{index + 1}.</span>
-                    <span className="font-medium text-card-foreground">{prophet}</span>
+                    <span className="font-medium text-card-foreground">{prophet.name}</span>
                 </div>
                 <ChevronRight className="text-muted-foreground" />
               </CardContent>

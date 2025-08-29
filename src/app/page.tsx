@@ -45,6 +45,7 @@ import AIGuideView from '@/components/views/AIGuideView';
 import ProphetHistoryView from '@/components/views/ProphetHistoryView';
 import GlossaryView from '@/components/views/GlossaryView';
 import DuasView from '@/components/views/DuasView';
+import AdamView from '@/components/views/prophets/AdamView';
 
 export type View =
   | 'home'
@@ -88,7 +89,8 @@ export type View =
   | 'glossary'
   | 'duas'
   | 'prophet-history'
-  | 'names-of-allah';
+  | 'names-of-allah'
+  | 'prophet-adam';
 
 export type HadithDetail = {
   id: string;
@@ -197,18 +199,20 @@ export default function App() {
       case 'names-of-allah':
         return <NamesOfAllahView goBack={goBack} />;
       case 'prophet-history':
-        return <ProphetHistoryView goBack={goBack} />;
+        return <ProphetHistoryView goBack={goBack} navigateTo={navigateTo}/>;
       case 'glossary':
         return <GlossaryView goBack={goBack} />;
       case 'duas':
         return <DuasView goBack={goBack} />;
+      case 'prophet-adam':
+        return <AdamView goBack={goBack} />;
       default:
         return <HomeView navigateTo={navigateTo} />;
     }
   };
   
   const activeTab = useMemo(() => {
-    if (['faith', 'practice', 'articles', 'halal-food', 'afterlife', 'god-exists', 'islam-what-is-it', 'belief-in-allah', 'belief-in-angels', 'belief-in-books', 'belief-in-prophets', 'belief-in-last-day', 'belief-in-destiny', 'shahada', 'salat', 'zakat', 'sawm', 'hajj', 'prophet-who-is-he', 'glossary', 'duas', 'prophet-history', 'names-of-allah'].includes(currentView)) {
+    if (['faith', 'practice', 'articles', 'halal-food', 'afterlife', 'god-exists', 'islam-what-is-it', 'belief-in-allah', 'belief-in-angels', 'belief-in-books', 'belief-in-prophets', 'belief-in-last-day', 'belief-in-destiny', 'shahada', 'salat', 'zakat', 'sawm', 'hajj', 'prophet-who-is-he', 'glossary', 'duas', 'prophet-history', 'names-of-allah', 'prophet-adam'].includes(currentView)) {
       return 'home';
     }
     if (['al-fatihah', 'al-baqarah', 'fussilat', 'aal-imran', 'an-naba', 'an-nisa', 'al-maidah', 'al-anam', 'al-araf', 'al-anfal', 'at-tawbah', 'yunus', 'hud'].includes(currentView)) {
