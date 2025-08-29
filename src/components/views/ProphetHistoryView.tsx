@@ -1,7 +1,7 @@
 'use client';
 import ViewHeader from '@/components/shared/ViewHeader';
 import ContentSection from '@/components/shared/ContentSection';
-import { History } from 'lucide-react';
+import { History, ChevronRight } from 'lucide-react';
 import { prophetsData } from '@/data/prophet-history-data';
 import { Card, CardContent } from '@/components/ui/card';
 
@@ -10,6 +10,11 @@ interface ProphetHistoryViewProps {
 }
 
 export default function ProphetHistoryView({ goBack }: ProphetHistoryViewProps) {
+  const handleClick = (prophetName: string) => {
+    // This function is ready for when you want to add detail views.
+    console.log(`Clicked on ${prophetName}`);
+  };
+
   return (
     <div className="flex flex-col">
       <ViewHeader title="ປະຫວັດສາດສະດາ" onBack={goBack} />
@@ -20,15 +25,19 @@ export default function ProphetHistoryView({ goBack }: ProphetHistoryViewProps) 
             ພວກທ່ານຖືກສົ່ງມາເພື່ອນຳພາຜູ້ຄົນໃນຍຸກຕ່າງໆ.
           </p>
         </ContentSection>
-        <Card>
-          <CardContent className="p-4">
-            <ol className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 list-decimal list-inside text-card-foreground">
-              {prophetsData.map((prophet, index) => (
-                <li key={index} className="font-medium">{prophet}</li>
-              ))}
-            </ol>
-          </CardContent>
-        </Card>
+        <div className="space-y-3">
+          {prophetsData.map((prophet, index) => (
+            <Card key={index} className="shadow-sm cursor-pointer hover:bg-secondary" onClick={() => handleClick(prophet)}>
+              <CardContent className="flex items-center justify-between p-4">
+                <div className="flex items-center gap-4">
+                    <span className="text-sm text-muted-foreground">{index + 1}.</span>
+                    <span className="font-medium text-card-foreground">{prophet}</span>
+                </div>
+                <ChevronRight className="text-muted-foreground" />
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </main>
     </div>
   );
