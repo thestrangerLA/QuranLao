@@ -42,6 +42,9 @@ import SurahYunusView from '@/components/views/SurahYunusView';
 import SurahHudView from '@/components/views/SurahHudView';
 import NamesOfAllahView from '@/components/views/NamesOfAllahView';
 import AIGuideView from '@/components/views/AIGuideView';
+import ProphetHistoryView from '@/components/views/ProphetHistoryView';
+import GlossaryView from '@/components/views/GlossaryView';
+import DuasView from '@/components/views/DuasView';
 
 export type View =
   | 'home'
@@ -193,6 +196,12 @@ export default function App() {
         return <HadithDetailView goBack={goBack} hadith={selectedHadith} />;
       case 'names-of-allah':
         return <NamesOfAllahView goBack={goBack} />;
+      case 'prophet-history':
+        return <ProphetHistoryView goBack={goBack} />;
+      case 'glossary':
+        return <GlossaryView goBack={goBack} />;
+      case 'duas':
+        return <DuasView goBack={goBack} />;
       default:
         return <HomeView navigateTo={navigateTo} />;
     }
