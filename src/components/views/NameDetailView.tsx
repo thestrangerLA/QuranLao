@@ -23,7 +23,7 @@ export default function NameDetailView({ goBack, name }: NameDetailViewProps) {
   }
 
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-screen">
       <ViewHeader title="ລາຍລະອຽດ" onBack={goBack} />
       <main className="flex-grow overflow-y-auto p-4 space-y-4">
         <Card className="bg-primary/90 text-primary-foreground shadow-lg border-none">
