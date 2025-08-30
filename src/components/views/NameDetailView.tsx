@@ -13,9 +13,9 @@ interface NameDetailViewProps {
 export default function NameDetailView({ goBack, name }: NameDetailViewProps) {
   if (!name) {
     return (
-      <div className="flex flex-col">
+      <div className="flex flex-col h-screen">
         <ViewHeader title="ບໍ່ພົບຂໍ້ມູນ" onBack={goBack} />
-        <main className="p-4">
+        <main className="flex-grow overflow-y-auto p-4">
           <p>ບໍ່ສາມາດໂຫຼດຂໍ້ມູນຊື່ຂອງອັລລໍຮ໌ໄດ້. ກະລຸນາກັບຄືນແລະລອງໃໝ່.</p>
         </main>
       </div>
@@ -23,9 +23,9 @@ export default function NameDetailView({ goBack, name }: NameDetailViewProps) {
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col h-full">
       <ViewHeader title="ລາຍລະອຽດ" onBack={goBack} />
-      <main className="p-4 space-y-4">
+      <main className="flex-grow overflow-y-auto p-4 space-y-4">
         <Card className="bg-primary/90 text-primary-foreground shadow-lg border-none">
             <CardHeader>
                 <div className='flex justify-between items-start'>

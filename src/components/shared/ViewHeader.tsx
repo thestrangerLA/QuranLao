@@ -10,7 +10,7 @@ interface ViewHeaderProps {
 
 export default function ViewHeader({ title, onBack }: ViewHeaderProps) {
   return (
-    <header className="flex items-center p-4">
+    <header className="flex items-center p-4 border-b sticky top-0 bg-background z-10">
       <Button variant="ghost" size="icon" onClick={onBack} className="mr-2">
         <ArrowLeft className="w-6 h-6 text-foreground" />
         <span className="sr-only">Back</span>
