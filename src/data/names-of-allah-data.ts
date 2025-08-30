@@ -1,5 +1,39 @@
-export const namesOfAllahData = [
-  { number: 1, arabic: "ٱلْرَّحْمَـٰن", transliteration: "Ar-Rahman", translation: "ຜູ້ຊົງເມດຕາຢ່າງກວ້າງຂວາງ" },
+export interface NameOfAllah {
+  number: number;
+  arabic: string;
+  transliteration: string;
+  translation: string;
+  description?: string;
+  quran_mention?: {
+    quote: string;
+    source: string;
+    translator: string;
+  };
+  hadith_mention?: {
+    quote: string;
+    source: string;
+    narrator: string;
+  };
+}
+
+export const namesOfAllahData: NameOfAllah[] = [
+  { 
+    number: 1, 
+    arabic: "ٱلْرَّحْمَـٰن", 
+    transliteration: "Ar-Rahman", 
+    translation: "The Most Merciful, The Lord of Mercy", 
+    description: "Allah's perfect mercy and love endlessly embrace all of creation, He encourages us to be kind and compassionate towards one another.",
+    quran_mention: {
+      quote: "God is He, than Whom There is no other god;— Who knows (all things) Both secret and open ; He, Most Gracious, Most Merciful.",
+      source: "Sura 59 - Verse 22",
+      translator: "Translated by Abdullah Yusuf Ali"
+    },
+    hadith_mention: {
+      quote: "..\"It is mercy which Allah has lodged in the hearts of His slaves, and Allah is merciful only to those of His slaves who are merciful (to others).",
+      source: "Sahih Bukhari 2.23.373",
+      narrator: "Narrated by Usama bin Zaid"
+    }
+  },
   { number: 2, arabic: "ٱلْرَّحِيْم", transliteration: "Ar-Rahim", translation: "ຜູ້ຊົງເມດຕາເປັນນິດ" },
   { number: 3, arabic: "ٱلْمَلِك", transliteration: "Al-Malik", translation: "ຜູ້ຊົງເປັນກະສັດ" },
   { number: 4, arabic: "ٱلْقُدُّوس", transliteration: "Al-Quddus", translation: "ຜູ້ຊົງບໍລິສຸດ" },

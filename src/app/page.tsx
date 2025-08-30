@@ -48,6 +48,8 @@ import DuasView from '@/components/views/DuasView';
 import AdamView from '@/components/views/prophets/AdamView';
 import IdrisView from '@/components/views/prophets/IdrisView';
 import SurahAlQasasView from '@/components/views/SurahAlQasasView';
+import NameDetailView from '@/components/views/NameDetailView';
+import type { NameOfAllah } from '@/data/names-of-allah-data';
 
 export type View =
   | 'home'
@@ -93,6 +95,7 @@ export type View =
   | 'duas'
   | 'prophet-history'
   | 'names-of-allah'
+  | 'name-detail'
   | 'prophet-adam'
   | 'prophet-idris';
 
@@ -107,11 +110,15 @@ export type HadithDetail = {
 export default function App() {
   const [history, setHistory] = useState<View[]>(['home']);
   const [selectedHadith, setSelectedHadith] = useState<HadithDetail | null>(null);
+  const [selectedName, setSelectedName] = useState<NameOfAllah | null>(null);
   const currentView = history[history.length - 1];
 
-  const navigateTo = (view: View, hadith?: HadithDetail) => {
-    if (hadith) {
-      setSelectedHadith(hadith);
+  const navigateTo = (view: View, data?: HadithDetail | NameOfAllah) => {
+    if (view === 'hadith-detail' && data && 'explanation' in data) {
+      setSelectedHadith(data);
+    }
+    if (view === 'name-detail' && data && 'description' in data) {
+      setSelectedName(data as NameOfAllah);
     }
     setHistory(prev => [...prev, view]);
   };
@@ -203,7 +210,9 @@ export default function App() {
       case 'hadith-detail':
         return <HadithDetailView goBack={goBack} hadith={selectedHadith} />;
       case 'names-of-allah':
-        return <NamesOfAllahView goBack={goBack} />;
+        return <NamesOfAllahView goBack={goBack} navigateTo={navigateTo} />;
+      case 'name-detail':
+        return <NameDetailView goBack={goBack} name={selectedName} />;
       case 'prophet-history':
         return <ProphetHistoryView goBack={goBack} navigateTo={navigateTo}/>;
       case 'glossary':
@@ -220,7 +229,7 @@ export default function App() {
   };
   
   const activeTab = useMemo(() => {
-    if (['faith', 'practice', 'articles', 'halal-food', 'afterlife', 'god-exists', 'islam-what-is-it', 'belief-in-allah', 'belief-in-angels', 'belief-in-books', 'belief-in-prophets', 'belief-in-last-day', 'belief-in-destiny', 'shahada', 'salat', 'zakat', 'sawm', 'hajj', 'prophet-who-is-he', 'glossary', 'duas', 'prophet-history', 'names-of-allah', 'prophet-adam', 'prophet-idris'].includes(currentView)) {
+    if (['faith', 'practice', 'articles', 'halal-food', 'afterlife', 'god-exists', 'islam-what-is-it', 'belief-in-allah', 'belief-in-angels', 'belief-in-books', 'belief-in-prophets', 'belief-in-last-day', 'belief-in-destiny', 'shahada', 'salat', 'zakat', 'sawm', 'hajj', 'prophet-who-is-he', 'glossary', 'duas', 'prophet-history', 'names-of-allah', 'name-detail', 'prophet-adam', 'prophet-idris'].includes(currentView)) {
       return 'home';
     }
     if (['al-fatihah', 'al-baqarah', 'fussilat', 'aal-imran', 'an-naba', 'an-nisa', 'al-maidah', 'al-anam', 'al-araf', 'al-anfal', 'at-tawbah', 'yunus', 'hud', 'al-qasas'].includes(currentView)) {
