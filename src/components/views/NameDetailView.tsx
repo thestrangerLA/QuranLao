@@ -42,7 +42,7 @@ export default function NameDetailView({ goBack, name }: NameDetailViewProps) {
         </Card>
 
         {name.quran_mention && (
-            <ContentSection title={`Mention of ${name.transliteration} in the Quran`} icon={<BookOpen />}>
+            <ContentSection title={`ການກ່າວເຖິງໃນຄຳພີກຸຣອານ`} icon={<BookOpen />}>
                 <blockquote className="italic text-card-foreground">"{name.quran_mention.quote}"</blockquote>
                 <div className='flex justify-between items-center mt-2 text-xs text-muted-foreground'>
                     <span>{name.quran_mention.source}</span>
@@ -52,7 +52,7 @@ export default function NameDetailView({ goBack, name }: NameDetailViewProps) {
         )}
 
         {name.hadith_mention && (
-            <ContentSection title={`Insight on ${name.transliteration} from the Hadith`} icon={<MessagesSquare />}>
+            <ContentSection title={`ຄວາມເຂົ້າໃຈຈາກຫະດີດ`} icon={<MessagesSquare />}>
                 <blockquote className="italic text-card-foreground">{name.hadith_mention.quote}</blockquote>
                 <div className='flex justify-between items-center mt-2 text-xs text-muted-foreground'>
                     <span>{name.hadith_mention.source}</span>
