@@ -15,11 +15,10 @@ export default function ProphetHistoryView({ goBack, navigateTo }: ProphetHistor
   const handleClick = (id: string) => {
     if (id === 'adam') {
       navigateTo('prophet-adam');
+    } else if (id === 'idris') {
+      navigateTo('prophet-idris');
     }
     // Future prophets can be handled here
-    // else if (id === 'idris') {
-    //   navigateTo('prophet-idris');
-    // }
   };
 
   return (
