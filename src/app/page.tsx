@@ -46,6 +46,7 @@ import ProphetHistoryView from '@/components/views/ProphetHistoryView';
 import GlossaryView from '@/components/views/GlossaryView';
 import DuasView from '@/components/views/DuasView';
 import AdamView from '@/components/views/prophets/AdamView';
+import SurahAlQasasView from '@/components/views/SurahAlQasasView';
 
 export type View =
   | 'home'
@@ -79,6 +80,7 @@ export type View =
   | 'at-tawbah'
   | 'yunus'
   | 'hud'
+  | 'al-qasas'
   | 'shahada'
   | 'salat'
   | 'zakat'
@@ -182,6 +184,8 @@ export default function App() {
         return <SurahYunusView goBack={goBack} />;
       case 'hud':
         return <SurahHudView goBack={goBack} />;
+      case 'al-qasas':
+        return <SurahAlQasasView goBack={goBack} />;
       case 'shahada':
         return <ShahadaView goBack={goBack} />;
       case 'salat':
@@ -215,7 +219,7 @@ export default function App() {
     if (['faith', 'practice', 'articles', 'halal-food', 'afterlife', 'god-exists', 'islam-what-is-it', 'belief-in-allah', 'belief-in-angels', 'belief-in-books', 'belief-in-prophets', 'belief-in-last-day', 'belief-in-destiny', 'shahada', 'salat', 'zakat', 'sawm', 'hajj', 'prophet-who-is-he', 'glossary', 'duas', 'prophet-history', 'names-of-allah', 'prophet-adam'].includes(currentView)) {
       return 'home';
     }
-    if (['al-fatihah', 'al-baqarah', 'fussilat', 'aal-imran', 'an-naba', 'an-nisa', 'al-maidah', 'al-anam', 'al-araf', 'al-anfal', 'at-tawbah', 'yunus', 'hud'].includes(currentView)) {
+    if (['al-fatihah', 'al-baqarah', 'fussilat', 'aal-imran', 'an-naba', 'an-nisa', 'al-maidah', 'al-anam', 'al-araf', 'al-anfal', 'at-tawbah', 'yunus', 'hud', 'al-qasas'].includes(currentView)) {
       return 'quran';
     }
     if (['forty-hadith', 'hadith-detail'].includes(currentView)) {
