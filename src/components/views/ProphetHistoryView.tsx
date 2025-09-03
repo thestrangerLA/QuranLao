@@ -5,11 +5,14 @@ import { History, ChevronRight } from 'lucide-react';
 import { prophetsData } from '@/data/prophet-history-data';
 import { Card, CardContent } from '@/components/ui/card';
 import type { View } from '@/app/page';
+import { Badge } from '@/components/ui/badge';
 
 interface ProphetHistoryViewProps {
   goBack: () => void;
   navigateTo: (view: View) => void;
 }
+
+const availableProphets = ['adam', 'idris'];
 
 export default function ProphetHistoryView({ goBack, navigateTo }: ProphetHistoryViewProps) {
   const handleClick = (id: string) => {
@@ -32,17 +35,29 @@ export default function ProphetHistoryView({ goBack, navigateTo }: ProphetHistor
           </p>
         </ContentSection>
         <div className="space-y-3">
-          {prophetsData.map((prophet, index) => (
-            <Card key={prophet.id} className="shadow-sm cursor-pointer hover:bg-secondary" onClick={() => handleClick(prophet.id)}>
-              <CardContent className="flex items-center justify-between p-4">
-                <div className="flex items-center gap-4">
-                    <span className="text-sm text-muted-foreground">{index + 1}.</span>
-                    <span className="font-medium text-card-foreground">{prophet.name}</span>
-                </div>
-                <ChevronRight className="text-muted-foreground" />
-              </CardContent>
-            </Card>
-          ))}
+          {prophetsData.map((prophet, index) => {
+            const isAvailable = availableProphets.includes(prophet.id);
+            return (
+              <Card 
+                key={prophet.id} 
+                className={`shadow-sm ${isAvailable ? 'cursor-pointer hover:bg-secondary' : 'opacity-60'}`}
+                onClick={() => isAvailable && handleClick(prophet.id)}
+              >
+                <CardContent className="flex items-center justify-between p-4">
+                  <div className="flex items-center gap-4">
+                      <span className="text-sm text-muted-foreground">{index + 1}.</span>
+                      <span className="font-medium text-card-foreground">{prophet.name}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    {!isAvailable && (
+                      <Badge variant="secondary">Coming Soon</Badge>
+                    )}
+                    {isAvailable && <ChevronRight className="text-muted-foreground" />}
+                  </div>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       </main>
     </div>
