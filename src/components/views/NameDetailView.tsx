@@ -1,8 +1,8 @@
 'use client';
 import ViewHeader from '@/components/shared/ViewHeader';
-import { type NameOfAllah } from '@/data/names-of-allah-data';
+import { type NameOfAllah, type DescriptionSection } from '@/data/names-of-allah-data';
 import ContentSection from '../shared/ContentSection';
-import { BookOpen, MessagesSquare } from 'lucide-react';
+import { BookOpen, MessagesSquare, CheckCircle, Gift, Heart, Info, Star } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 interface NameDetailViewProps {
@@ -10,23 +10,31 @@ interface NameDetailViewProps {
   name: NameOfAllah | null;
 }
 
-const renderDescription = (description: string) => {
-  const parts = description.split(/(\*\*.*?\*\*|### .*|✨ .*?\n|- .*?\n)/g).filter(Boolean);
+const iconMap: { [key: string]: React.ElementType } = {
+  "ຄວາມໝາຍ": Info,
+  "ຕົວຢ່າງຂອງຄວາມເມດຕາຂອງ Ar-Rahmān": Gift,
+  "ໃນ Quran": BookOpen,
+  "ສຳລັບຊາວມຸດສະລິມໃໝ່": Heart,
+  "✨ ຂໍ້ຄິດທີ່ເຂົ້າໃຈງ່າຍ": Star,
+  "ບົດຮຽນຈາກ ອາດຳ": CheckCircle,
+};
 
+
+const renderContent = (content: string) => {
+  const parts = content.split(/(\*\*.*?\*\*|- .*?\n)/g).filter(Boolean);
   return parts.map((part, index) => {
-    if (part.startsWith('### ')) {
-      return <h2 key={index} className="text-xl font-bold text-primary mt-4 mb-2">{part.replace('### ', '')}</h2>;
-    }
     if (part.startsWith('**')) {
       return <strong key={index}>{part.replace(/\*\*/g, '')}</strong>;
     }
-    if (part.startsWith('✨ ')) {
-        return <p key={index} className="mt-4 text-sm italic opacity-90">{part}</p>;
-    }
     if (part.startsWith('- ')) {
-        return <li key={index} className="ml-4 list-disc">{part.substring(2)}</li>;
+      return (
+        <li key={index} className="flex items-start gap-3">
+            <span className="text-primary font-bold mt-1">•</span>
+            <span>{part.substring(2)}</span>
+        </li>
+      );
     }
-    return <span key={index}>{part.trim()}</span>;
+    return <p key={index} className="mb-2">{part.trim()}</p>;
   });
 };
 
@@ -42,6 +50,8 @@ export default function NameDetailView({ goBack, name }: NameDetailViewProps) {
       </div>
     );
   }
+  
+  const descriptionSections = Array.isArray(name.description) ? name.description : [];
 
   return (
     <div className="flex flex-col h-screen">
@@ -58,12 +68,24 @@ export default function NameDetailView({ goBack, name }: NameDetailViewProps) {
                 </div>
             </CardHeader>
         </Card>
+        
+        {descriptionSections.map((section, index) => {
+            const IconComponent = iconMap[section.title] || Info;
+            return (
+              <Card key={index}>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-lg font-bold text-primary">
+                    <IconComponent />
+                    {section.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="text-sm leading-relaxed text-card-foreground space-y-2">
+                  {renderContent(section.content)}
+                </CardContent>
+              </Card>
+            )
+        })}
 
-        <Card>
-            <CardContent className="p-6 text-sm leading-relaxed text-card-foreground">
-                {name.description ? renderDescription(name.description) : 'No description available.'}
-            </CardContent>
-        </Card>
 
         {name.quran_mention && (
           <Card>
