@@ -15,7 +15,7 @@ const renderDescription = (description: string) => {
 
   return parts.map((part, index) => {
     if (part.startsWith('### ')) {
-      return <h2 key={index} className="text-xl font-bold text-primary-foreground mt-4 mb-2">{part.replace('### ', '')}</h2>;
+      return <h2 key={index} className="text-xl font-bold text-primary mt-4 mb-2">{part.replace('### ', '')}</h2>;
     }
     if (part.startsWith('**')) {
       return <strong key={index}>{part.replace(/\*\*/g, '')}</strong>;
@@ -66,23 +66,39 @@ export default function NameDetailView({ goBack, name }: NameDetailViewProps) {
         </Card>
 
         {name.quran_mention && (
-            <ContentSection title={`ການກ່າວເຖິງໃນຄຳພີກຸຣອານ`} icon={<BookOpen />}>
-                <blockquote className="italic text-card-foreground">"{name.quran_mention.quote}"</blockquote>
-                <div className='flex justify-between items-center mt-2 text-xs text-muted-foreground'>
-                    <span>{name.quran_mention.source}</span>
-                    <span>{name.quran_mention.translator}</span>
-                </div>
-            </ContentSection>
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-lg font-bold text-primary">
+                <BookOpen />
+                ການກ່າວເຖິງໃນຄຳພີກຸຣອານ
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <blockquote className="italic text-card-foreground">"{name.quran_mention.quote}"</blockquote>
+              <div className='flex justify-between items-center mt-2 text-xs text-muted-foreground'>
+                  <span>{name.quran_mention.source}</span>
+                  <span>{name.quran_mention.translator}</span>
+              </div>
+            </CardContent>
+          </Card>
         )}
 
         {name.hadith_mention && (
-            <ContentSection title={`ຄວາມເຂົ້າໃຈຈາກຫະດີດ`} icon={<MessagesSquare />}>
-                <blockquote className="italic text-card-foreground">{name.hadith_mention.quote}</blockquote>
-                <div className='flex justify-between items-center mt-2 text-xs text-muted-foreground'>
-                    <span>{name.hadith_mention.source}</span>
-                    <span>{name.hadith_mention.narrator}</span>
-                </div>
-            </ContentSection>
+           <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-lg font-bold text-primary">
+                <MessagesSquare />
+                ຄວາມເຂົ້າໃຈຈາກຫະດີດ
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <blockquote className="italic text-card-foreground">{name.hadith_mention.quote}</blockquote>
+              <div className='flex justify-between items-center mt-2 text-xs text-muted-foreground'>
+                  <span>{name.hadith_mention.source}</span>
+                  <span>{name.hadith_mention.narrator}</span>
+              </div>
+            </CardContent>
+          </Card>
         )}
       </main>
     </div>
