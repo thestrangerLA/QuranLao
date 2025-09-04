@@ -53,6 +53,7 @@ import JumuahView from '@/components/views/articles/JumuahView';
 import FamilyView from '@/components/views/articles/FamilyView';
 import JihadView from '@/components/views/articles/JihadView';
 import EidView from '@/components/views/articles/EidView';
+import QandaView from '@/components/views/QandaView';
 
 export type View =
   | 'home'
@@ -103,7 +104,8 @@ export type View =
   | 'jumuah'
   | 'family'
   | 'jihad'
-  | 'eid';
+  | 'eid'
+  | 'qanda';
 
 
 export type HadithDetail = {
@@ -236,6 +238,8 @@ export default function App() {
         return <JihadView goBack={goBack} />;
       case 'eid':
         return <EidView goBack={goBack} />;
+      case 'qanda':
+        return <QandaView goBack={goBack} />;
       default:
         return <HomeView navigateTo={navigateTo} />;
     }

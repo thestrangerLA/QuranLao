@@ -1,6 +1,6 @@
 'use client';
 
-import { Home, BookOpen, ScrollText } from 'lucide-react';
+import { Home, BookOpen, ScrollText, HelpCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { View } from '@/app/page';
 
@@ -13,6 +13,7 @@ const navItems = [
   { id: 'home', icon: Home, label: 'ໜ້າຫຼັກ' },
   { id: 'quran', icon: BookOpen, label: 'ກຸຣອານ' },
   { id: 'hadith', icon: ScrollText, label: 'ຫະດີຊ' },
+  { id: 'qanda', icon: HelpCircle, label: 'ຖາມ-ຕອບ' },
 ];
 
 export default function BottomNav({ activeTab, navigateTo }: BottomNavProps) {
