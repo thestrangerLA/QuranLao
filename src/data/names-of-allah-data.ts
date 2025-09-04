@@ -1,3 +1,4 @@
+
 export interface NameOfAllah {
   number: number;
   arabic: string;
@@ -21,18 +22,8 @@ export const namesOfAllahData: NameOfAllah[] = [
     number: 1, 
     arabic: "ٱلْرَّحْمَـٰن", 
     transliteration: "Ar-Rahman", 
-    translation: "The Most Merciful, The Lord of Mercy", 
-    description: "Allah's perfect mercy and love endlessly embrace all of creation, He encourages us to be kind and compassionate towards one another.",
-    quran_mention: {
-      quote: "God is He, than Whom There is no other god;— Who knows (all things) Both secret and open ; He, Most Gracious, Most Merciful.",
-      source: "Sura 59 - Verse 22",
-      translator: "Translated by Abdullah Yusuf Ali"
-    },
-    hadith_mention: {
-      quote: "..\"It is mercy which Allah has lodged in the hearts of His slaves, and Allah is merciful only to those of His slaves who are merciful (to others).",
-      source: "Sahih Bukhari 2.23.373",
-      narrator: "Narrated by Usama bin Zaid"
-    }
+    translation: "ພຣະຜູ້ຊົງເມດຕາຍິ່ງ", 
+    description: "Ar-Rahmān (ٱلرَّحْمَـٰنُ) – ພຣະຜູ້ຊົງເມດຕາຍິ່ງ\n\n**ຄວາມໝາຍ:** ອັລລໍຣ໌ ຄື Ar-Rahmān, ເຊິ່ງໝາຍເຖິງ ພຣະຜູ້ຊົງເມດຕາຍິ່ງ, ພຣະຜູ້ຊົງໂປດປານ. ຊື່ນີ້ສະແດງໃຫ້ເຫັນວ່າຄວາມເມດຕາ ແລະ ຄວາມກະລຸນາຂອງອັລລໍຣ໌ ມີໄວ້ໃຫ້ສຳລັບທຸກຄົນໃນໂລກ—ທັງຊາວມຸສລິມ ແລະ ບໍ່ແມ່ນມຸສລິມ, ຄົນດີ ແລະ ແມ້ແຕ່ຄົນບາບ. ຄວາມເມດຕາຂອງພຣະອົງກວ້າງໃຫຍ່ຈົນກວມເອົາທຸກສິ່ງທີ່ມີຊີວິດ: ມະນຸດ, ສັດ, ພືດ, ທຸກສິ່ງທຸກຢ່າງ.\n\n**ຕົວຢ່າງຂອງຄວາມເມດຕາຂອງ Ar-Rahmān:**\n- ພຣະອົງປະທານຊີວິດ, ອາຫານ, ນໍ້າ ແລະ ສຸຂະພາບໃຫ້ແກ່ເຮົາ—ເຖິງແມ່ນວ່າເຮົາຈະລືມພຣະອົງ.\n- ດວງອາທິດຂຶ້ນສຳລັບທຸກຄົນ. ອາກາດມີໄວ້ໃຫ້ທຸກຄົນໂດຍບໍ່ເສຍຄ່າ. ນີ້ຄືຄວາມເມດຕາຂອງ Allah ໃນຖານະ Ar-Rahmān.\n- ແມ້ນແຕ່ເມື່ອຜູ້ຄົນບໍ່ເຊື່ອຟັງພຣະອົງ, ພຣະອົງກໍຍັງໃຫ້ພວກເຂົາມີຊີວິດຢູ່ ແລະ ໃຫ້ໂອກາດແກ່ພວກເຂົາເພື່ອຫວນຄືນສູ່ພຣະອົງ.\n\n**ໃນ Quran:**\nອັລລໍຣ໌ ກ່າວວ່າ: “ຄວາມເມດຕາຂອງຂ້ອຍກວມເອົາທຸກສິ່ງ.” (Quran 7:156)\nນີ້ໝາຍຄວາມວ່າບໍ່ມີຫຍັງຢູ່ນອກເໜືອຄວາມເມດຕາຂອງ Allah.\n\n**ສຳລັບຊາວມຸດສະລິມໃໝ່:**\n- ຈົ່ງຈື່ໄວ້: ອັລລໍຣ໌ ບໍ່ໄດ້ຮ້າຍກາດຫຼືໂຫດຮ້າຍ. ພຣະອົງຊົງເມດຕາ, ຮັກ ແລະ ຫ່ວງໃຍ.\n- ເມື່ອທ່ານກ່າວ Bismillāh ir-Rahmān ir-Raheem (ໃນນາມຂອງອັລລໍຣ໌, ພຣະຜູ້ຊົງເມດຕາຍິ່ງ, ພຣະຜູ້ຊົງກະລຸນາ), ທ່ານຈະເຕືອນຕົນເອງວ່າຄວາມເມດຕາຂອງອັລລໍຣ໌ ຢູ່ກັບທ່ານສະເໝີ.\n- ບໍ່ວ່າອະດີດຂອງທ່ານຈະເປັນແນວໃດ, ຄວາມເມດຕາຂອງອັລລໍຣ໌ ຍິ່ງໃຫຍ່ກວ່າຄວາມຜິດພາດຂອງທ່ານ. ການກັບຄືນສູ່ພຣະອົງຈະນຳທ່ານມາຢູ່ພາຍໃຕ້ການດູແລຂອງພຣະອົງ.\n\n**✨ ຂໍ້ຄິດທີ່ເຂົ້າໃຈງ່າຍ:**\nAr-Rahmān ໝາຍຄວາມວ່າຄວາມເມດຕາຂອງອັລລໍຮ໌ ບໍ່ມີຂອບເຂດຈຳກັດ ແລະ ມີໄວ້ໃຫ້ສຳລັບທຸກຄົນ. ທຸກສິ່ງທີ່ດີທີ່ທ່ານມີໃນຊີວິດຄືສັນຍານຂອງ Ar-Rahmān."
   },
   { number: 2, arabic: "ٱلْرَّحِيْم", transliteration: "Ar-Rahim", translation: "ຜູ້ຊົງເມດຕາເປັນນິດ" },
   { number: 3, arabic: "ٱلْمَلِك", transliteration: "Al-Malik", translation: "ຜູ້ຊົງເປັນກະສັດ" },
@@ -133,3 +124,5 @@ export const namesOfAllahData: NameOfAllah[] = [
   { number: 98, arabic: "ٱلْرَّشِيْد", transliteration: "Ar-Rashid", translation: "ຜູ້ຊົງຊີ້ນຳ" },
   { number: 99, arabic: "ٱلْصَّبُوْر", transliteration: "As-Sabur", translation: "ຜູ້ຊົງອົດທົນ" }
 ];
+
+    
