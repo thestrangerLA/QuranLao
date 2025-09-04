@@ -1,7 +1,8 @@
+
 'use client';
 import ViewHeader from '@/components/shared/ViewHeader';
 import ContentSection from '@/components/shared/ContentSection';
-import { Calendar, Users, Mic, Star } from 'lucide-react';
+import { Calendar, Users, Star } from 'lucide-react';
 
 interface JumuahViewProps {
   goBack: () => void;
@@ -37,7 +38,7 @@ export default function JumuahView({ goBack }: JumuahViewProps) {
             <ul className="space-y-2 mt-2">
                 <BulletPoint><strong>ການອາບນໍ້າ (Ghusl):</strong> ການອາບນໍ້າຊຳລະຮ່າງກາຍກ່ອນໄປລະໝາດວັນສຸກ.</BulletPoint>
                 <BulletPoint><strong>ການນຸ່ງເຄື່ອງທີ່ສະອາດທີ່ສຸດ:</strong> ນຸ່ງເຄື່ອງທີ່ດີແລະສະອາດທີ່ສຸດທີ່ຕົນມີ.</BulletPoint>
-                <BulletPoint><strong>ການໃຊ້ນໍ້າຫອມ (ສຳລັບຜູ້ຊາຍ).</BulletPoint>
+                <BulletPoint><strong>ການໃຊ້ນໍ້າຫອມ (ສຳລັບຜູ້ຊາຍ).</strong></BulletPoint>
                 <BulletPoint><strong>ການໄປມັດສະຍິດກ່ອນເວລາ:</strong> ການໄປຮອດມັດສະຍິດກ່ອນເວລາເພື່ອລໍຖ້າການລະໝາດ.</BulletPoint>
                 <BulletPoint><strong>ການອ່ານຊູຣະອັລ-ກັຮຟ໌ (Surah Al-Kahf):</strong> ການອ່ານບົດທີ 18 ຂອງຄຳພີກຸຣອານ.</BulletPoint>
                 <BulletPoint><strong>ການຂໍພອນ (Dua):</strong> ວັນສຸກມີຊ່ວງເວລາໜຶ່ງທີ່ການຂໍພອນຈະຖືກຕອບຮັບ. ມຸດສະລິມຖືກຊຸກຍູ້ໃຫ້ຂໍພອນຫຼາຍໆໃນວັນນີ້.</BulletPoint>
