@@ -1,9 +1,10 @@
 'use client';
+import { useState, useEffect, useRef } from 'react';
 import ViewHeader from '@/components/shared/ViewHeader';
 import { type NameOfAllah, type DescriptionSection } from '@/data/names-of-allah-data';
-import ContentSection from '../shared/ContentSection';
-import { BookOpen, MessagesSquare, CheckCircle, Gift, Heart, Info, Star } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { BookOpen, MessagesSquare, CheckCircle, Gift, Heart, Info, Star } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 interface NameDetailViewProps {
   goBack: () => void;
@@ -40,6 +41,29 @@ const renderContent = (content: string) => {
 
 
 export default function NameDetailView({ goBack, name }: NameDetailViewProps) {
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const lastScrollY = useRef(0);
+  const mainContentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = mainContentRef.current?.scrollTop ?? 0;
+      if (currentScrollY > lastScrollY.current && currentScrollY > 50) {
+        setIsHeaderVisible(false); // scrolling down
+      } else {
+        setIsHeaderVisible(true); // scrolling up
+      }
+      lastScrollY.current = currentScrollY;
+    };
+
+    const mainElement = mainContentRef.current;
+    mainElement?.addEventListener('scroll', handleScroll);
+
+    return () => {
+      mainElement?.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   if (!name) {
     return (
       <div className="flex flex-col h-screen">
@@ -54,9 +78,11 @@ export default function NameDetailView({ goBack, name }: NameDetailViewProps) {
   const descriptionSections = Array.isArray(name.description) ? name.description : [];
 
   return (
-    <div className="flex flex-col h-screen">
-      <ViewHeader title="ລາຍລະອຽດ" onBack={goBack} />
-      <main className="flex-grow overflow-y-auto p-4 space-y-4">
+    <div className="flex flex-col h-screen overflow-hidden">
+       <div className={cn("transition-transform duration-300", isHeaderVisible ? "translate-y-0" : "-translate-y-full")}>
+         <ViewHeader title="ລາຍລະອຽດ" onBack={goBack} />
+      </div>
+      <main ref={mainContentRef} className="flex-grow overflow-y-auto p-4 space-y-4">
         <Card className="bg-primary/90 text-primary-foreground shadow-lg border-none">
             <CardHeader>
                 <div className='flex justify-between items-start'>
