@@ -46,6 +46,7 @@ import GlossaryView from '@/components/views/GlossaryView';
 import DuasView from '@/components/views/DuasView';
 import AdamView from '@/components/views/prophets/AdamView';
 import IdrisView from '@/components/views/prophets/IdrisView';
+import NuhView from '@/components/views/prophets/NuhView';
 import SurahAlQasasView from '@/components/views/SurahAlQasasView';
 import NameDetailView from '@/components/views/NameDetailView';
 import type { NameOfAllah } from '@/data/names-of-allah-data';
@@ -101,6 +102,7 @@ export type View =
   | 'name-detail'
   | 'prophet-adam'
   | 'prophet-idris'
+  | 'prophet-nuh'
   | 'jumuah'
   | 'family'
   | 'jihad'
@@ -230,6 +232,8 @@ export default function App() {
         return <AdamView goBack={goBack} />;
       case 'prophet-idris':
         return <IdrisView goBack={goBack} />;
+      case 'prophet-nuh':
+        return <NuhView goBack={goBack} />;
       case 'jumuah':
         return <JumuahView goBack={goBack} />;
       case 'family':
@@ -252,7 +256,7 @@ export default function App() {
       'belief-in-books', 'belief-in-prophets', 'belief-in-last-day', 
       'belief-in-destiny', 'shahada', 'salat', 'zakat', 'sawm', 'hajj', 
       'prophet-who-is-he', 'glossary', 'duas', 'prophet-history', 
-      'names-of-allah', 'name-detail', 'prophet-adam', 'prophet-idris',
+      'names-of-allah', 'name-detail', 'prophet-adam', 'prophet-idris', 'prophet-nuh',
       'jumuah', 'family', 'jihad', 'eid'
     ].includes(currentView)) {
       return 'home';
