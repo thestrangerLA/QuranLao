@@ -1,6 +1,6 @@
 'use client';
 
-import { Home, BookOpen, ScrollText, Bot } from 'lucide-react';
+import { Home, BookOpen, ScrollText } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { View } from '@/app/page';
 
@@ -13,7 +13,6 @@ const navItems = [
   { id: 'home', icon: Home, label: 'ໜ້າຫຼັກ' },
   { id: 'quran', icon: BookOpen, label: 'ກຸຣອານ' },
   { id: 'hadith', icon: ScrollText, label: 'ຫະດີຊ' },
-  { id: 'ai-guide', icon: Bot, label: 'AI ແນະນຳ' },
 ];
 
 export default function BottomNav({ activeTab, navigateTo }: BottomNavProps) {
@@ -30,7 +29,7 @@ export default function BottomNav({ activeTab, navigateTo }: BottomNavProps) {
           key={item.id}
           onClick={() => navigateTo(item.id as View)}
           className={cn(
-            'flex flex-col items-center justify-center p-2 text-muted-foreground transition-colors cursor-pointer',
+            'flex flex-col items-center justify-center p-2 text-muted-foreground transition-colors cursor-pointer w-24',
             { 'text-primary': activeTab === item.id }
           )}
         >

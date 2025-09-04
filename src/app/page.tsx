@@ -41,7 +41,6 @@ import SurahAtTawbahView from '@/components/views/SurahAtTawbahView';
 import SurahYunusView from '@/components/views/SurahYunusView';
 import SurahHudView from '@/components/views/SurahHudView';
 import NamesOfAllahView from '@/components/views/NamesOfAllahView';
-import AIGuideView from '@/components/views/AIGuideView';
 import ProphetHistoryView from '@/components/views/ProphetHistoryView';
 import GlossaryView from '@/components/views/GlossaryView';
 import DuasView from '@/components/views/DuasView';
@@ -50,12 +49,15 @@ import IdrisView from '@/components/views/prophets/IdrisView';
 import SurahAlQasasView from '@/components/views/SurahAlQasasView';
 import NameDetailView from '@/components/views/NameDetailView';
 import type { NameOfAllah } from '@/data/names-of-allah-data';
+import JumuahView from '@/components/views/articles/JumuahView';
+import FamilyView from '@/components/views/articles/FamilyView';
+import JihadView from '@/components/views/articles/JihadView';
+import EidView from '@/components/views/articles/EidView';
 
 export type View =
   | 'home'
   | 'quran'
   | 'hadith'
-  | 'ai-guide'
   | 'faith'
   | 'practice'
   | 'articles'
@@ -97,7 +99,12 @@ export type View =
   | 'names-of-allah'
   | 'name-detail'
   | 'prophet-adam'
-  | 'prophet-idris';
+  | 'prophet-idris'
+  | 'jumuah'
+  | 'family'
+  | 'jihad'
+  | 'eid';
+
 
 export type HadithDetail = {
   id: string;
@@ -141,8 +148,6 @@ export default function App() {
         return <QuranView navigateTo={navigateTo} goBack={goBack} />;
       case 'hadith':
         return <HadithView goBack={goBack} navigateTo={navigateTo} />;
-      case 'ai-guide':
-        return <AIGuideView goBack={goBack} />;
       case 'articles':
         return <ArticlesView navigateTo={navigateTo} goBack={goBack} />;
       case 'halal-food':
@@ -223,13 +228,29 @@ export default function App() {
         return <AdamView goBack={goBack} />;
       case 'prophet-idris':
         return <IdrisView goBack={goBack} />;
+      case 'jumuah':
+        return <JumuahView goBack={goBack} />;
+      case 'family':
+        return <FamilyView goBack={goBack} />;
+      case 'jihad':
+        return <JihadView goBack={goBack} />;
+      case 'eid':
+        return <EidView goBack={goBack} />;
       default:
         return <HomeView navigateTo={navigateTo} />;
     }
   };
   
   const activeTab = useMemo(() => {
-    if (['faith', 'practice', 'articles', 'halal-food', 'afterlife', 'god-exists', 'islam-what-is-it', 'belief-in-allah', 'belief-in-angels', 'belief-in-books', 'belief-in-prophets', 'belief-in-last-day', 'belief-in-destiny', 'shahada', 'salat', 'zakat', 'sawm', 'hajj', 'prophet-who-is-he', 'glossary', 'duas', 'prophet-history', 'names-of-allah', 'name-detail', 'prophet-adam', 'prophet-idris'].includes(currentView)) {
+    if ([
+      'faith', 'practice', 'articles', 'halal-food', 'afterlife', 
+      'god-exists', 'islam-what-is-it', 'belief-in-allah', 'belief-in-angels', 
+      'belief-in-books', 'belief-in-prophets', 'belief-in-last-day', 
+      'belief-in-destiny', 'shahada', 'salat', 'zakat', 'sawm', 'hajj', 
+      'prophet-who-is-he', 'glossary', 'duas', 'prophet-history', 
+      'names-of-allah', 'name-detail', 'prophet-adam', 'prophet-idris',
+      'jumuah', 'family', 'jihad', 'eid'
+    ].includes(currentView)) {
       return 'home';
     }
     if (['al-fatihah', 'al-baqarah', 'fussilat', 'aal-imran', 'an-naba', 'an-nisa', 'al-maidah', 'al-anam', 'al-araf', 'al-anfal', 'at-tawbah', 'yunus', 'hud', 'al-qasas'].includes(currentView)) {
