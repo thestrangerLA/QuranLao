@@ -1,3 +1,4 @@
+
 'use client';
 import ViewHeader from '@/components/shared/ViewHeader';
 import { namesOfAllahData, type NameOfAllah } from '@/data/names-of-allah-data';
@@ -56,3 +57,5 @@ export default function NamesOfAllahView({ goBack, navigateTo }: NamesOfAllahVie
     </div>
   );
 }
+
+    
