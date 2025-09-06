@@ -12,7 +12,7 @@ interface ProphetHistoryViewProps {
   navigateTo: (view: View) => void;
 }
 
-const availableProphets = ['adam', 'idris', 'nuh'];
+const availableProphets = ['adam', 'idris', 'nuh', 'hud'];
 
 export default function ProphetHistoryView({ goBack, navigateTo }: ProphetHistoryViewProps) {
   const handleClick = (id: string) => {
@@ -22,6 +22,8 @@ export default function ProphetHistoryView({ goBack, navigateTo }: ProphetHistor
       navigateTo('prophet-idris');
     } else if (id === 'nuh') {
       navigateTo('prophet-nuh');
+    } else if (id === 'hud') {
+      navigateTo('prophet-hud');
     }
     // Future prophets can be handled here
   };
