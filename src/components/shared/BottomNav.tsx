@@ -11,9 +11,7 @@ interface BottomNavProps {
 
 const navItems = [
   { id: 'home', icon: Home, label: 'ໜ້າຫຼັກ' },
-  { id: 'quran', icon: BookOpen, label: 'ກຸຣອານ' },
-  { id: 'hadith', icon: ScrollText, label: 'ຫະດີຊ' },
-  { id: 'qanda', icon: HelpCircle, label: 'ຖາມ-ຕອບ' },
+  { id: 'articles', icon: BookOpen, label: 'ບົດຄວາມ' },
 ];
 
 export default function BottomNav({ activeTab, navigateTo }: BottomNavProps) {
