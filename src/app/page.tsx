@@ -25,10 +25,6 @@ import AfterlifeView from '@/components/views/AfterlifeView';
 import GodExistsView from '@/components/views/GodExistsView';
 import NamesOfAllahView from '@/components/views/NamesOfAllahView';
 import ProphetHistoryView from '@/components/views/ProphetHistoryView';
-import AdamView from '@/components/views/prophets/AdamView';
-import IdrisView from '@/components/views/prophets/IdrisView';
-import NuhView from '@/components/views/prophets/NuhView';
-import HudView from '@/components/views/prophets/HudView';
 import NameDetailView from '@/components/views/NameDetailView';
 import type { NameOfAllah } from '@/data/names-of-allah-data';
 import QaView from '@/components/views/QaView';
@@ -57,10 +53,6 @@ export type View =
   | 'prophet-history'
   | 'names-of-allah'
   | 'name-detail'
-  | 'prophet-adam'
-  | 'prophet-idris'
-  | 'prophet-nuh'
-  | 'prophet-hud'
   | 'qa';
 
 
@@ -140,14 +132,6 @@ export default function App() {
         return <NameDetailView goBack={goBack} name={selectedName} />;
       case 'prophet-history':
         return <ProphetHistoryView goBack={goBack} navigateTo={navigateTo}/>;
-      case 'prophet-adam':
-        return <AdamView goBack={goBack} />;
-      case 'prophet-idris':
-        return <IdrisView goBack={goBack} />;
-      case 'prophet-nuh':
-        return <NuhView goBack={goBack} />;
-      case 'prophet-hud':
-        return <HudView goBack={goBack} />;
       default:
         return <HomeView navigateTo={navigateTo} />;
     }
@@ -160,8 +144,7 @@ export default function App() {
       'belief-in-books', 'belief-in-prophets', 'belief-in-last-day', 
       'belief-in-destiny', 'shahada', 'salat', 'zakat', 'sawm', 'hajj', 
       'prophet-who-is-he', 'prophet-history', 
-      'names-of-allah', 'name-detail', 'prophet-adam', 'prophet-idris', 'prophet-nuh',
-      'prophet-hud'
+      'names-of-allah', 'name-detail'
     ].includes(currentView)) {
       return 'home';
     }
