@@ -11,7 +11,7 @@ interface BottomNavProps {
 
 const navItems = [
   { id: 'home', icon: Home, label: 'ໜ້າຫຼັກ' },
-  { id: 'articles', icon: HelpCircle, label: 'ຖາມ ຕອບ' },
+  { id: 'qa', icon: HelpCircle, label: 'ຖາມ ຕອບ' },
 ];
 
 export default function BottomNav({ activeTab, navigateTo }: BottomNavProps) {

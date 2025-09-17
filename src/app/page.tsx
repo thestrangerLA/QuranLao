@@ -31,6 +31,7 @@ import NuhView from '@/components/views/prophets/NuhView';
 import HudView from '@/components/views/prophets/HudView';
 import NameDetailView from '@/components/views/NameDetailView';
 import type { NameOfAllah } from '@/data/names-of-allah-data';
+import QaView from '@/components/views/QaView';
 
 export type View =
   | 'home'
@@ -59,7 +60,8 @@ export type View =
   | 'prophet-adam'
   | 'prophet-idris'
   | 'prophet-nuh'
-  | 'prophet-hud';
+  | 'prophet-hud'
+  | 'qa';
 
 
 export type HadithDetail = {
@@ -98,6 +100,8 @@ export default function App() {
         return <PracticeView navigateTo={navigateTo} goBack={goBack} />;
       case 'articles':
         return <ArticlesView navigateTo={navigateTo} goBack={goBack} />;
+      case 'qa':
+        return <QaView goBack={() => setHistory(['home'])} />;
       case 'halal-food':
         return <HalalFoodView goBack={goBack} />;
       case 'afterlife':
@@ -161,6 +165,7 @@ export default function App() {
     ].includes(currentView)) {
       return 'home';
     }
+    if(currentView === 'qa') return 'qa';
     return currentView;
   }, [currentView]);
 
