@@ -29,6 +29,8 @@ import NameDetailView from '@/components/views/NameDetailView';
 import type { NameOfAllah } from '@/data/names-of-allah-data';
 import QaView from '@/components/views/QaView';
 import QuranView from '@/components/views/QuranView';
+import SurahDetailView from '@/components/views/SurahDetailView';
+import type { Surah } from '@/data/quran-data';
 
 
 export type View =
@@ -56,17 +58,22 @@ export type View =
   | 'names-of-allah'
   | 'name-detail'
   | 'qa'
-  | 'quran';
+  | 'quran'
+  | 'surah-detail';
 
 
 export default function App() {
   const [history, setHistory] = useState<View[]>(['home']);
   const [selectedName, setSelectedName] = useState<NameOfAllah | null>(null);
+  const [selectedSurah, setSelectedSurah] = useState<Surah | null>(null);
   const currentView = history[history.length - 1];
 
-  const navigateTo = (view: View, data?: NameOfAllah) => {
+  const navigateTo = (view: View, data?: NameOfAllah | Surah) => {
     if (view === 'name-detail' && data && 'description' in data) {
       setSelectedName(data as NameOfAllah);
+    }
+     if (view === 'surah-detail' && data && 'verses' in data) {
+      setSelectedSurah(data as Surah);
     }
     setHistory(prev => [...prev, view]);
   };
@@ -90,7 +97,9 @@ export default function App() {
       case 'qa':
         return <QaView goBack={() => setHistory(['home'])} />;
       case 'quran':
-        return <QuranView goBack={() => setHistory(['home'])} />;
+        return <QuranView goBack={() => setHistory(['home'])} navigateTo={navigateTo} />;
+      case 'surah-detail':
+        return <SurahDetailView goBack={goBack} surah={selectedSurah} />;
       case 'halal-food':
         return <HalalFoodView goBack={goBack} />;
       case 'afterlife':
@@ -146,7 +155,7 @@ export default function App() {
       return 'home';
     }
     if(currentView === 'qa') return 'qa';
-    if(currentView === 'quran') return 'quran';
+    if(currentView === 'quran' || currentView === 'surah-detail') return 'quran';
     return currentView;
   }, [currentView]);
 
