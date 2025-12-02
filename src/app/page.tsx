@@ -68,11 +68,11 @@ export default function App() {
   const [selectedSurah, setSelectedSurah] = useState<Surah | null>(null);
   const currentView = history[history.length - 1];
 
-  const navigateTo = (view: View, data?: NameOfAllah | Surah) => {
+  const navigateTo = (view: View, data?: any) => {
     if (view === 'name-detail' && data && 'description' in data) {
       setSelectedName(data as NameOfAllah);
     }
-     if (view === 'surah-detail' && data && 'verses' in data) {
+     if (view === 'surah-detail' && data && 'numberOfAyahs' in data) {
       setSelectedSurah(data as Surah);
     }
     setHistory(prev => [...prev, view]);

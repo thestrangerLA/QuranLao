@@ -12,7 +12,6 @@ export interface Surah {
   translation: string;
   revelationType: 'Meccan' | 'Medinan';
   numberOfAyahs: number;
-  verses?: Verse[];
 }
 
 export const quranData: Surah[] = [
