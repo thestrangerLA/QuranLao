@@ -1,6 +1,6 @@
 'use client';
 
-import { Home, HelpCircle } from 'lucide-react';
+import { Home, HelpCircle, BookOpen } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { View } from '@/app/page';
 
@@ -11,6 +11,7 @@ interface BottomNavProps {
 
 const navItems = [
   { id: 'home', icon: Home, label: 'ໜ້າຫຼັກ' },
+  { id: 'quran', icon: BookOpen, label: 'ກຸຣອານ' },
   { id: 'qa', icon: HelpCircle, label: 'ຖາມ ຕອບ' },
 ];
 

@@ -28,6 +28,8 @@ import ProphetHistoryView from '@/components/views/ProphetHistoryView';
 import NameDetailView from '@/components/views/NameDetailView';
 import type { NameOfAllah } from '@/data/names-of-allah-data';
 import QaView from '@/components/views/QaView';
+import QuranView from '@/components/views/QuranView';
+
 
 export type View =
   | 'home'
@@ -53,16 +55,9 @@ export type View =
   | 'prophet-history'
   | 'names-of-allah'
   | 'name-detail'
-  | 'qa';
+  | 'qa'
+  | 'quran';
 
-
-export type HadithDetail = {
-  id: string;
-  title: string;
-  arabic: string;
-  lao: string;
-  explanation: string[];
-};
 
 export default function App() {
   const [history, setHistory] = useState<View[]>(['home']);
@@ -94,6 +89,8 @@ export default function App() {
         return <ArticlesView navigateTo={navigateTo} goBack={goBack} />;
       case 'qa':
         return <QaView goBack={() => setHistory(['home'])} />;
+      case 'quran':
+        return <QuranView goBack={() => setHistory(['home'])} />;
       case 'halal-food':
         return <HalalFoodView goBack={goBack} />;
       case 'afterlife':
@@ -149,6 +146,7 @@ export default function App() {
       return 'home';
     }
     if(currentView === 'qa') return 'qa';
+    if(currentView === 'quran') return 'quran';
     return currentView;
   }, [currentView]);
 
