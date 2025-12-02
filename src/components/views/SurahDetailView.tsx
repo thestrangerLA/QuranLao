@@ -6,6 +6,8 @@ import { alFatiha } from '@/data/quran/al-fatiha';
 import VerseCard from '@/components/shared/VerseCard';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { BookOpen } from 'lucide-react';
 
 interface SurahDetailViewProps {
   goBack: () => void;
@@ -51,7 +53,24 @@ export default function SurahDetailView({ goBack, surah }: SurahDetailViewProps)
         </div>
       </div>
 
-      <main className="p-4">
+      <main className="p-4 space-y-4">
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-lg font-bold text-primary">
+              <BookOpen />
+              ກ່ຽວກັບຊູຣະນີ້
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="text-sm leading-relaxed text-card-foreground space-y-2">
+            <p>
+              Al-Fatiha (ອັນ-ຟາຕິຮະ) ແມ່ນບົດທີໜຶ່ງຂອງຄຳພີກຸຣອານ. ຊື່ຂອງມັນແປວ່າ "ຜູ້ເປີດເຜີຍ", ເນື່ອງຈາກມັນເປັນການເລີ່ມຕົ້ນຂອງຄຳພີ ແລະ ເປັນບົດທຳອິດທີ່ຖືກອ່ານຄົບຖ້ວນໃນທຸກໆຄັ້ງຂອງການລະໝາດ.
+            </p>
+            <p>
+              ມັນຖືກເອີ້ນອີກຊື່ໜຶ່ງວ່າ "Umm al-Kitab" (ແມ່ຂອງຄຳພີ) ເພາະມັນເປັນການສະຫຼຸບເນື້ອໃນສຳຄັນທັງໝົດຂອງກຸຣອານ, ລວມທັງຫຼັກການກ່ຽວກັບຄວາມເປັນເອກະພາບຂອງອັລລໍຮ໌ (ເຕົ່າຮີດ), ຄວາມເມດຕາ, ແລະ ການຂໍທາງນຳ.
+            </p>
+          </CardContent>
+        </Card>
+
         {verses.map((verse) => (
           <VerseCard
             key={verse.number}
