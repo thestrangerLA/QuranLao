@@ -50,53 +50,53 @@ export const anNaba: Verse[] = [
     number: '8',
     arabic: 'وَخَلَقْنَـٰكُمْ أَزْوَٰجًۭا',
     lao: 'ແລະ ເຮົາໄດ້ບັງເກີດພວກເຈົ້າໃຫ້ເປັນຄູ່ຄອງກັນ.',
-    english: 'And We created you in pairs.',
+    english: 'And We created you in pairs',
     explanation: 'ຄືເຮົາໄດ້ບັງເກີດພວກເຈົ້າມາເປັນເພດຊາຍ ແລະ ເພດຍິງ ເພື່ອຈະໃຫ້ເປັນຄູ່ຄອງກັນໃຫ້ມີການແຕ່ງງານ ແລະ ສືບເຊື້ອສາຍກັນຕໍ່ໄປ.'
   },
   {
     number: '9',
     arabic: 'وَجَعَلْنَا نَوْمَكُمْ سُبَاتًۭا',
     lao: 'ແລະ ເຮົາໄດ້ເຮັດໃຫ້ການນອນຂອງພວກເຈົ້າເປັນການພັກຜ່ອນ.',
-    english: 'And made your sleep [a means for] rest.',
+    english: 'And made your sleep [a means for] rest',
     explanation: 'ຄືເຮົາໄດ້ເຮັດໃຫ້ການນອນຫຼັບເປັນການພັກຜ່ອນແກ່ຮ່າງກາຍຂອງພວກເຈົ້າ, ຫຼັງຈາກໄດ້ເຮັດວຽກຢ່າງລໍາບາກໃນເວລາກາງເວັນ.'
   },
   {
     number: '10',
     arabic: 'وَجَعَلْنَا ٱلَّيْلَ لِبَاسًۭا',
     lao: 'ແລະ ເຮົາໄດ້ເຮັດໃຫ້ກາງຄືນຄ້າຍເຄື່ອງປົກປິດຮ່າງກາຍ.',
-    english: 'And made the night as clothing.',
+    english: 'And made the night as clothing',
   },
   {
     number: '11',
     arabic: 'وَجَعَلْنَا ٱلنَّهَارَ مَعَاشًۭا',
     lao: 'ແລະ ເຮົາໄດ້ເຮັດໃຫ້ກາງເວັນເປັນທີ່ສະແຫວງຫາເຄື່ອງຍັງຊີບ.',
     english: 'And made the day for livelihood.',
-    explanation: 'ຄືເຮົາໄດ້ເຮັດໃຫ້ເວລາກາງຄືນປົກຫົ່ມພວກເຈົ້າດ້ວຍຄວາມມືດຄ້າຍຄືກັບເຄື່ອງແຕ່ງກກາຍປົກປິດ ແລະ ໄດ້ເຮັດໃຫ້ກາງເວັນເພື່ອປະກອບອາຊີບ ແລະ ທຸລະກິດ.'
+    explanation: 'ຄືເຮົາໄດ້ເຮັດໃຫ້ເວລາກາງຄືນປົກຫົ່ມພວກເຈົ້າດ້ວຍຄວາມມືດຄ້າຍຄືກັບເຄື່ອງແຕ່ງກາຍປົກປິດ ແລະ ໄດ້ເຮັດໃຫ້ກາງເວັນເພື່ອປະກອບອາຊີບ ແລະ ທຸລະກິດ.'
   },
   {
     number: '12',
     arabic: 'وَبَنَيْنَا فَوْقَكُمْ سَبْعًۭا شِدَادًۭا',
     lao: 'ແລະ ເຮົາໄດ້ສ້າງໄວ້ເໜືອພວກເຈົ້າສິ່ງທີ່ແຂງແຮງທັງເຈັດ (ຊັ້ນຟ້າ).',
-    english: 'And constructed above you seven strong [heavens].',
+    english: 'And constructed above you seven strong [heavens]',
   },
   {
     number: '13',
     arabic: 'وَجَعَلْنَا سِرَاجًۭا وَهَّاجًۭا',
     lao: 'ແລະ ເຮົາໄດ້ເຮັດໃຫ້ມີແສງໄຟໜຶ່ງທີ່ມີແສງສະຫວ່າງ ອັນແຮງກ້າ.',
-    english: 'And made [therein] a burning lamp.',
+    english: 'And made [therein] a burning lamp',
     explanation: 'ຄືເຮົາໄດ້ສ້າງຊັ້ນຟ້າທັງເຈັດໄວ້ຢ່າງຮັດກຸ່ມ ເຂັ້ມແຂງເໜືອພວກເຈົ້າ ຈະບໍ່ເສື່ອມສະລາຍເຖິງແມ່ນວ່າການເວລາຈະກາຍມາດົນນານປານໃດ ແລະ ເຮົາໄດ້ເຮັດໃຫ້ມີດວງຕາເວັນທີ່ມີແສງສະຫວ່າງເປັນປະໂຫຍດແກ່ສັດໂລກທັງປ່ວງ.'
   },
   {
     number: '14',
     arabic: 'وَأَنزَلْنَا مِنَ ٱلْمُعْصِرَٰتِ مَآءًۭ ثَجَّاجًۭا',
     lao: 'ແລະ ເຮົາໄດ້ປ່ອຍນ້ຳລົງມາຢ່າງຫຼວງຫຼາຍຈາກເມກຝົນ.',
-    english: 'And sent down from the rain clouds, pouring water.',
+    english: 'And sent down, from the rain clouds, pouring water',
   },
   {
     number: '15',
     arabic: 'لِّنُخْرِجَ بِهِۦ حَبًّۭا وَنَبَاتًۭا',
     lao: 'ເພື່ອເຮົາຈະໃຫ້ງອກເງີຍດ້ວຍນ້ຳນັ້ນ ເຊິ່ງແກ່ນພືດ ແລະ ພືດຜັກ.',
-    english: 'That We may bring forth thereby grain and vegetation.',
+    english: 'That We may bring forth thereby grain and vegetation',
   },
   {
     number: '16',
@@ -122,26 +122,26 @@ export const anNaba: Verse[] = [
     number: '19',
     arabic: 'وَفُتِحَتِ ٱلسَّمَآءُ فَكَانَتْ أَبْوَٰبًۭا',
     lao: 'ຊັ້ນຟ້າຈະຖືກເປີດອອກແລ້ວກໍຈະມີປະຕູຫຼາຍບານ.',
-    english: 'And the heaven is opened and will become gateways.',
+    english: 'And the heaven is opened and will become gateways',
   },
   {
     number: '20',
     arabic: 'وَسُيِّرَتِ ٱلْجِبَالُ فَكَانَتْ سَرَابًا',
     lao: 'ແລະ ເທືອກພູເຂົາຈະຖືກໃຫ້ເຄື່ອນອອກໄປ ແລ້ວກໍກາຍເປັນພາບລວງ.',
     english: 'And the mountains are removed and will be [but] a mirage.',
-    explanation: 'ຄືວັນທີ່ອິສຣໍຝືນເປົ່າສັງ, ພວກເຈົ້າຈະອອກມາເປັນໝູ່ໆ ຢູ່ທີ່ເດີ່ນກວ້າງເພື່ອການຕັດສິນ ຊັ້ນຟ້າທັງຫຼາຍຈະຖືກເປີດອອກເພື່ອໃຫ້ມະລາອິກະ ອອກມາ , ເທືອກພູເຂົາຈະຖືກເຄື່ອນຍ້າຍອອກໄປຈາກສະຖານທີ່ຂອງມັນ ແລ້ວກະຈ່າຍເປັນຜຸຍຜົງ ຈົນກາຍເປັນພາບລວງຕາ, ເຊິ່ງຜູ້ທີ່ພົບເຫັນຈະຄິດວ່າເປັນແຫຼ່ງນ້ຳ.'
+    explanation: 'ຄືວັນທີ່ອິສຣໍຝິນເປົ່າສັງ, ພວກເຈົ້າຈະອອກມາເປັນໝູ່ໆ ຢູ່ທີ່ເດີ່ນກວ້າງເພື່ອການຕັດສິນ ຊັ້ນຟ້າທັງຫຼາຍຈະຖືກເປີດອອກເພື່ອໃຫ້ມະລາອິກະ ອອກມາ , ເທືອກພູເຂົາຈະຖືກເຄື່ອນຍ້າຍອອກໄປຈາກສະຖານທີ່ຂອງມັນ ແລ້ວກະຈ່າຍເປັນຜຸຍຜົງ ຈົນກາຍເປັນພາບລວງຕາ, ເຊິ່ງຜູ້ທີ່ພົບເຫັນຈະຄິດວ່າເປັນແຫຼ່ງນ້ຳ.'
   },
   {
     number: '21',
     arabic: 'إِنَّ جَهَنَّمَ كَانَتْ مِرْصَادًۭا',
     lao: 'ແທ້ຈິງນາລົກ ຈະຮັນນໍານັ້ນ ເປັນທີ່ສອດສ່ອງ.',
-    english: 'Indeed, Hell has been lying in wait.',
+    english: 'Indeed, Hell has been lying in wait',
   },
   {
     number: '22',
     arabic: 'لِّلطَّـٰغِينَ مَـَٔابًا',
     lao: 'ເປັນທີ່ກັບໄປສໍາລັບ ບັນດາຜູ້ລະເມີດ.',
-    english: 'For the transgressors, a place of return.',
+    english: 'For the transgressors, a place of return,',
   },
   {
     number: '23',
@@ -154,7 +154,7 @@ export const anNaba: Verse[] = [
     number: '24',
     arabic: 'لَّا يَذُوقُونَ فِيهَا بَرْدًۭا وَلَا شَرَابًا',
     lao: 'ພວກເຂົາຈະບໍ່ໄດ້ລົ້ມລົດຄວາມເຢັນ ແລະເຄື່ອງ ດື່ມໃດໆໃນນາລົກນັ້ນ.',
-    english: 'They will not taste therein [any] coolness or drink.',
+    english: 'They will not taste therein [any] coolness or drink',
   },
   {
     number: '25',
@@ -173,7 +173,7 @@ export const anNaba: Verse[] = [
     number: '27',
     arabic: 'إِنَّهُمْ kَانُوا۟ لَا يَرْجُونَ حِسَابًۭا',
     lao: 'ເພາະວ່າພວກເຂົາບໍ່ໄດ້ຫວັງຈະມີການຊຳລະສອບສວນ.',
-    english: 'Indeed, they were not expecting an account.',
+    english: 'Indeed, they were not expecting an account',
   },
   {
     number: '28',
@@ -204,13 +204,13 @@ export const anNaba: Verse[] = [
     number: '32',
     arabic: 'حَدَآئِقَ وَأَعْنَـٰبًۭا',
     lao: 'ສວນນາໆ ຊະນິດ ແລະ ໝາກລະແຊັງ.',
-    english: 'Gardens and grapevines.',
+    english: 'Gardens and grapevines',
   },
   {
     number: '33',
     arabic: 'وَكَوَاعِبَ أَتْرَابًۭا',
     lao: 'ບັນດາສາວໄວລຸ້ນທີ່ມີອາຍຸຄາວດຽວກັນ.',
-    english: 'And full-breasted [companions] of equal age.',
+    english: 'And full-breasted [companions] of equal age',
   },
   {
     number: '34',
@@ -260,5 +260,3 @@ export const anNaba: Verse[] = [
     explanation: 'ຄືການລົງໂທດໃນໂລກໜ້າ ອາຄິເຣາະຫ ທີ່ຮຽກວ່າການລົງໂທດອັນໃກ້ ຄືສິ່ງທີ່ຈະເກີດຂຶ້ນນັ້ນຍ່ອມໃກ້. ໃນວັນທີ່ມະນຸດທຸກຄົນຈະເຫັນສິ່ງທີ່ເຂົາໄດ້ປະຕິບັດໄປ ບໍ່ວ່າຈະເປັນຄວາມດີ ຫຼື ຄວາມຊົ່ວຢອມຖືກບັນທຶກໄວ້ ແລະ ບັນດາຜູ້ປະຕິເສດສັດທາ ຄາດຫວັງວ່າລາວບໍ່ຄວນທີ່ຈະຖືກໃຫ້ບັງເກີດມາ ແລະ ຖ້າວ່າຂ້ອຍໄດ້ເປັນຝຸ່ນດິນເສັຍກໍ່ຈະດີ ເພື່ອຈະບໍ່ຖືກສືບສວນ ແລະ ຖືກລົງໂທດ.'
   },
 ];
-
-    
