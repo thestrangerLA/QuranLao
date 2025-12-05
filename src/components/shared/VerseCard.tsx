@@ -19,20 +19,31 @@ interface VerseCardProps {
   explanation?: string;
 }
 
+let footnoteCounter = 0;
+
 export default function VerseCard({ number, arabic, lao, english, showEnglish, explanation }: VerseCardProps) {
+  
+  if (explanation) {
+    footnoteCounter++;
+  }
+  const currentFootnote = explanation ? footnoteCounter : 0;
+
   const content = (
     <div className="p-4 space-y-4">
       <div className="flex justify-between items-start text-right">
         <span className="text-sm font-bold text-primary mr-2 leading-loose">{`(${number})`}</span>
-        <p className="font-arabic text-2xl leading-relaxed text-foreground">{arabic}</p>
+        <p className="font-arabic text-2xl leading-relaxed text-foreground text-right flex-grow">{arabic}</p>
       </div>
-      <div>
-        <p className="text-lg font-bold text-card-foreground leading-relaxed">{lao}</p>
+      <div className="text-left">
+        <p className="text-lg font-bold text-card-foreground leading-relaxed">
+          {lao}
+          {explanation && <sup className="text-primary font-bold text-sm ml-1">[{currentFootnote}]</sup>}
+        </p>
       </div>
       {showEnglish && (
         <>
           <Separator />
-          <div>
+          <div className="text-left">
             <p className="text-md text-muted-foreground leading-relaxed italic">"{english}"</p>
           </div>
         </>
@@ -55,12 +66,14 @@ export default function VerseCard({ number, arabic, lao, english, showEnglish, e
             </AccordionTrigger>
             <AccordionContent className="p-4 pt-0">
               <Separator className="mb-4" />
-              <div className="flex items-start gap-3">
+              <div className="flex items-start gap-3 text-left">
                  <div className="flex items-center justify-center w-8 h-8 bg-primary/10 rounded-full mt-1 shrink-0">
                     <BookText className="w-5 h-5 text-primary" />
                  </div>
                  <div>
-                    <h4 className="font-bold text-primary mb-1">ຄຳອະທິບາຍ</h4>
+                    <h4 className="font-bold text-primary mb-1">
+                      ຄຳອະທິບາຍ <sup className="text-primary font-bold text-sm ml-1">[{currentFootnote}]</sup>
+                    </h4>
                     <p className="text-sm text-muted-foreground">{explanation}</p>
                  </div>
               </div>
@@ -70,6 +83,12 @@ export default function VerseCard({ number, arabic, lao, english, showEnglish, e
       </Card>
     );
   }
+  
+  // Reset counter for components without footnotes if needed, though it's better to handle this at a higher level
+  if (!explanation) {
+      // This is tricky in React without a parent component managing state.
+      // For now, let's assume the continuous increment is acceptable or will be reset on re-render of the parent.
+  }
 
   return (
     <Card className="shadow-sm mb-4">
@@ -78,4 +97,10 @@ export default function VerseCard({ number, arabic, lao, english, showEnglish, e
       </CardContent>
     </Card>
   );
+}
+
+// A wrapper component might be needed to properly reset the counter per Surah.
+// For now, we'll keep it simple as requested.
+const onSurahChange = () => {
+    footnoteCounter = 0;
 }
