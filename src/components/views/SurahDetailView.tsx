@@ -65,7 +65,7 @@ export default function SurahDetailView({ goBack, surah }: SurahDetailViewProps)
     <div className="flex flex-col">
       <ViewHeader title={surah.name} onBack={goBack} />
 
-      <div className="p-4 bg-secondary flex justify-between items-center sticky top-0 z-10 border-b">
+      <div className="p-4 bg-secondary flex justify-between items-center sticky top-[57px] z-10 border-b">
          <div>
             <h2 className="text-xl font-bold text-primary">{surah.name}</h2>
             <p className="text-sm text-muted-foreground">{surah.translation}</p>
@@ -103,6 +103,7 @@ export default function SurahDetailView({ goBack, surah }: SurahDetailViewProps)
             lao={verse.lao}
             english={verse.english}
             showEnglish={showEnglish}
+            explanation={verse.explanation}
           />
         ))}
       </main>

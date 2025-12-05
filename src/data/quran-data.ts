@@ -3,6 +3,7 @@ export interface Verse {
   arabic: string;
   lao: string;
   english: string;
+  explanation?: string;
 }
 
 export interface Surah {
