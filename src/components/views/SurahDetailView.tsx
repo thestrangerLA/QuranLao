@@ -3,6 +3,7 @@ import { useState } from 'react';
 import ViewHeader from '@/components/shared/ViewHeader';
 import { type Surah, type Verse } from '@/data/quran-data';
 import { alFatiha } from '@/data/quran/al-fatiha';
+import { anNaba } from '@/data/quran/an-naba';
 import VerseCard from '@/components/shared/VerseCard';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
@@ -16,7 +17,32 @@ interface SurahDetailViewProps {
 
 const surahDataMap: { [key: number]: Verse[] } = {
   1: alFatiha,
+  78: anNaba,
 };
+
+const surahDescriptionMap: { [key: number]: React.ReactNode } = {
+  1: (
+    <>
+      <p>
+        Al-Fatiha (ອັນ-ຟາຕິຮະ) ແມ່ນບົດທີໜຶ່ງຂອງຄຳພີກຸຣອານ. ຊື່ຂອງມັນແປວ່າ "ຜູ້ເປີດເຜີຍ", ເນື່ອງຈາກມັນເປັນການເລີ່ມຕົ້ນຂອງຄຳພີ ແລະ ເປັນບົດທຳອິດທີ່ຖືກອ່ານຄົບຖ້ວນໃນທຸກໆຄັ້ງຂອງການລະໝາດ.
+      </p>
+      <p>
+        ມັນຖືກເອີ້ນອີກຊື່ໜຶ່ງວ່າ "Umm al-Kitab" (ແມ່ຂອງຄຳພີ) ເພາະມັນເປັນການສະຫຼຸບເນື້ອໃນສຳຄັນທັງໝົດຂອງກຸຣອານ, ລວມທັງຫຼັກການກ່ຽວກັບຄວາມເປັນເອກະພາບຂອງອັລລໍຮ໌ (ເຕົ່າຮີດ), ຄວາມເມດຕາ, ແລະ ການຂໍທາງນຳ.
+      </p>
+    </>
+  ),
+  78: (
+     <>
+      <p>
+        Surah An-Naba (ຊູຣະອັນ-ນະບະ) ແປວ່າ "ຂ່າວຄາວອັນຍິ່ງໃຫຍ່". ຊູຣະນີ້ໄດ້ຖືກເປີດເຜີຍໃນຊ່ວງຕົ້ນໆຂອງພາລະກິດຂອງສາດສະດາມູຮຳມັດທີ່ນະຄອນມັກກະ.
+      </p>
+      <p>
+        ຫົວໃຈຫຼັກຂອງຊູຣະນີ້ແມ່ນການຢືນຢັນເຖິງການຟື້ນຄືນຊີບ ແລະ ວັນແຫ່ງການພິພາກສາ, ເຊິ່ງເປັນຫົວຂໍ້ທີ່ພວກປະຕິເສດສັດທາໃນມັກກະມັກຈະຖົກຖຽງ ແລະ ບໍ່ເຊື່ອ. ມັນເລີ່ມຕົ້ນດ້ວຍຄຳຖາມທີ່ກະຕຸ້ນຄວາມຄິດກ່ຽວກັບ "ຂ່າວຄາວອັນຍິ່ງໃຫຍ່" ທີ່ພວກເຂົາໂຕ້ຖຽງກັນ, ກ່ອນທີ່ຈະນຳສະເໜີຫຼັກຖານຈາກການສ້າງໂລກ ເພື່ອພິສູດເຖິງອຳນາດຂອງອັລລໍຮ໌ໃນການເຮັດໃຫ້ຄົນຕາຍຟື້ນຄືນມາໄດ້.
+      </p>
+    </>
+  )
+};
+
 
 export default function SurahDetailView({ goBack, surah }: SurahDetailViewProps) {
   const [showEnglish, setShowEnglish] = useState(false);
@@ -33,6 +59,7 @@ export default function SurahDetailView({ goBack, surah }: SurahDetailViewProps)
   }
 
   const verses = surahDataMap[surah.number] || [];
+  const description = surahDescriptionMap[surah.number];
 
   return (
     <div className="flex flex-col">
@@ -54,22 +81,19 @@ export default function SurahDetailView({ goBack, surah }: SurahDetailViewProps)
       </div>
 
       <main className="p-4 space-y-4">
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-lg font-bold text-primary">
-              <BookOpen />
-              ກ່ຽວກັບຊູຣະນີ້
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="text-sm leading-relaxed text-card-foreground space-y-2">
-            <p>
-              Al-Fatiha (ອັນ-ຟາຕິຮະ) ແມ່ນບົດທີໜຶ່ງຂອງຄຳພີກຸຣອານ. ຊື່ຂອງມັນແປວ່າ "ຜູ້ເປີດເຜີຍ", ເນື່ອງຈາກມັນເປັນການເລີ່ມຕົ້ນຂອງຄຳພີ ແລະ ເປັນບົດທຳອິດທີ່ຖືກອ່ານຄົບຖ້ວນໃນທຸກໆຄັ້ງຂອງການລະໝາດ.
-            </p>
-            <p>
-              ມັນຖືກເອີ້ນອີກຊື່ໜຶ່ງວ່າ "Umm al-Kitab" (ແມ່ຂອງຄຳພີ) ເພາະມັນເປັນການສະຫຼຸບເນື້ອໃນສຳຄັນທັງໝົດຂອງກຸຣອານ, ລວມທັງຫຼັກການກ່ຽວກັບຄວາມເປັນເອກະພາບຂອງອັລລໍຮ໌ (ເຕົ່າຮີດ), ຄວາມເມດຕາ, ແລະ ການຂໍທາງນຳ.
-            </p>
-          </CardContent>
-        </Card>
+        {description && (
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-lg font-bold text-primary">
+                <BookOpen />
+                ກ່ຽວກັບຊູຣະນີ້
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="text-sm leading-relaxed text-card-foreground space-y-2">
+              {description}
+            </CardContent>
+          </Card>
+        )}
 
         {verses.map((verse) => (
           <VerseCard

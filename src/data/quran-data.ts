@@ -23,4 +23,12 @@ export const quranData: Surah[] = [
     revelationType: 'Meccan',
     numberOfAyahs: 7,
   },
+  {
+    number: 78,
+    name: 'An-Naba',
+    arabicName: 'ٱلنَّبَإِ',
+    translation: 'The Tidings',
+    revelationType: 'Meccan',
+    numberOfAyahs: 40,
+  },
 ];
