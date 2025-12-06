@@ -29,15 +29,13 @@ export default function VerseCard({ number, arabic, lao, english, showEnglish, e
               <span className="text-sm font-bold text-primary mr-2 leading-loose">{`(${number})`}</span>
               <p className="font-arabic text-2xl leading-relaxed text-foreground text-right flex-grow">{arabic}</p>
             </div>
-            <div className="text-left">
-               <p className="text-lg text-card-foreground leading-relaxed">
-                {lao}
-                {explanation && (
-                    <AccordionTrigger className="inline-flex items-center justify-center p-0 ml-1 text-primary hover:no-underline">
-                        <sup className="font-bold text-sm">[{footnoteNumber}]</sup>
-                    </AccordionTrigger>
-                )}
-              </p>
+            <div className="text-left text-lg text-card-foreground leading-relaxed">
+              {lao}
+              {explanation && (
+                  <AccordionTrigger className="inline-flex items-center justify-center p-0 ml-1 text-primary hover:no-underline align-super">
+                      <sup className="font-bold text-sm">[{footnoteNumber}]</sup>
+                  </AccordionTrigger>
+              )}
             </div>
             {showEnglish && (
               <>
