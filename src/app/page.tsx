@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -13,9 +14,11 @@ export default function App() {
   const [activeTab, setActiveTab] = useState('home');
   const [surahs, setSurahs] = useState<Surah[] | null>(null);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
-  // Initialize theme from localStorage or system preference
+  // Initialize theme from localStorage or system preference after mount to avoid hydration mismatch
   useEffect(() => {
+    setMounted(true);
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const initialTheme = savedTheme === 'dark' || (!savedTheme && prefersDark);
@@ -64,6 +67,7 @@ export default function App() {
   }, [surahs]);
 
   useEffect(() => {
+    if (!mounted) return;
     if (isDarkMode) {
       document.documentElement.classList.add('dark');
       localStorage.setItem('theme', 'dark');
@@ -71,7 +75,7 @@ export default function App() {
       document.documentElement.classList.remove('dark');
       localStorage.setItem('theme', 'light');
     }
-  }, [isDarkMode]);
+  }, [isDarkMode, mounted]);
 
   const handleSelectSurah = (surah: Surah) => {
     setSelectedSurah(surah);
@@ -88,8 +92,11 @@ export default function App() {
 
   const toggleTheme = () => setIsDarkMode(!isDarkMode);
 
+  // Prevent hydration flicker
+  if (!mounted) return null;
+
   return (
-    <div className="min-h-screen bg-app-background text-app-foreground selection:bg-emerald-100 selection:text-emerald-900 transition-colors duration-300">
+    <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
       <div className="max-w-md mx-auto px-4 pt-8 pb-32">
         <AnimatePresence mode="wait">
           {!selectedSurah ? (
@@ -105,17 +112,17 @@ export default function App() {
                   <h1 className="text-3xl font-bold tracking-tight">
                     ອັລກຸຣ໌ອານ
                   </h1>
-                  <p className="text-muted mt-1">ສະບາຍດີ, ຂໍໃຫ້ເປັນມື້ທີ່ດີ</p>
+                  <p className="text-muted-foreground mt-1">ສະບາຍດີ, ຂໍໃຫ້ເປັນມື້ທີ່ດີ</p>
                 </div>
                 <button 
                   onClick={toggleTheme}
-                  className="p-2 bg-app-card rounded-full shadow-sm text-muted hover:text-emerald-600 transition-all active:scale-95"
+                  className="p-2 bg-card rounded-full shadow-sm text-muted-foreground hover:text-emerald-600 transition-all active:scale-95 border border-border"
                 >
                   {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
                 </button>
               </header>
 
-              <div className="flex gap-4 border-b border-app-border">
+              <div className="flex gap-4 border-b border-border">
                 <button className="pb-4 border-b-2 border-emerald-600 text-emerald-600 font-bold text-sm">
                   ຊູເຣາະ
                 </button>
@@ -141,7 +148,7 @@ export default function App() {
 
       {/* Bottom Navigation */}
       {!selectedSurah && (
-        <nav className="fixed bottom-0 left-0 right-0 bg-app-card/80 backdrop-blur-lg border-t border-app-border px-8 py-4 z-50">
+        <nav className="fixed bottom-0 left-0 right-0 bg-card/80 backdrop-blur-lg border-t border-border px-8 py-4 z-50">
           <div className="max-w-md mx-auto flex justify-around items-center">
             <NavButton 
               active={activeTab === 'home'} 
@@ -162,7 +169,7 @@ function NavButton({ active, icon, label, onClick }: { active: boolean, icon: Re
       onClick={onClick}
       className={cn(
         "flex flex-col items-center gap-1 transition-all",
-        active ? "text-emerald-600 scale-110" : "text-gray-400 hover:text-gray-600"
+        active ? "text-emerald-600 scale-110" : "text-muted-foreground hover:text-foreground"
       )}
     >
       {icon}
