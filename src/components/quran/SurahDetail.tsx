@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useEffect, useState } from 'react';
@@ -86,8 +87,8 @@ export const SurahDetail: React.FC<SurahDetailProps> = ({ surah, onBack }) => {
             <ArrowLeft className="w-6 h-6" />
           </button>
           <div className="text-center">
-            <h2 className="font-bold">{surah.name_simple}</h2>
-            <p className="text-[10px] text-muted uppercase tracking-widest font-bold">
+            <h2 className="font-bold text-foreground">{surah.name_simple}</h2>
+            <p className="text-[10px] text-foreground/80 uppercase tracking-widest font-bold">
               {surah.revelation_place === 'makkah' ? 'MAKKAH' : 'MADINAH'} • {surah.verses_count} VERSES
             </p>
           </div>
@@ -101,9 +102,9 @@ export const SurahDetail: React.FC<SurahDetailProps> = ({ surah, onBack }) => {
               placeholder="Search verses..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-app-card border border-app-border rounded-xl py-2 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all"
+              className="w-full bg-app-card border border-app-border rounded-xl py-2 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all text-foreground"
             />
-            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-muted">
+            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-foreground/50">
               <Search className="w-4 h-4" />
             </div>
           </div>
@@ -123,7 +124,7 @@ export const SurahDetail: React.FC<SurahDetailProps> = ({ surah, onBack }) => {
         className="relative overflow-hidden rounded-3xl bg-emerald-600 p-8 text-white shadow-xl"
       >
         <div className="relative z-10 text-center space-y-4">
-          <div className="arabic-text text-4xl mb-2" dir="rtl">{surah.name_arabic}</div>
+          <div className="arabic-text text-3xl mb-2" dir="rtl">{surah.name_arabic}</div>
           <div className="h-px bg-white/20 w-24 mx-auto" />
           <p className="text-emerald-100 font-medium italic">
             {surah.translated_name?.name}
@@ -133,10 +134,10 @@ export const SurahDetail: React.FC<SurahDetailProps> = ({ surah, onBack }) => {
 
       {surah.id !== 1 && surah.id !== 9 && (
         <div className="text-center py-8">
-          <div className="arabic-text text-3xl text-emerald-600" dir="rtl">
+          <div className="arabic-text text-2xl text-emerald-600" dir="rtl">
             بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
           </div>
-          <p className="text-muted text-sm mt-2">In the name of Allah, the Most Gracious, the Most Merciful</p>
+          <p className="text-foreground/80 text-sm mt-2">In the name of Allah, the Most Gracious, the Most Merciful</p>
         </div>
       )}
 
@@ -156,7 +157,7 @@ export const SurahDetail: React.FC<SurahDetailProps> = ({ surah, onBack }) => {
                 </div>
                 {showArabic && (
                   <div className="flex-1 text-right" dir="rtl">
-                    <p className="arabic-text text-2xl leading-[2.5] text-app-foreground">
+                    <p className="arabic-text text-xl leading-[2.5] text-app-foreground">
                       {highlightText(verse.text_uthmani, searchQuery)}
                     </p>
                   </div>
@@ -172,14 +173,14 @@ export const SurahDetail: React.FC<SurahDetailProps> = ({ surah, onBack }) => {
                   </p>
                 )}
                 {showEnglish && (
-                  <p className="text-muted text-sm italic">
+                  <p className="text-foreground text-sm italic">
                     {verse.translations?.find(t => t.resource_id === 20)
                       ? highlightText(verse.translations.find(t => t.resource_id === 20)!.text.replace(/<[^>]*>?/gm, ''), searchQuery)
                       : 'English translation not available'}
                   </p>
                 )}
                 {showThai && (
-                  <p className="text-muted text-sm italic">
+                  <p className="text-foreground text-sm italic">
                     {verse.translations?.find(t => t.resource_id === 51)
                       ? highlightText(verse.translations.find(t => t.resource_id === 51)!.text.replace(/<[^>]*>?/gm, ''), searchQuery)
                       : 'Thai translation not available'}
@@ -191,7 +192,7 @@ export const SurahDetail: React.FC<SurahDetailProps> = ({ surah, onBack }) => {
             </motion.div>
           ))
         ) : (
-          <div className="text-center py-20 text-muted">
+          <div className="text-center py-20 text-foreground/50">
             <p>No verses found matching your search.</p>
           </div>
         )}
@@ -206,7 +207,7 @@ const ToggleButton: React.FC<{ active: boolean; onClick: () => void; label: stri
     className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap ${
       active 
         ? 'bg-emerald-600 text-white shadow-md' 
-        : 'bg-app-card text-muted border border-app-border hover:border-emerald-500/50'
+        : 'bg-app-card text-foreground border border-app-border hover:border-emerald-500/50'
     }`}
   >
     {label}

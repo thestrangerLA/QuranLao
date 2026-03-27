@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useEffect, useState } from 'react';
@@ -55,11 +56,11 @@ export const SurahList: React.FC<SurahListProps> = ({ onSelectSurah, surahs: ini
   return (
     <div className="space-y-6">
       <div className="relative">
-        <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted w-5 h-5" />
+        <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-foreground/50 w-5 h-5" />
         <input
           type="text"
           placeholder="ຄົ້ນຫາຊື່ຊູເຣາະ ຫຼື ເລກທີ..."
-          className="w-full pl-12 pr-4 py-4 bg-app-card border-none rounded-2xl shadow-sm focus:ring-2 focus:ring-emerald-500 transition-all outline-none text-lg"
+          className="w-full pl-12 pr-4 py-4 bg-app-card border-none rounded-2xl shadow-sm focus:ring-2 focus:ring-emerald-500 transition-all outline-none text-lg text-foreground"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
@@ -79,15 +80,15 @@ export const SurahList: React.FC<SurahListProps> = ({ onSelectSurah, surahs: ini
               {surah.id}
             </div>
             <div className="flex-1">
-              <h3 className="font-semibold text-lg">{surah.name_simple}</h3>
-              <p className="text-sm text-muted">
+              <h3 className="font-semibold text-lg text-foreground">{surah.name_simple}</h3>
+              <p className="text-sm text-foreground/80">
                 {surah.revelation_place === 'makkah' ? 'ມັກກາ' : 'ມາດີນາ'} • {surah.verses_count} ອາຍັດ
               </p>
             </div>
             <div className="text-right mr-4">
               <div className="arabic-text text-xl text-emerald-600" dir="rtl">{surah.name_arabic}</div>
             </div>
-            <ChevronRight className="text-muted group-hover:text-emerald-500 transition-colors" />
+            <ChevronRight className="text-foreground/50 group-hover:text-emerald-500 transition-colors" />
           </motion.button>
         ))}
       </div>

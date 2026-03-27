@@ -5,7 +5,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 98%; /* Clean white background */
+    --background: 0 0% 100%; /* Pure white background */
     --foreground: 0 0% 0%; /* Pure black text */
     --card: 0 0% 100%;
     --card-foreground: 0 0% 0%;
@@ -13,10 +13,10 @@
     --popover-foreground: 0 0% 0%;
     --primary: 161 72% 42%; /* Emerald-ish color */
     --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 92%; 
+    --secondary: 0 0% 96%; 
     --secondary-foreground: 0 0% 0%;
-    --muted: 0 0% 90%;
-    --muted-foreground: 0 0% 20%; /* Dark gray for muted text */
+    --muted: 0 0% 92%;
+    --muted-foreground: 0 0% 0%; /* Black for muted text in light mode */
     --accent: 140 60% 55%; 
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
@@ -57,9 +57,10 @@
   body {
     @apply bg-background text-foreground;
   }
-  .font-arabic {
-    font-family: 'Scheherazade New', serif;
-  }
+}
+
+.font-arabic {
+  font-family: 'Scheherazade New', serif;
 }
 
 .arabic-text {
