@@ -1,3 +1,4 @@
+// Data cleared
 export interface Verse {
   number: string;
   arabic: string;
@@ -15,21 +16,4 @@ export interface Surah {
   numberOfAyahs: number;
 }
 
-export const quranData: Surah[] = [
-  {
-    number: 1,
-    name: 'Al-Fatihah',
-    arabicName: 'ٱلْفَاتِحَة',
-    translation: 'The Opener',
-    revelationType: 'Meccan',
-    numberOfAyahs: 7,
-  },
-  {
-    number: 78,
-    name: 'An-Naba',
-    arabicName: 'ٱلنَّبَإِ',
-    translation: 'The Tidings',
-    revelationType: 'Meccan',
-    numberOfAyahs: 40,
-  },
-];
+export const quranData: Surah[] = [];
