@@ -61,8 +61,6 @@
   }
   body {
     @apply bg-background text-foreground;
-    height: 100vh;
-    overflow: hidden;
   }
   .font-arabic {
     font-family: 'Scheherazade New', serif;
