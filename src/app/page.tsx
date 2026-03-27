@@ -2,9 +2,10 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Book, Moon, Sun, Sparkles, LayoutList } from 'lucide-react';
+import { Book, Moon, Sun, Sparkles, LayoutList, ChevronRight } from 'lucide-react';
 import { SurahList } from '@/components/quran/SurahList';
 import { SurahDetail } from '@/components/quran/SurahDetail';
+import { ArticleDetail } from '@/components/articles/ArticleDetail';
 import { Surah } from '@/types/quran';
 import { cn } from '@/lib/utils';
 import { namesOfAllah } from '@/data/namesOfAllah';
@@ -19,6 +20,7 @@ import { Badge } from "@/components/ui/badge";
 
 export default function App() {
   const [selectedSurah, setSelectedSurah] = useState<Surah | null>(null);
+  const [selectedArticle, setSelectedArticle] = useState<any | null>(null);
   const [activeTab, setActiveTab] = useState('quran');
   const [surahs, setSurahs] = useState<Surah[] | null>(null);
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -46,6 +48,12 @@ export default function App() {
           if (surah) {
             setSelectedSurah(surah);
           }
+        } else if (hash.startsWith('#article-')) {
+          const id = parseInt(hash.replace('#article-', ''));
+          const article = articles.find(a => a.id === id);
+          if (article) {
+            setSelectedArticle(article);
+          }
         }
       } catch (error) {
         console.error('Error fetching surahs:', error);
@@ -55,16 +63,22 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    if (!surahs) return;
-
     const handlePopState = (event: PopStateEvent) => {
-      if (event.state?.surahId) {
+      if (event.state?.surahId && surahs) {
         const surah = surahs.find(s => s.id === event.state.surahId);
         if (surah) {
           setSelectedSurah(surah);
+          setSelectedArticle(null);
+        }
+      } else if (event.state?.articleId) {
+        const article = articles.find(a => a.id === event.state.articleId);
+        if (article) {
+          setSelectedArticle(article);
+          setSelectedSurah(null);
         }
       } else {
         setSelectedSurah(null);
+        setSelectedArticle(null);
       }
     };
 
@@ -85,14 +99,22 @@ export default function App() {
 
   const handleSelectSurah = (surah: Surah) => {
     setSelectedSurah(surah);
+    setSelectedArticle(null);
     window.history.pushState({ surahId: surah.id }, '', `#surah-${surah.id}`);
   };
 
+  const handleSelectArticle = (article: any) => {
+    setSelectedArticle(article);
+    setSelectedSurah(null);
+    window.history.pushState({ articleId: article.id }, '', `#article-${article.id}`);
+  };
+
   const handleBack = () => {
-    if (window.history.state?.surahId) {
+    if (window.history.state?.surahId || window.history.state?.articleId) {
       window.history.back();
     } else {
       setSelectedSurah(null);
+      setSelectedArticle(null);
     }
   };
 
@@ -115,13 +137,25 @@ export default function App() {
         <AnimatePresence mode="wait">
           {selectedSurah ? (
             <motion.div
-              key="detail"
+              key="surah-detail"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
             >
               <SurahDetail 
                 surah={selectedSurah} 
+                onBack={handleBack} 
+              />
+            </motion.div>
+          ) : selectedArticle ? (
+            <motion.div
+              key="article-detail"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+            >
+              <ArticleDetail 
+                article={selectedArticle} 
                 onBack={handleBack} 
               />
             </motion.div>
@@ -138,7 +172,7 @@ export default function App() {
                   <h1 className="text-3xl font-bold tracking-tight">
                     {getHeaderTitle()}
                   </h1>
-                  <p className="text-muted-foreground mt-1">ສະບາຍດີ, ຂໍໃຫ້ເປັນມື້ທີ່ດີ</p>
+                  <p className="text-muted-foreground mt-1 text-sm font-medium">ສະບາຍດີ, ຂໍໃຫ້ເປັນມື້ທີ່ດີ</p>
                 </div>
                 <button 
                   onClick={toggleTheme}
@@ -176,7 +210,7 @@ export default function App() {
                           <div className="arabic-text text-xl text-emerald-600" dir="rtl">{name.arabic}</div>
                         </div>
                       </AccordionTrigger>
-                      <AccordionContent className="pb-6 text-muted-foreground leading-relaxed text-sm">
+                      <AccordionContent className="pb-6 text-foreground leading-relaxed text-sm font-medium">
                         <div className="pt-2 border-t border-border mt-2">
                           {name.description}
                         </div>
@@ -188,33 +222,33 @@ export default function App() {
 
               {activeTab === 'articles' && (
                 <div className="space-y-6">
-                   <div className="bg-emerald-600 rounded-2xl p-6 text-white shadow-lg mb-8">
+                   <div className="bg-emerald-600 rounded-3xl p-6 text-white shadow-lg mb-8">
                     <h2 className="text-xl font-bold mb-2">ຍິນດີຕ້ອນຮັບ</h2>
                     <p className="text-emerald-50 text-sm">ບົດຄວາມພື້ນຖານສຳລັບຜູ້ທີ່ສົນໃຈສຶກສາອິສລາມ ແລະ ມຸສລິມໃໝ່.</p>
                   </div>
-                  <Accordion type="single" collapsible className="space-y-4">
-                    {articles.map((article) => (
-                      <AccordionItem 
-                        key={article.id} 
-                        value={`article-${article.id}`}
-                        className="bg-card rounded-2xl border border-border shadow-sm px-4 overflow-hidden"
+                  <div className="grid gap-4">
+                    {articles.map((article, index) => (
+                      <motion.button
+                        key={article.id}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: index * 0.05 }}
+                        onClick={() => handleSelectArticle(article)}
+                        className="flex items-center p-5 bg-card rounded-2xl shadow-sm hover:shadow-md transition-all group text-left border border-border hover:border-emerald-500/30"
                       >
-                        <AccordionTrigger className="hover:no-underline py-6">
-                          <div className="flex flex-col items-start gap-1">
-                            <Badge variant="secondary" className="text-[10px] bg-emerald-500/10 text-emerald-600 hover:bg-emerald-500/20 border-none px-2">
-                              {article.category}
-                            </Badge>
-                            <h3 className="text-lg font-bold text-left">{article.title}</h3>
-                          </div>
-                        </AccordionTrigger>
-                        <AccordionContent className="pb-6 text-muted-foreground leading-relaxed text-sm">
-                          <div className="pt-2 border-t border-border mt-2 whitespace-pre-line">
+                        <div className="flex-1 space-y-2">
+                          <Badge variant="secondary" className="text-[10px] bg-emerald-500/10 text-emerald-600 hover:bg-emerald-500/20 border-none px-2 font-bold">
+                            {article.category}
+                          </Badge>
+                          <h3 className="text-lg font-bold text-foreground leading-snug">{article.title}</h3>
+                          <p className="text-muted-foreground text-xs line-clamp-2 font-medium">
                             {article.content}
-                          </div>
-                        </AccordionContent>
-                      </AccordionItem>
+                          </p>
+                        </div>
+                        <ChevronRight className="ml-4 text-muted-foreground group-hover:text-emerald-600 transition-colors w-5 h-5 flex-shrink-0" />
+                      </motion.button>
                     ))}
-                  </Accordion>
+                  </div>
                 </div>
               )}
             </motion.div>
@@ -222,7 +256,7 @@ export default function App() {
         </AnimatePresence>
       </div>
 
-      {!selectedSurah && (
+      {!selectedSurah && !selectedArticle && (
         <nav className="fixed bottom-0 left-0 right-0 bg-card/80 backdrop-blur-lg border-t border-border px-8 py-4 z-50">
           <div className="max-w-md mx-auto flex justify-around items-center">
             <NavButton 
