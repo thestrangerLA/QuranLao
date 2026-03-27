@@ -2,18 +2,20 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Book, Moon, Sun, Sparkles } from 'lucide-react';
+import { Book, Moon, Sun, Sparkles, LayoutList } from 'lucide-react';
 import { SurahList } from '@/components/quran/SurahList';
 import { SurahDetail } from '@/components/quran/SurahDetail';
 import { Surah } from '@/types/quran';
 import { cn } from '@/lib/utils';
 import { namesOfAllah } from '@/data/namesOfAllah';
+import { articles } from '@/data/articles';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Badge } from "@/components/ui/badge";
 
 export default function App() {
   const [selectedSurah, setSelectedSurah] = useState<Surah | null>(null);
@@ -98,6 +100,15 @@ export default function App() {
 
   if (!mounted) return null;
 
+  const getHeaderTitle = () => {
+    switch (activeTab) {
+      case 'quran': return 'ອັລກຸຣ໌ອານ';
+      case 'names': return 'ພະນາມຂອງອັລລໍຫ໌';
+      case 'articles': return 'ບົດຄວາມຮູ້';
+      default: return 'ອັລກຸຣ໌ອານ';
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
       <div className="max-w-md mx-auto px-4 pt-8 pb-32">
@@ -125,7 +136,7 @@ export default function App() {
               <header className="flex justify-between items-start">
                 <div>
                   <h1 className="text-3xl font-bold tracking-tight">
-                    {activeTab === 'quran' ? 'ອັລກຸຣ໌ອານ' : 'ພະນາມຂອງອັລລໍຫ໌'}
+                    {getHeaderTitle()}
                   </h1>
                   <p className="text-muted-foreground mt-1">ສະບາຍດີ, ຂໍໃຫ້ເປັນມື້ທີ່ດີ</p>
                 </div>
@@ -137,7 +148,7 @@ export default function App() {
                 </button>
               </header>
 
-              {activeTab === 'quran' ? (
+              {activeTab === 'quran' && (
                 <>
                   <div className="flex gap-4 border-b border-border">
                     <button className="pb-4 border-b-2 border-emerald-600 text-emerald-600 font-bold text-sm">
@@ -146,7 +157,9 @@ export default function App() {
                   </div>
                   <SurahList onSelectSurah={handleSelectSurah} surahs={surahs} />
                 </>
-              ) : (
+              )}
+
+              {activeTab === 'names' && (
                 <Accordion type="single" collapsible className="space-y-4">
                   {namesOfAllah.map((name) => (
                     <AccordionItem 
@@ -172,6 +185,38 @@ export default function App() {
                   ))}
                 </Accordion>
               )}
+
+              {activeTab === 'articles' && (
+                <div className="space-y-6">
+                   <div className="bg-emerald-600 rounded-2xl p-6 text-white shadow-lg mb-8">
+                    <h2 className="text-xl font-bold mb-2">ຍິນດີຕ້ອນຮັບ</h2>
+                    <p className="text-emerald-50 text-sm">ບົດຄວາມພື້ນຖານສຳລັບຜູ້ທີ່ສົນໃຈສຶກສາອິສລາມ ແລະ ມຸສລິມໃໝ່.</p>
+                  </div>
+                  <Accordion type="single" collapsible className="space-y-4">
+                    {articles.map((article) => (
+                      <AccordionItem 
+                        key={article.id} 
+                        value={`article-${article.id}`}
+                        className="bg-card rounded-2xl border border-border shadow-sm px-4 overflow-hidden"
+                      >
+                        <AccordionTrigger className="hover:no-underline py-6">
+                          <div className="flex flex-col items-start gap-1">
+                            <Badge variant="secondary" className="text-[10px] bg-emerald-500/10 text-emerald-600 hover:bg-emerald-500/20 border-none px-2">
+                              {article.category}
+                            </Badge>
+                            <h3 className="text-lg font-bold text-left">{article.title}</h3>
+                          </div>
+                        </AccordionTrigger>
+                        <AccordionContent className="pb-6 text-muted-foreground leading-relaxed text-sm">
+                          <div className="pt-2 border-t border-border mt-2 whitespace-pre-line">
+                            {article.content}
+                          </div>
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
+                </div>
+              )}
             </motion.div>
           )}
         </AnimatePresence>
@@ -183,14 +228,20 @@ export default function App() {
             <NavButton 
               active={activeTab === 'quran'} 
               onClick={() => setActiveTab('quran')}
-              icon={<Book className="w-6 h-6" />}
+              icon={<Book className="w-5 h-5" />}
               label="ກຸຣອານ"
             />
             <NavButton 
               active={activeTab === 'names'} 
               onClick={() => setActiveTab('names')}
-              icon={<Sparkles className="w-6 h-6" />}
+              icon={<Sparkles className="w-5 h-5" />}
               label="ພະນາມ"
+            />
+            <NavButton 
+              active={activeTab === 'articles'} 
+              onClick={() => setActiveTab('articles')}
+              icon={<LayoutList className="w-5 h-5" />}
+              label="ບົດຄວາມ"
             />
           </div>
         </nav>
