@@ -1,101 +1,695 @@
 export const namesOfAllah = [
-  { id: 1, arabic: 'الرحمن', transliteration: 'Ar-Rahman', lao: 'ພຣະຜູ້ຊົງກະລຸນາປານີ' },
-  { id: 2, arabic: 'الرحيم', transliteration: 'Ar-Rahim', lao: 'ພຣະຜູ້ຊົງເມດຕາສະເໝີ' },
-  { id: 3, arabic: 'الملك', transliteration: 'Al-Malik', lao: 'ພຣະຜູ້ຊົງອຳນາດຍິ່ງໃຫຍ່' },
-  { id: 4, arabic: 'القدوس', transliteration: 'Al-Quddus', lao: 'ພຣະຜູ້ຊົງບໍລິສຸດຍິ່ງ' },
-  { id: 5, arabic: 'السلام', transliteration: 'As-Salam', lao: 'ພຣະຜູ້ຊົງປະທານຄວາມສັນຕິ' },
-  { id: 6, arabic: 'المؤمن', transliteration: 'Al-Mu’min', lao: 'ພຣະຜູ້ຊົງປະທານຄວາມປອດໄພ' },
-  { id: 7, arabic: 'المهيمن', transliteration: 'Al-Muhaymin', lao: 'ພຣະຜູ້ຊົງຄຸ້ມຄອງເບິ່ງແຍງ' },
-  { id: 8, arabic: 'العزيز', transliteration: 'Al-Aziz', lao: 'ພຣະຜູ້ຊົງພະລານຸພາບ' },
-  { id: 9, arabic: 'الجبار', transliteration: 'Al-Jabbar', lao: 'ພຣະຜູ້ຊົງມີອຳນາດບັງຄັບ' },
-  { id: 10, arabic: 'المتكبر', transliteration: 'Al-Mutakabbir', lao: 'ພຣະຜູ້ຊົງຍິ່ງໃຫຍ່ເກີນບັນຍາຍ' },
-  { id: 11, arabic: 'الخالق', transliteration: 'Al-Khaliq', lao: 'ພຣະຜູ້ຊົງສ້າງ' },
-  { id: 12, arabic: 'البارئ', transliteration: 'Al-Bari’', lao: 'ພຣະຜູ້ຊົງໃຫ້ກຳເນີດ' },
-  { id: 13, arabic: 'المصور', transliteration: 'Al-Musawwir', lao: 'ພຣະຜູ້ຊົງກຳນົດຮູບຮ່າງ' },
-  { id: 14, arabic: 'الغفار', transliteration: 'Al-Ghaffar', lao: 'ພຣະຜູ້ຊົງອະໄພຍະໂທດສະເໝີ' },
-  { id: 15, arabic: 'القهار', transliteration: 'Al-Qahhar', lao: 'ພຣະຜູ້ຊົງມີອຳນາດເໜືອທຸກສິ່ງ' },
-  { id: 16, arabic: 'الوهاب', transliteration: 'Al-Wahhab', lao: 'ພຣະຜູ້ຊົງປະທານໃຫ້' },
-  { id: 17, arabic: 'الرزاق', transliteration: 'Ar-Razzaq', lao: 'ພຣະຜູ້ຊົງປະທານປັດໄຈຍັງຊີບ' },
-  { id: 18, arabic: 'الفتاح', transliteration: 'Al-Fattah', lao: 'ພຣະຜູ້ຊົງເປີດຫົນທາງ' },
-  { id: 19, arabic: 'العليم', transliteration: 'Al-Alim', lao: 'ພຣະຜູ້ຊົງຮອບຮູ້' },
-  { id: 20, arabic: 'القابض', transliteration: 'Al-Qabid', lao: 'ພຣະຜູ້ຊົງຍັບຍັ້ງ' },
-  { id: 21, arabic: 'الباسط', transliteration: 'Al-Basit', lao: 'ພຣະຜູ້ຊົງແຜ່ຂະຫຍາຍ' },
-  { id: 22, arabic: 'الخافض', transliteration: 'Al-Khafid', lao: 'ພຣະຜູ້ຊົງເຮັດໃຫ້ຕໍ່າລົງ' },
-  { id: 23, arabic: 'الرافع', transliteration: 'Ar-Rafi’', lao: 'ພຣະຜູ້ຊົງຍົກໃຫ້ສູງຂຶ້ນ' },
-  { id: 24, arabic: 'المعز', transliteration: 'Al-Mu’izz', lao: 'ພຣະຜູ້ຊົງໃຫ້ກຽດ' },
-  { id: 25, arabic: 'المذل', transliteration: 'Al-Mudhill', lao: 'ພຣະຜູ້ຊົງເຮັດໃຫ້ຕໍ່າຕ້ອຍ' },
-  { id: 26, arabic: 'السميع', transliteration: 'As-Sami’', lao: 'ພຣະຜູ້ຊົງໄດ້ຍິນ' },
-  { id: 27, arabic: 'البصير', transliteration: 'Al-Basir', lao: 'ພຣະຜູ້ຊົງເຫັນ' },
-  { id: 28, arabic: 'الحكم', transliteration: 'Al-Hakam', lao: 'ພຣະຜູ້ຊົງເປັນຜູ້ຕັດສິນ' },
-  { id: 29, arabic: 'العدل', transliteration: 'Al-Adl', lao: 'ພຣະຜູ້ຊົງຍຸດຕິທຳ' },
-  { id: 30, arabic: 'اللطيف', transliteration: 'Al-Latif', lao: 'ພຣະຜູ້ຊົງອ່ອນໂຍນ' },
-  { id: 31, arabic: 'الخبير', transliteration: 'Al-Khabir', lao: 'ພຣະຜູ້ຊົງຮູ້ເບື້ອງລຶກ' },
-  { id: 32, arabic: 'الحليم', transliteration: 'Al-Halim', lao: 'ພຣະຜູ້ຊົງຜ່ອນປົນ' },
-  { id: 33, arabic: 'العظيم', transliteration: 'Al-Azim', lao: 'ພຣະຜູ້ຊົງຍິ່ງໃຫຍ່' },
-  { id: 34, arabic: 'الغفور', transliteration: 'Al-Ghafur', lao: 'ພຣະຜູ້ຊົງອະໄພ' },
-  { id: 35, arabic: 'الشكور', transliteration: 'Ash-Shakur', lao: 'ພຣະຜູ້ຊົງເຫັນຄຸນຄ່າ' },
-  { id: 36, arabic: 'العلي', transliteration: 'Al-Aliyy', lao: 'ພຣະຜູ້ຊົງສູງສົ່ງ' },
-  { id: 37, arabic: 'الكبير', transliteration: 'Al-Kabir', lao: 'ພຣະຜູ້ຊົງໃຫຍ່ຫຼວງ' },
-  { id: 38, arabic: 'الحفيظ', transliteration: 'Al-Hafiz', lao: 'ພຣະຜູ້ຊົງຮັກສາ' },
-  { id: 39, arabic: 'المقيت', transliteration: 'Al-Muqit', lao: 'ພຣະຜູ້ຊົງປະທານພະລັງ' },
-  { id: 40, arabic: 'الحسيب', transliteration: 'Al-Hasib', lao: 'ພຣະຜູ້ຊົງໄລ່ລຽງ' },
-  { id: 41, arabic: 'الجليل', transliteration: 'Al-Jalil', lao: 'ພຣະຜູ້ຊົງສະຫງ່າງາມ' },
-  { id: 42, arabic: 'الكريم', transliteration: 'Al-Karim', lao: 'ພຣະຜູ້ຊົງໃຈບຸນ' },
-  { id: 43, arabic: 'الرقيب', transliteration: 'Ar-Raqib', lao: 'ພຣະຜູ້ຊົງເຝົ້າເບິ່ງ' },
-  { id: 44, arabic: 'المجيب', transliteration: 'Al-Mujib', lao: 'ພຣະຜູ້ຊົງຕອບຮັບ' },
-  { id: 45, arabic: 'الواسع', transliteration: 'Al-Wasi’', lao: 'ພຣະຜູ້ຊົງກວ້າງຂວາງ' },
-  { id: 46, arabic: 'الحكيم', transliteration: 'Al-Hakim', lao: 'ພຣະຜູ້ຊົງມີວິຊາປັນຍາ' },
-  { id: 47, arabic: 'الودود', transliteration: 'Al-Wadud', lao: 'ພຣະຜູ້ຊົງຮັກໃຜ່' },
-  { id: 48, arabic: 'المجيد', transliteration: 'Al-Majid', lao: 'ພຣະຜູ້ຊົງມີກຽດ' },
-  { id: 49, arabic: 'الباعث', transliteration: 'Al-Ba’ith', lao: 'ພຣະຜູ້ຊົງໃຫ້ຟື້ນຄືນຊີບ' },
-  { id: 50, arabic: 'الشهيد', transliteration: 'Ash-Shahid', lao: 'ພຣະຜູ້ຊົງເປັນພະຍານ' },
-  { id: 51, arabic: 'الحق', transliteration: 'Al-Haqq', lao: 'ພຣະຜູ້ຊົງເປັນຄວາມຈິງ' },
-  { id: 52, arabic: 'الوكيل', transliteration: 'Al-Wakil', lao: 'ພຣະຜູ້ຊົງເປັນທີ່ເພິ່ງ' },
-  { id: 53, arabic: 'القوي', transliteration: 'Al-Qawiyy', lao: 'ພຣະຜູ້ຊົງແຂງແກ່ນ' },
-  { id: 54, arabic: 'المتين', transliteration: 'Al-Matin', lao: 'ພຣະຜູ້ຊົງໝັ້ນຄົງ' },
-  { id: 55, arabic: 'الولي', transliteration: 'Al-Waliyy', lao: 'ພຣະຜູ້ຊົງເປັນມິດ' },
-  { id: 56, arabic: 'الحميد', transliteration: 'Al-Hamid', lao: 'ພຣະຜູ້ຊົງໄດ້ຮັບການສັນລະເສີນ' },
-  { id: 57, arabic: 'المحصي', transliteration: 'Al-Muhsi', lao: 'ພຣະຜູ້ຊົງນັບທຸກສິ່ງ' },
-  { id: 58, arabic: 'المبدئ', transliteration: 'Al-Mubdi’', lao: 'ພຣະຜູ້ຊົງເລີ່ມຕົ້ນ' },
-  { id: 59, arabic: 'المعيد', transliteration: 'Al-Mu’id', lao: 'ພຣະຜູ້ຊົງໃຫ້ກັບຄືນມາ' },
-  { id: 60, arabic: 'المحيي', transliteration: 'Al-Muhyi', lao: 'ພຣະຜູ້ຊົງໃຫ້ມີຊີວິດ' },
-  { id: 61, arabic: 'المميت', transliteration: 'Al-Mumit', lao: 'ພຣະຜູ້ຊົງໃຫ້ຕາຍ' },
-  { id: 62, arabic: 'الحي', transliteration: 'Al-Hayy', lao: 'ພຣະຜູ້ຊົງມີຊີວິດອະມະຕະ' },
-  { id: 63, arabic: 'القيوم', transliteration: 'Al-Qayyum', lao: 'ພຣະຜູ້ຊົງດຳລົງຢູ່ດ້ວຍພຣະອົງເອງ' },
-  { id: 64, arabic: 'الواجد', transliteration: 'Al-Wajid', lao: 'ພຣະຜູ້ຊົງຄົ້ນພົບ' },
-  { id: 65, arabic: 'الماجد', transliteration: 'Al-Majid', lao: 'ພຣະຜູ້ຊົງສູງສົ່ງ' },
-  { id: 66, arabic: 'الواحد', transliteration: 'Al-Wahid', lao: 'ພຣະຜູ້ຊົງເປັນໜຶ່ງ' },
-  { id: 67, arabic: 'الاحد', transliteration: 'Al-Ahad', lao: 'ພຣະຜູ້ຊົງເອກະ' },
-  { id: 68, arabic: 'الصمد', transliteration: 'As-Samad', lao: 'ພຣະຜູ້ຊົງເປັນທີ່ຕ້ອງການ' },
-  { id: 69, arabic: 'القادر', transliteration: 'Al-Qadir', lao: 'ພຣະຜູ້ຊົງມີອໍານາດ' },
-  { id: 70, arabic: 'المقتدر', transliteration: 'Al-Muqtadir', lao: 'ພຣະຜູ້ຊົງມີອານຸພາບ' },
-  { id: 71, arabic: 'المقدم', transliteration: 'Al-Muqaddim', lao: 'ພຣະຜູ້ຊົງນຳໜ້າ' },
-  { id: 72, arabic: 'المؤخر', transliteration: 'Al-Mu’akhkhir', lao: 'ພຣະຜູ້ຊົງໄວ້ເບື້ອງຫຼັງ' },
-  { id: 73, arabic: 'الأول', transliteration: 'Al-Awwal', lao: 'ພຣະຜູ້ຊົງເປັນຜູ້ທຳອິດ' },
-  { id: 74, arabic: 'الأخر', transliteration: 'Al-Akhir', lao: 'ພຣະຜູ້ຊົງເປັນຜູ້ສຸດທ້າຍ' },
-  { id: 75, arabic: 'الظاهر', transliteration: 'Az-Zahir', lao: 'ພຣະຜູ້ຊົງເປີດເຜີຍ' },
-  { id: 76, arabic: 'الباطن', transliteration: 'Al-Batin', lao: 'ພຣະຜູ້ຊົງປິດບັງ' },
-  { id: 77, arabic: 'الوالي', transliteration: 'Al-Wali', lao: 'ພຣະຜູ້ຊົງປົກຄອງ' },
-  { id: 78, arabic: 'المتعالي', transliteration: 'Al-Muta’ali', lao: 'ພຣະຜູ້ຊົງສູງສົ່ງຍິ່ງ' },
-  { id: 79, arabic: 'البر', transliteration: 'Al-Barr', lao: 'ພຣະຜູ້ຊົງໃຈບຸນຍິ່ງ' },
-  { id: 80, arabic: 'التواب', transliteration: 'At-Tawwab', lao: 'ພຣະຜູ້ຊົງຮັບການກັບຕົວ' },
-  { id: 81, arabic: 'المنتقم', transliteration: 'Al-Muntaqim', lao: 'ພຣະຜູ້ຊົງລົງໂທດ' },
-  { id: 82, arabic: 'العفو', transliteration: 'Al-Afuww', lao: 'ພຣະຜູ້ຊົງອະໄພຍະໂທດ' },
-  { id: 83, arabic: 'الرؤوف', transliteration: 'Ar-Ra’uf', lao: 'ພຣະຜູ້ຊົງເມດຕາປານີ' },
-  { id: 84, arabic: 'مالك الملك', transliteration: 'Malik-ul-Mulk', lao: 'ພຣະຜູ້ຊົງເປັນເຈົ້າຂອງອຳນາດ' },
-  { id: 85, arabic: 'ذو الجلال والإكرام', transliteration: 'Dhul-Jalali wal-Ikram', lao: 'ພຣະຜູ້ຊົງມີຄວາມຍິ່ງໃຫຍ່ ແລະ ກຽດຕິຍົດ' },
-  { id: 86, arabic: 'المقسط', transliteration: 'Al-Muqsit', lao: 'ພຣະຜູ້ຊົງຍຸດຕິທຳຍິ່ງ' },
-  { id: 87, arabic: 'الجامع', transliteration: 'Al-Jami’', lao: 'ພຣະຜູ້ຊົງຮວບຮວມ' },
-  { id: 88, arabic: 'الغني', transliteration: 'Al-Ghaniyy', lao: 'ພຣະຜູ້ຊົງຮັ່ງມີ' },
-  { id: 89, arabic: 'المغني', transliteration: 'Al-Mughni', lao: 'ພຣະຜູ້ຊົງປະທານຄວາມຮັ່ງມີ' },
-  { id: 90, arabic: 'المانع', transliteration: 'Al-Mani’', lao: 'ພຣະຜູ້ຊົງຍັບຍັ້ງ' },
-  { id: 91, arabic: 'الضار', transliteration: 'Ad-Darr', lao: 'ພຣະຜູ້ຊົງປະທານຄວາມລຳບາກ' },
-  { id: 92, arabic: 'النافع', transliteration: 'An-Nafi’', lao: 'ພຣະຜູ້ຊົງປະທານຄຸນປະໂຫຍດ' },
-  { id: 93, arabic: 'النور', transliteration: 'An-Nur', lao: 'ພຣະຜູ້ຊົງເປັນແສງສະຫວ່າງ' },
-  { id: 94, arabic: 'الهادي', transliteration: 'Al-Hadi', lao: 'ພຣະຜູ້ຊົງຊີ້ນຳ' },
-  { id: 95, arabic: 'البديع', transliteration: 'Al-Badi’', lao: 'ພຣະຜູ້ຊົງປະດິດສ້າງ' },
-  { id: 96, arabic: 'الباقي', transliteration: 'Al-Baqi', lao: 'ພຣະຜູ້ຊົງເປັນອະມະຕະ' },
-  { id: 97, arabic: 'الوارث', transliteration: 'Al-Warith', lao: 'ພຣະຜູ້ຊົງເປັນຜູ້ຮັບມໍລະດົກ' },
-  { id: 98, arabic: 'الرشيد', transliteration: 'Ar-Rashid', lao: 'ພຣະຜູ້ຊົງທ່ຽງທຳ' },
-  { id: 99, arabic: 'الصبور', transliteration: 'As-Sabur', lao: 'ພຣະຜູ້ຊົງມີຄວາມອົດທົນ' },
+  { 
+    id: 1, 
+    arabic: 'الرحمن', 
+    transliteration: 'Ar-Rahman', 
+    lao: 'ພຣະຜູ້ຊົງກະລຸນາປານີ',
+    description: 'ພຣະອົງຜູ້ຊົງມີຄວາມເມດຕາກະລຸນາຢ່າງກວ້າງຂວາງແກ່ທຸກສັນພະສິ່ງໃນໂລກນີ້ ບໍ່ວ່າຈະເປັນຜູ້ສັດທາ ຫຼື ບໍ່ສັດທາກໍຕາມ.'
+  },
+  { 
+    id: 2, 
+    arabic: 'الرحيم', 
+    transliteration: 'Ar-Rahim', 
+    lao: 'ພຣະຜູ້ຊົງເມດຕາສະເໝີ',
+    description: 'ພຣະອົງຜູ້ຊົງມີຄວາມເມດຕາເປັນພິເສດ ແລະ ສະເພາະເຈາະຈົງແກ່ບັນດາຜູ້ສັດທາໃນໂລກໜ້າ.'
+  },
+  { 
+    id: 3, 
+    arabic: 'الملك', 
+    transliteration: 'Al-Malik', 
+    lao: 'ພຣະຜູ້ຊົງອຳນາດຍິ່ງໃຫຍ່',
+    description: 'ພຣະອົງຜູ້ຊົງເປັນເຈົ້າຂອງ ແລະ ຜູ້ປົກຄອງສາກົນລະໂລກຢ່າງແທ້ຈິງ ໂດຍບໍ່ມີສິ່ງໃດມາທຽບຄຽງໄດ້.'
+  },
+  { 
+    id: 4, 
+    arabic: 'القدوس', 
+    transliteration: 'Al-Quddus', 
+    lao: 'ພຣະຜູ້ຊົງບໍລິສຸດຍິ່ງ',
+    description: 'ພຣະອົງຜູ້ຊົງບໍລິສຸດຈາກທຸກໆຂໍ້ບົກພ່ອງ ແລະ ມົນທິນທັງປວງ.'
+  },
+  { 
+    id: 5, 
+    arabic: 'السلام', 
+    transliteration: 'As-Salam', 
+    lao: 'ພຣະຜູ້ຊົງປະທານຄວາມສັນຕິ',
+    description: 'ພຣະອົງຜູ້ຊົງເປັນແຫຼ່ງກຳເນີດແຫ່ງຄວາມສັນຕິສຸກ ແລະ ຄວາມປອດໄພ.'
+  },
+  { 
+    id: 6, 
+    arabic: 'المؤمن', 
+    transliteration: 'Al-Mu’min', 
+    lao: 'ພຣະຜູ້ຊົງປະທານຄວາມປອດໄພ',
+    description: 'ພຣະອົງຜູ້ຊົງຢືນຢັນຄວາມຈິງ ແລະ ປະທານຄວາມປອດໄພໃຫ້ແກ່ຜູ້ທີ່ສັດທາຕໍ່ພຣະອົງ.'
+  },
+  { 
+    id: 7, 
+    arabic: 'المهيمن', 
+    transliteration: 'Al-Muhaymin', 
+    lao: 'ພຣະຜູ້ຊົງຄຸ້ມຄອງເບິ່ງແຍງ',
+    description: 'ພຣະອົງຜູ້ຊົງເຝົ້າເບິ່ງ, ຄຸ້ມຄອງ ແລະ ປົກປ້ອງທຸກສິ່ງທຸກຢ່າງດ້ວຍຄວາມຮອບຮູ້.'
+  },
+  { 
+    id: 8, 
+    arabic: 'العزيز', 
+    transliteration: 'Al-Aziz', 
+    lao: 'ພຣະຜູ້ຊົງພະລານຸພາບ',
+    description: 'ພຣະອົງຜູ້ຊົງມີອຳນາດເໜືອກວ່າທຸກສິ່ງ ແລະ ບໍ່ມີໃຜສາມາດເອົາຊະນະພຣະອົງໄດ້.'
+  },
+  { 
+    id: 9, 
+    arabic: 'الجبار', 
+    transliteration: 'Al-Jabbar', 
+    lao: 'ພຣະຜູ້ຊົງມີອຳນາດບັງຄັບ',
+    description: 'ພຣະອົງຜູ້ຊົງມີອຳນາດເໜືອທຸກສິ່ງ ແລະ ຊົງແກ້ໄຂສະຖານະການໃຫ້ດີຂຶ້ນຕາມຄວາມປະສົງ.'
+  },
+  { 
+    id: 10, 
+    arabic: 'المتكبر', 
+    transliteration: 'Al-Mutakabbir', 
+    lao: 'ພຣະຜູ້ຊົງຍິ່ງໃຫຍ່ເກີນບັນຍາຍ',
+    description: 'ພຣະອົງຜູ້ຊົງມີຄວາມຍິ່ງໃຫຍ່ໃນຕົວພຣະອົງເອງ ເໜືອກວ່າສິ່ງສ້າງທັງປວງ.'
+  },
+  { 
+    id: 11, 
+    arabic: 'الخالق', 
+    transliteration: 'Al-Khaliq', 
+    lao: 'ພຣະຜູ້ຊົງສ້າງ',
+    description: 'ພຣະອົງຜູ້ຊົງສ້າງທຸກສິ່ງທຸກຢ່າງຈາກຄວາມວ່າງເປົ່າ ໂດຍບໍ່ມີຕົວຢ່າງມາກ່ອນ.'
+  },
+  { 
+    id: 12, 
+    arabic: 'البارئ', 
+    transliteration: 'Al-Bari’', 
+    lao: 'ພຣະຜູ້ຊົງໃຫ້ກຳເນີດ',
+    description: 'ພຣະອົງຜູ້ຊົງສ້າງທຸກສິ່ງໃຫ້ມີຄວາມສົມບູນແບບ ແລະ ເປັນລະບຽບ.'
+  },
+  { 
+    id: 13, 
+    arabic: 'المصور', 
+    transliteration: 'Al-Musawwir', 
+    lao: 'ພຣະຜູ້ຊົງກຳນົດຮູບຮ່າງ',
+    description: 'ພຣະອົງຜູ້ຊົງອອກແບບ ແລະ ກໍານົດຮູບຮ່າງລັກສະນະຂອງທຸກສິ່ງສ້າງໃຫ້ແຕກຕ່າງກັນ.'
+  },
+  { 
+    id: 14, 
+    arabic: 'الغفار', 
+    transliteration: 'Al-Ghaffar', 
+    lao: 'ພຣະຜູ້ຊົງອະໄພຍະໂທດສະເໝີ',
+    description: 'ພຣະອົງຜູ້ຊົງອະໄພໃນບາບຂອງບ່າວຂອງພຣະອົງຄັ້ງແລ້ວຄັ້ງເລົ່າ.'
+  },
+  { 
+    id: 15, 
+    arabic: 'القهار', 
+    transliteration: 'Al-Qahhar', 
+    lao: 'ພຣະຜູ້ຊົງມີອຳນາດເໜືອທຸກສິ່ງ',
+    description: 'ພຣະອົງຜູ້ຊົງມີອໍານາດເດັດຂາດເໜືອທຸກສັນພະສິ່ງ.'
+  },
+  { 
+    id: 16, 
+    arabic: 'الوهاب', 
+    transliteration: 'Al-Wahhab', 
+    lao: 'ພຣະຜູ້ຊົງປະທານໃຫ້',
+    description: 'ພຣະອົງຜູ້ຊົງປະທານພອນ ແລະ ຂອງຂວັນຕ່າງໆໃຫ້ແກ່ບ່າວຂອງພຣະອົງຢ່າງຫຼວງຫຼາຍໂດຍບໍ່ຫວັງສິ່ງຕອບແທນ.'
+  },
+  { 
+    id: 17, 
+    arabic: 'الرزاق', 
+    transliteration: 'Ar-Razzaq', 
+    lao: 'ພຣະຜູ້ຊົງປະທານປັດໄຈຍັງຊີບ',
+    description: 'ພຣະອົງຜູ້ຊົງປະທານປັດໄຈໃນການດໍາລົງຊີວິດໃຫ້ແກ່ທຸກສິ່ງມີຊີວິດ.'
+  },
+  { 
+    id: 18, 
+    arabic: 'الفتاح', 
+    transliteration: 'Al-Fattah', 
+    lao: 'ພຣະຜູ້ຊົງເປີດຫົນທາງ',
+    description: 'ພຣະອົງຜູ້ຊົງເປີດປະຕູແຫ່ງຄວາມເມດຕາ ແລະ ຊີ້ນຳຫົນທາງແຫ່ງຄວາມສຳເລັດ.'
+  },
+  { 
+    id: 19, 
+    arabic: 'العليم', 
+    transliteration: 'Al-Alim', 
+    lao: 'ພຣະຜູ້ຊົງຮອບຮູ້',
+    description: 'ພຣະອົງຜູ້ຊົງຮອບຮູ້ທຸກສິ່ງທຸກຢ່າງ ທັງທີ່ເປີດເຜີຍ ແລະ ປິດບັງ, ທັງໃນອະດີດ, ປັດຈຸບັນ ແລະ ອະນາຄົດ.'
+  },
+  { 
+    id: 20, 
+    arabic: 'القابض', 
+    transliteration: 'Al-Qabid', 
+    lao: 'ພຣະຜູ້ຊົງຍັບຍັ້ງ',
+    description: 'ພຣະອົງຜູ້ຊົງຍັບຍັ້ງ ຫຼື ຈຳກັດປັດໄຈຍັງຊີບຕາມຄວາມປະສົງ ແລະ ວິຊາປັນຍາຂອງພຣະອົງ.'
+  },
+  { 
+    id: 21, 
+    arabic: 'الباسط', 
+    transliteration: 'Al-Basit', 
+    lao: 'ພຣະຜູ້ຊົງແຜ່ຂະຫຍາຍ',
+    description: 'ພຣະອົງຜູ້ຊົງແຜ່ຂະຫຍາຍ ແລະ ເພີ່ມພູນປັດໄຈຍັງຊີບໃຫ້ແກ່ຜູ້ທີ່ພຣະອົງຊົງປະສົງ.'
+  },
+  { 
+    id: 22, 
+    arabic: 'الخافض', 
+    transliteration: 'Al-Khafid', 
+    lao: 'ພຣະຜູ້ຊົງເຮັດໃຫ້ຕໍ່າລົງ',
+    description: 'ພຣະອົງຜູ້ຊົງເຮັດໃຫ້ຜູ້ທີ່ທໍລະຍົດ ແລະ ໂອ້ອວດຕ້ອງຕໍ່າຕ້ອຍລົງ.'
+  },
+  { 
+    id: 23, 
+    arabic: 'الرافع', 
+    transliteration: 'Ar-Rafi’', 
+    lao: 'ພຣະຜູ້ຊົງຍົກໃຫ້ສູງຂຶ້ນ',
+    description: 'ພຣະອົງຜູ້ຊົງຍົກລະດັບ ແລະ ຖານະຂອງຜູ້ທີ່ສັດທາ ແລະ ຢຳເກງໃຫ້ສູງຂຶ້ນ.'
+  },
+  { 
+    id: 24, 
+    arabic: 'المعز', 
+    transliteration: 'Al-Mu’izz', 
+    lao: 'ພຣະຜູ້ຊົງໃຫ້ກຽດ',
+    description: 'ພຣະອົງຜູ້ຊົງປະທານກຽດຕິຍົດ ແລະ ອຳນາດໃຫ້ແກ່ຜູ້ທີ່ພຣະອົງຊົງປະສົງ.'
+  },
+  { 
+    id: 25, 
+    arabic: 'المذل', 
+    transliteration: 'Al-Mudhill', 
+    lao: 'ພຣະຜູ້ຊົງເຮັດໃຫ້ຕໍ່າຕ້ອຍ',
+    description: 'ພຣະອົງຜູ້ຊົງເຮັດໃຫ້ຜູ້ທີ່ປະຕິເສດຄວາມຈິງຕ້ອງປະສົບກັບຄວາມຕໍ່າຕ້ອຍ.'
+  },
+  { 
+    id: 26, 
+    arabic: 'السميع', 
+    transliteration: 'As-Sami’', 
+    lao: 'ພຣະຜູ້ຊົງໄດ້ຍິນ',
+    description: 'ພຣະອົງຜູ້ຊົງໄດ້ຍິນທຸກສຽງ ບໍ່ວ່າຈະດັງ ຫຼື ຄ່ອຍພຽງໃດກໍຕາມ.'
+  },
+  { 
+    id: 27, 
+    arabic: 'البصير', 
+    transliteration: 'Al-Basir', 
+    lao: 'ພຣະຜູ້ຊົງເຫັນ',
+    description: 'ພຣະອົງຜູ້ຊົງເຫັນທຸກສິ່ງທຸກຢ່າງ ບໍ່ວ່າຈະນ້ອຍ ຫຼື ຊ້ອນເລັ້ນພຽງໃດກໍຕາມ.'
+  },
+  { 
+    id: 28, 
+    arabic: 'الحكم', 
+    transliteration: 'Al-Hakam', 
+    lao: 'ພຣະຜູ້ຊົງເປັນຜູ້ຕັດສິນ',
+    description: 'ພຣະອົງຜູ້ຊົງເປັນຜູ້ຕັດສິນທີ່ເດັດຂາດ ແລະ ບໍ່ມີໃຜສາມາດຄັດຄ້ານຄໍາຕັດສິນຂອງພຣະອົງໄດ້.'
+  },
+  { 
+    id: 29, 
+    arabic: 'العدل', 
+    transliteration: 'Al-Adl', 
+    lao: 'ພຣະຜູ້ຊົງຍຸດຕິທຳ',
+    description: 'ພຣະອົງຜູ້ຊົງມີຄວາມຍຸດຕິທຳຢ່າງສົມບູນແບບໃນທຸກການກະທຳ.'
+  },
+  { 
+    id: 30, 
+    arabic: 'اللطيف', 
+    transliteration: 'Al-Latif', 
+    lao: 'ພຣະຜູ້ຊົງອ່ອນໂຍນ',
+    description: 'ພຣະອົງຜູ້ຊົງອ່ອນໂຍນ, ລະອຽດອ່ອນ ແລະ ຊົງມອບສິ່ງດີໆໃຫ້ບ່າວໂດຍທີ່ບ່າວບໍ່ຮູ້ຕົວ.'
+  },
+  { 
+    id: 31, 
+    arabic: 'الخبير', 
+    transliteration: 'Al-Khabir', 
+    lao: 'ພຣະຜູ້ຊົງຮູ້ເບື້ອງລຶກ',
+    description: 'ພຣະອົງຜູ້ຊົງຮອບຮູ້ເຖິງລາຍລະອຽດທີ່ເລິກເຊິ່ງ ແລະ ຄວາມລັບທັງປວງ.'
+  },
+  { 
+    id: 32, 
+    arabic: 'الحليم', 
+    transliteration: 'Al-Halim', 
+    lao: 'ພຣະຜູ້ຊົງຜ່ອນປົນ',
+    description: 'ພຣະອົງຜູ້ຊົງມີຄວາມອົດທົນ ແລະ ບໍ່ຮີບຮ້ອນລົງໂທດຜູ້ທີ່ກະທຳຜິດ.'
+  },
+  { 
+    id: 33, 
+    arabic: 'العظيم', 
+    transliteration: 'Al-Azim', 
+    lao: 'ພຣະຜູ້ຊົງຍິ່ງໃຫຍ່',
+    description: 'ພຣະອົງຜູ້ຊົງມີຄວາມຍິ່ງໃຫຍ່ເກີນກວ່າທີ່ສະຕິປັນຍາຂອງມະນຸດຈະເຂົ້າເຖິງ.'
+  },
+  { 
+    id: 34, 
+    arabic: 'الغفور', 
+    transliteration: 'Al-Ghafur', 
+    lao: 'ພຣະຜູ້ຊົງອະໄພ',
+    description: 'ພຣະອົງຜູ້ຊົງອະໄພບາບຢ່າງຫຼວງຫຼາຍໃຫ້ແກ່ບ່າວຂອງພຣະອົງ.'
+  },
+  { 
+    id: 35, 
+    arabic: 'الشكور', 
+    transliteration: 'Ash-Shakur', 
+    lao: 'ພຣະຜູ້ຊົງເຫັນຄຸນຄ່າ',
+    description: 'ພຣະອົງຜູ້ຊົງຕອບແທນການກະທຳທີ່ດີພຽງເລັກນ້ອຍດ້ວຍລາງວັນອັນມະຫາສານ.'
+  },
+  { 
+    id: 36, 
+    arabic: 'العلي', 
+    transliteration: 'Al-Aliyy', 
+    lao: 'ພຣະຜູ້ຊົງສູງສົ່ງ',
+    description: 'ພຣະອົງຜູ້ຊົງມີຖານະ ແລະ ຄຸນລັກສະນະທີ່ສູງສົ່ງເໜືອກວ່າທຸກສິ່ງ.'
+  },
+  { 
+    id: 37, 
+    arabic: 'الكبير', 
+    transliteration: 'Al-Kabir', 
+    lao: 'ພຣະຜູ້ຊົງໃຫຍ່ຫຼວງ',
+    description: 'ພຣະອົງຜູ້ຊົງມີຄວາມຍິ່ງໃຫຍ່ໃນທຸກດ້ານຂອງຄວາມເປັນພຣະເຈົ້າ.'
+  },
+  { 
+    id: 38, 
+    arabic: 'الحفيظ', 
+    transliteration: 'Al-Hafiz', 
+    lao: 'ພຣະຜູ້ຊົງຮັກສາ',
+    description: 'ພຣະອົງຜູ້ຊົງຮັກສາ ແລະ ຄຸ້ມຄອງທຸກສິ່ງທຸກຢ່າງໃຫ້ຄົງຢູ່.'
+  },
+  { 
+    id: 39, 
+    arabic: 'المقيت', 
+    transliteration: 'Al-Muqit', 
+    lao: 'ພຣະຜູ້ຊົງປະທານພະລັງ',
+    description: 'ພຣະອົງຜູ້ຊົງປະທານພະລັງ ແລະ ອາຫານກາຍ-ໃຈໃຫ້ແກ່ສິ່ງສ້າງ.'
+  },
+  { 
+    id: 40, 
+    arabic: 'الحسيب', 
+    transliteration: 'Al-Hasib', 
+    lao: 'ພຣະຜູ້ຊົງໄລ່ລຽງ',
+    description: 'ພຣະອົງຜູ້ຊົງກວດສອບ ແລະ ໄລ່ລຽງການກະທຳຂອງບ່າວຢ່າງຄົບຖ້ວນ.'
+  },
+  { 
+    id: 41, 
+    arabic: 'الجليل', 
+    transliteration: 'Al-Jalil', 
+    lao: 'ພຣະຜູ້ຊົງສະຫງ່າງາມ',
+    description: 'ພຣະອົງຜູ້ຊົງມີຄວາມສະຫງ່າງາມ ແລະ ຍິ່ງໃຫຍ່ໃນຄຸນລັກສະນະຂອງພຣະອົງ.'
+  },
+  { 
+    id: 42, 
+    arabic: 'الكريم', 
+    transliteration: 'Al-Karim', 
+    lao: 'ພຣະຜູ້ຊົງໃຈບຸນ',
+    description: 'ພຣະອົງຜູ້ຊົງມີຄວາມໃຈບຸນ ແລະ ມອບສິ່ງດີໆໃຫ້ບ່າວຢ່າງຫຼວງຫຼາຍ.'
+  },
+  { 
+    id: 43, 
+    arabic: 'الرقيب', 
+    transliteration: 'Ar-Raqib', 
+    lao: 'ພຣະຜູ້ຊົງເຝົ້າເບິ່ງ',
+    description: 'ພຣະອົງຜູ້ຊົງເຝົ້າເບິ່ງ ແລະ ຕິດຕາມທຸກການກະທຳຂອງບ່າວຢູ່ສະເໝີ.'
+  },
+  { 
+    id: 44, 
+    arabic: 'المجيب', 
+    transliteration: 'Al-Mujib', 
+    lao: 'ພຣະຜູ້ຊົງຕອບຮັບ',
+    description: 'ພຣະອົງຜູ້ຊົງຕອບຮັບຄຳວິງວອນ (ດຸອາ) ຂອງຜູ້ທີ່ຮ້ອງຂໍຕໍ່ພຣະອົງ.'
+  },
+  { 
+    id: 45, 
+    arabic: 'الواسع', 
+    transliteration: 'Al-Wasi’', 
+    lao: 'ພຣະຜູ້ຊົງກວ້າງຂວາງ',
+    description: 'ພຣະອົງຜູ້ຊົງມີຄວາມຮອບຮູ້, ຄວາມເມດຕາ ແລະ ອຳນາດທີ່ກວ້າງຂວາງບໍ່ມີຂອບເຂດ.'
+  },
+  { 
+    id: 46, 
+    arabic: 'الحكيم', 
+    transliteration: 'Al-Hakim', 
+    lao: 'ພຣະຜູ້ຊົງມີວິຊາປັນຍາ',
+    description: 'ພຣະອົງຜູ້ຊົງກະທຳທຸກຢ່າງດ້ວຍວິຊາປັນຍາ ແລະ ມີເຫດຜົນອັນຄວນ.'
+  },
+  { 
+    id: 47, 
+    arabic: 'الودود', 
+    transliteration: 'Al-Wadud', 
+    lao: 'ພຣະຜູ້ຊົງຮັກໃຜ່',
+    description: 'ພຣະອົງຜູ້ຊົງຮັກບ່າວທີ່ສັດທາ ແລະ ຊົງເປັນທີ່ຮັກຂອງບັນດາຜູ້ສັດທາ.'
+  },
+  { 
+    id: 48, 
+    arabic: 'المجيد', 
+    transliteration: 'Al-Majid', 
+    lao: 'ພຣະຜູ້ຊົງມີກຽດ',
+    description: 'ພຣະອົງຜູ້ຊົງມີຄວາມຮຸ່ງເຮືອງ ແລະ ສູງສົ່ງໃນກຽດຕິຍົດ.'
+  },
+  { 
+    id: 49, 
+    arabic: 'الباعث', 
+    transliteration: 'Al-Ba’ith', 
+    lao: 'ພຣະຜູ້ຊົງໃຫ້ຟື້ນຄືນຊີບ',
+    description: 'ພຣະອົງຜູ້ຊົງໃຫ້ມະນຸດຟື້ນຄືນຊີບມາອີກຄັ້ງໃນວັນກິຍາມັດ.'
+  },
+  { 
+    id: 50, 
+    arabic: 'الشهيد', 
+    transliteration: 'Ash-Shahid', 
+    lao: 'ພຣະຜູ້ຊົງເປັນພະຍານ',
+    description: 'ພຣະອົງຜູ້ຊົງເຫັນ ແລະ ເປັນພະຍານຕໍ່ທຸກສິ່ງທີ່ເກີດຂຶ້ນ.'
+  },
+  { 
+    id: 51, 
+    arabic: 'الحق', 
+    transliteration: 'Al-Haqq', 
+    lao: 'ພຣະຜູ້ຊົງເປັນຄວາມຈິງ',
+    description: 'ພຣະອົງຜູ້ຊົງເປັນຄວາມຈິງອັນແທ້ຈິງ ແລະ ໝັ້ນຄົງຕະຫຼອດການ.'
+  },
+  { 
+    id: 52, 
+    arabic: 'الوكيل', 
+    transliteration: 'Al-Wakil', 
+    lao: 'ພຣະຜູ້ຊົງເປັນທີ່ເພິ່ງ',
+    description: 'ພຣະອົງຜູ້ຊົງເປັນຜູ້ທີ່ໄວ້ວາງໃຈໄດ້ດີທີ່ສຸດ ແລະ ຊົງຈັດການທຸກພາລະກິດໃຫ້ບ່າວ.'
+  },
+  { 
+    id: 53, 
+    arabic: 'القوي', 
+    transliteration: 'Al-Qawiyy', 
+    lao: 'ພຣະຜູ້ຊົງແຂງແກ່ນ',
+    description: 'ພຣະອົງຜູ້ຊົງມີກຳລັງ ແລະ ພະລັງອັນມະຫາສານບໍ່ມີສິ້ນສຸດ.'
+  },
+  { 
+    id: 54, 
+    arabic: 'المتين', 
+    transliteration: 'Al-Matin', 
+    lao: 'ພຣະຜູ້ຊົງໝັ້ນຄົງ',
+    description: 'ພຣະອົງຜູ້ຊົງມີຄວາມໝັ້ນຄົງໃນພະລັງ ແລະ ບໍ່ມີສິ່ງໃດເຮັດໃຫ້ພຣະອົງອ່ອນແອໄດ້.'
+  },
+  { 
+    id: 55, 
+    arabic: 'الولي', 
+    transliteration: 'Al-Waliyy', 
+    lao: 'ພຣະຜູ້ຊົງເປັນມິດ',
+    description: 'ພຣະອົງຜູ້ຊົງເປັນມິດ, ຜູ້ຊ່ວຍເຫຼືອ ແລະ ຜູ້ປົກປ້ອງບັນດາຜູ້ສັດທາ.'
+  },
+  { 
+    id: 56, 
+    arabic: 'الحميد', 
+    transliteration: 'Al-Hamid', 
+    lao: 'ພຣະຜູ້ຊົງໄດ້ຮັບການສັນລະເສີນ',
+    description: 'ພຣະອົງຜູ້ຊົງຄວນຄ່າແກ່ການສັນລະເສີນໃນຕົວພຣະອົງເອງ.'
+  },
+  { 
+    id: 57, 
+    arabic: 'المحصي', 
+    transliteration: 'Al-Muhsi', 
+    lao: 'ພຣະຜູ້ຊົງນັບທຸກສິ່ງ',
+    description: 'ພຣະອົງຜູ້ຊົງນັບ ແລະ ບັນທຶກທຸກສິ່ງຢ່າງລະອຽດ.'
+  },
+  { 
+    id: 58, 
+    arabic: 'المبدئ', 
+    transliteration: 'Al-Mubdi’', 
+    lao: 'ພຣະຜູ້ຊົງເລີ່ມຕົ້ນ',
+    description: 'ພຣະອົງຜູ້ຊົງເປັນຜູ້ເລີ່ມຕົ້ນການສ້າງທຸກສິ່ງທຸກຢ່າງ.'
+  },
+  { 
+    id: 59, 
+    arabic: 'المعيد', 
+    transliteration: 'Al-Mu’id', 
+    lao: 'ພຣະຜູ້ຊົງໃຫ້ກັບຄືນມາ',
+    description: 'ພຣະອົງຜູ້ຊົງໃຫ້ສິ່ງສ້າງກັບຄືນມາໃໝ່ຫຼັງຈາກທີ່ມັນຕາຍໄປ.'
+  },
+  { 
+    id: 60, 
+    arabic: 'المحيي', 
+    transliteration: 'Al-Muhyi', 
+    lao: 'ພຣະຜູ້ຊົງໃຫ້ມີຊີວິດ',
+    description: 'ພຣະອົງຜູ້ຊົງປະທານຊີວິດໃຫ້ແກ່ສິ່ງສ້າງທັງປວງ.'
+  },
+  { 
+    id: 61, 
+    arabic: 'المميت', 
+    transliteration: 'Al-Mumit', 
+    lao: 'ພຣະຜູ້ຊົງໃຫ້ຕາຍ',
+    description: 'ພຣະອົງຜູ້ຊົງເປັນຜູ້ກຳນົດຄວາມຕາຍໃຫ້ແກ່ສິ່ງມີຊີວິດ.'
+  },
+  { 
+    id: 62, 
+    arabic: 'الحي', 
+    transliteration: 'Al-Hayy', 
+    lao: 'ພຣະຜູ້ຊົງມີຊີວິດອະມະຕະ',
+    description: 'ພຣະອົງຜູ້ຊົງມີຊີວິດຢູ່ຕະຫຼອດການ ແລະ ບໍ່ມີວັນຕາຍ.'
+  },
+  { 
+    id: 63, 
+    arabic: 'القيوم', 
+    transliteration: 'Al-Qayyum', 
+    lao: 'ພຣະຜູ້ຊົງດຳລົງຢູ່ດ້ວຍພຣະອົງເອງ',
+    description: 'ພຣະອົງຜູ້ຊົງດໍາລົງຢູ່ໄດ້ດ້ວຍພຣະອົງເອງ ແລະ ຊົງຄຸ້ມຄອງທຸກສິ່ງໃຫ້ຄົງຢູ່.'
+  },
+  { 
+    id: 64, 
+    arabic: 'الواجد', 
+    transliteration: 'Al-Wajid', 
+    lao: 'ພຣະຜູ້ຊົງຄົ້ນພົບ',
+    description: 'ພຣະອົງຜູ້ຊົງພົບທຸກສິ່ງທີ່ພຣະອົງຊົງປະສົງ ໂດຍບໍ່ມີສິ່ງໃດພົ້ນສາຍຕາ.'
+  },
+  { 
+    id: 65, 
+    arabic: 'الماجد', 
+    transliteration: 'Al-Majid', 
+    lao: 'ພຣະຜູ້ຊົງສູງສົ່ງ',
+    description: 'ພຣະອົງຜູ້ຊົງມີຄວາມສູງສົ່ງ ແລະ ກຽດຕິຍົດອັນຍິ່ງໃຫຍ່.'
+  },
+  { 
+    id: 66, 
+    arabic: 'الواحد', 
+    transliteration: 'Al-Wahid', 
+    lao: 'ພຣະຜູ້ຊົງເປັນໜຶ່ງ',
+    description: 'ພຣະອົງຜູ້ຊົງເປັນໜຶ່ງດຽວໃນຕົວຕົນ ແລະ ຄຸນລັກສະນະ.'
+  },
+  { 
+    id: 67, 
+    arabic: 'الاحد', 
+    transliteration: 'Al-Ahad', 
+    lao: 'ພຣະຜູ້ຊົງເອກະ',
+    description: 'ພຣະອົງຜູ້ຊົງເປັນໜຶ່ງດຽວຢ່າງແທ້ຈິງ ບໍ່ມີສິ່ງໃດມາທຽບຄຽງ.'
+  },
+  { 
+    id: 68, 
+    arabic: 'الصمد', 
+    transliteration: 'As-Samad', 
+    lao: 'ພຣະຜູ້ຊົງເປັນທີ່ຕ້ອງການ',
+    description: 'ພຣະອົງຜູ້ຊົງເປັນທີ່ເພິ່ງພາຂອງທຸກສັນພະສິ່ງ.'
+  },
+  { 
+    id: 69, 
+    arabic: 'القادر', 
+    transliteration: 'Al-Qadir', 
+    lao: 'ພຣະຜູ້ຊົງມີອໍານາດ',
+    description: 'ພຣະອົງຜູ້ຊົງມີອຳນາດເໜືອທຸກສິ່ງທຸກຢ່າງ.'
+  },
+  { 
+    id: 70, 
+    arabic: 'المقتدر', 
+    transliteration: 'Al-Muqtadir', 
+    lao: 'ພຣະຜູ້ຊົງມີອານຸພາບ',
+    description: 'ພຣະອົງຜູ້ຊົງມີອຳນາດອັນລົ້ນເຫຼືອໃນການບັນດານທຸກສິ່ງ.'
+  },
+  { 
+    id: 71, 
+    arabic: 'المقدم', 
+    transliteration: 'Al-Muqaddim', 
+    lao: 'ພຣະຜູ້ຊົງນຳໜ້າ',
+    description: 'ພຣະອົງຜູ້ຊົງໃຫ້ສິ່ງໃດໜຶ່ງມາກ່ອນຕາມຄວາມປະສົງ.'
+  },
+  { 
+    id: 72, 
+    arabic: 'المؤخر', 
+    transliteration: 'Al-Mu’akhkhir', 
+    lao: 'ພຣະຜູ້ຊົງໄວ້ເບື້ອງຫຼັງ',
+    description: 'ພຣະອົງຜູ້ຊົງໃຫ້ສິ່ງໃດໜຶ່ງໄວ້ເບື້ອງຫຼັງຕາມຄວາມປະສົງ.'
+  },
+  { 
+    id: 73, 
+    arabic: 'الأول', 
+    transliteration: 'Al-Awwal', 
+    lao: 'ພຣະຜູ້ຊົງເປັນຜູ້ທຳອິດ',
+    description: 'ພຣະອົງຜູ້ຊົງຢູ່ກ່ອນທຸກສິ່ງທຸກຢ່າງ ໂດຍບໍ່ມີຈຸດເລີ່ມຕົ້ນ.'
+  },
+  { 
+    id: 74, 
+    arabic: 'الأخر', 
+    transliteration: 'Al-Akhir', 
+    lao: 'ພຣະຜູ້ຊົງເປັນຜູ້ສຸດທ້າຍ',
+    description: 'ພຣະອົງຜູ້ຊົງຢູ່ຫຼັງຈາກທຸກສິ່ງດັບສູນ ໂດຍບໍ່ມີຈຸດສິ້ນສຸດ.'
+  },
+  { 
+    id: 75, 
+    arabic: 'الظاهر', 
+    transliteration: 'Az-Zahir', 
+    lao: 'ພຣະຜູ້ຊົງເປີດເຜີຍ',
+    description: 'ພຣະອົງຜູ້ຊົງປາກົດແຈ້ງດ້ວຍສັນຍານຕ່າງໆຂອງພຣະອົງ.'
+  },
+  { 
+    id: 76, 
+    arabic: 'الباطن', 
+    transliteration: 'Al-Batin', 
+    lao: 'ພຣະຜູ້ຊົງປິດບັງ',
+    description: 'ພຣະອົງຜູ້ຊົງຊ້ອນເລັ້ນຈາກການເຫັນດ້ວຍສາຍຕາມະນຸດໃນໂລກນີ້.'
+  },
+  { 
+    id: 77, 
+    arabic: 'الوالي', 
+    transliteration: 'Al-Wali', 
+    lao: 'ພຣະຜູ້ຊົງປົກຄອງ',
+    description: 'ພຣະອົງຜູ້ຊົງປົກຄອງ ແລະ ຈັດການທຸກສິ່ງໃນຈັກກະວານ.'
+  },
+  { 
+    id: 78, 
+    arabic: 'المتعالي', 
+    transliteration: 'Al-Muta’ali', 
+    lao: 'ພຣະຜູ້ຊົງສູງສົ່ງຍິ່ງ',
+    description: 'ພຣະອົງຜູ້ຊົງສູງສົ່ງເໜືອກວ່າທຸກການນຶກຄິດຂອງສິ່ງສ້າງ.'
+  },
+  { 
+    id: 79, 
+    arabic: 'البر', 
+    transliteration: 'Al-Barr', 
+    lao: 'ພຣະຜູ້ຊົງໃຈບຸນຍິ່ງ',
+    description: 'ພຣະອົງຜູ້ຊົງມີຄວາມເມດຕາ ແລະ ປະທານສິ່ງດີໆໃຫ້ບ່າວຢູ່ສະເໝີ.'
+  },
+  { 
+    id: 80, 
+    arabic: 'التواب', 
+    transliteration: 'At-Tawwab', 
+    lao: 'ພຣະຜູ້ຊົງຮັບການກັບຕົວ',
+    description: 'ພຣະອົງຜູ້ຊົງຮັບການກັບເນື້ອຕົວ (ເຕົາບັດ) ຂອງບ່າວ.'
+  },
+  { 
+    id: 81, 
+    arabic: 'المنتقم', 
+    transliteration: 'Al-Muntaqim', 
+    lao: 'ພຣະຜູ້ຊົງລົງໂທດ',
+    description: 'ພຣະອົງຜູ້ຊົງລົງໂທດຜູ້ທີ່ລະເມີດ ແລະ ບໍ່ຍອມຮັບຄວາມຈິງ.'
+  },
+  { 
+    id: 82, 
+    arabic: 'العفو', 
+    transliteration: 'Al-Afuww', 
+    lao: 'ພຣະຜູ້ຊົງອະໄພຍະໂທດ',
+    description: 'ພຣະອົງຜູ້ຊົງລົບລ້າງບາບ ແລະ ອະໄພໃຫ້ແກ່ບ່າວ.'
+  },
+  { 
+    id: 83, 
+    arabic: 'الرؤوف', 
+    transliteration: 'Ar-Ra’uf', 
+    lao: 'ພຣະຜູ້ຊົງເມດຕາປານີ',
+    description: 'ພຣະອົງຜູ້ຊົງມີຄວາມເມດຕາ ແລະ ສົງສານບ່າວຢ່າງຍິ່ງ.'
+  },
+  { 
+    id: 84, 
+    arabic: 'مالك الملك', 
+    transliteration: 'Malik-ul-Mulk', 
+    lao: 'ພຣະຜູ້ຊົງເປັນເຈົ້າຂອງອຳນາດ',
+    description: 'ພຣະອົງຜູ້ຊົງເປັນເຈົ້າຂອງອໍານາດ ແລະ ການປົກຄອງທັງປວງ.'
+  },
+  { 
+    id: 85, 
+    arabic: 'ذو الجلال والإكرام', 
+    transliteration: 'Dhul-Jalali wal-Ikram', 
+    lao: 'ພຣະຜູ້ຊົງມີຄວາມຍິ່ງໃຫຍ່ ແລະ ກຽດຕິຍົດ',
+    description: 'ພຣະອົງຜູ້ຊົງມີຄວາມຍິ່ງໃຫຍ່ ແລະ ສົມຄວນໄດ້ຮັບການໃຫ້ກຽດ.'
+  },
+  { 
+    id: 86, 
+    arabic: 'المقسط', 
+    transliteration: 'Al-Muqsit', 
+    lao: 'ພຣະຜູ້ຊົງຍຸດຕິທຳຍິ່ງ',
+    description: 'ພຣະອົງຜູ້ຊົງໃຫ້ຄວາມຍຸດຕິທຳແກ່ທຸກຝ່າຍ.'
+  },
+  { 
+    id: 87, 
+    arabic: 'الجامع', 
+    transliteration: 'Al-Jami’', 
+    lao: 'ພຣະຜູ້ຊົງຮວບຮວມ',
+    description: 'ພຣະອົງຜູ້ຊົງຮວບຮວມທຸກສິ່ງສ້າງມາລວມກັນໃນວັນກິຍາມັດ.'
+  },
+  { 
+    id: 88, 
+    arabic: 'الغني', 
+    transliteration: 'Al-Ghaniyy', 
+    lao: 'ພຣະຜູ້ຊົງຮັ່ງມີ',
+    description: 'ພຣະອົງຜູ້ຊົງຮັ່ງມີ ແລະ ບໍ່ຕ້ອງການສິ່ງໃດຈາກສິ່ງສ້າງ.'
+  },
+  { 
+    id: 89, 
+    arabic: 'المغني', 
+    transliteration: 'Al-Mughni', 
+    lao: 'ພຣະຜູ້ຊົງປະທານຄວາມຮັ່ງມີ',
+    description: 'ພຣະອົງຜູ້ຊົງປະທານຄວາມພໍພຽງ ແລະ ຄວາມຮັ່ງມີໃຫ້ແກ່ບ່າວ.'
+  },
+  { 
+    id: 90, 
+    arabic: 'المانع', 
+    transliteration: 'Al-Mani’', 
+    lao: 'ພຣະຜູ້ຊົງຍັບຍັ້ງ',
+    description: 'ພຣະອົງຜູ້ຊົງຍັບຍັ້ງ ຫຼື ປ້ອງກັນສິ່ງໃດໜຶ່ງຕາມວິຊາປັນຍາຂອງພຣະອົງ.'
+  },
+  { 
+    id: 91, 
+    arabic: 'الضار', 
+    transliteration: 'Ad-Darr', 
+    lao: 'ພຣະຜູ້ຊົງປະທານຄວາມລຳບາກ',
+    description: 'ພຣະອົງຜູ້ຊົງກຳນົດໃຫ້ເກີດຄວາມລຳບາກເພື່ອເປັນການທົດສອບ.'
+  },
+  { 
+    id: 92, 
+    arabic: 'النافع', 
+    transliteration: 'An-Nafi’', 
+    lao: 'ພຣະຜູ້ຊົງປະທານຄຸນປະໂຫຍດ',
+    description: 'ພຣະອົງຜູ້ຊົງປະທານຄຸນປະໂຫຍດໃຫ້ແກ່ຜູ້ທີ່ພຣະອົງຊົງປະສົງ.'
+  },
+  { 
+    id: 93, 
+    arabic: 'النور', 
+    transliteration: 'An-Nur', 
+    lao: 'ພຣະຜູ້ຊົງເປັນແສງສະຫວ່າງ',
+    description: 'ພຣະອົງຜູ້ຊົງເປັນແສງສະຫວ່າງແຫ່ງທາງນຳ ແລະ ຊັ້ນຟ້າ-ແຜ່ນດິນ.'
+  },
+  { 
+    id: 94, 
+    arabic: 'الهادي', 
+    transliteration: 'Al-Hadi', 
+    lao: 'ພຣະຜູ້ຊົງຊີ້ນຳ',
+    description: 'ພຣະອົງຜູ້ຊົງຊີ້ນຳຫົນທາງທີ່ຖືກຕ້ອງໃຫ້ແກ່ບ່າວ.'
+  },
+  { 
+    id: 95, 
+    arabic: 'البديع', 
+    transliteration: 'Al-Badi’', 
+    lao: 'ພຣະຜູ້ຊົງປະດິດສ້າງ',
+    description: 'ພຣະອົງຜູ້ຊົງສ້າງທຸກສິ່ງດ້ວຍຄວາມປະນີດໂດຍບໍ່ມີຕົວຢ່າງມາກ່ອນ.'
+  },
+  { 
+    id: 96, 
+    arabic: 'الباقي', 
+    transliteration: 'Al-Baqi', 
+    lao: 'ພຣະຜູ້ຊົງເປັນອະມະຕະ',
+    description: 'ພຣະອົງຜູ້ຊົງຄົງຢູ່ຕະຫຼອດການ ເຖິງແມ່ນທຸກສິ່ງຈະດັບສູນ.'
+  },
+  { 
+    id: 97, 
+    arabic: 'الوارث', 
+    transliteration: 'Al-Warith', 
+    lao: 'ພຣະຜູ້ຊົງເປັນຜູ້ຮັບມໍລະດົກ',
+    description: 'ພຣະອົງຜູ້ຊົງເປັນຜູ້ທີ່ຍັງຄົງຢູ່ຫຼັງຈາກທີ່ທຸກສິ່ງສິ້ນສຸດລົງ.'
+  },
+  { 
+    id: 98, 
+    arabic: 'الرشيد', 
+    transliteration: 'Ar-Rashid', 
+    lao: 'ພຣະຜູ້ຊົງທ່ຽງທຳ',
+    description: 'ພຣະອົງຜູ້ຊົງຊີ້ນຳສູ່ແນວທາງທີ່ຖືກຕ້ອງ ແລະ ທ່ຽງທຳ.'
+  },
+  { 
+    id: 99, 
+    arabic: 'الصبور', 
+    transliteration: 'As-Sabur', 
+    lao: 'ພຣະຜູ້ຊົງມີຄວາມອົດທົນ',
+    description: 'ພຣະອົງຜູ້ຊົງມີຄວາມອົດທົນຢ່າງຍິ່ງ ແລະ ບໍ່ຮີບຮ້ອນລົງໂທດ.'
+  },
 ];

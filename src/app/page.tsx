@@ -2,12 +2,18 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Book, Heart, Moon, Sun, Sparkles } from 'lucide-react';
+import { Book, Moon, Sun, Sparkles } from 'lucide-react';
 import { SurahList } from '@/components/quran/SurahList';
 import { SurahDetail } from '@/components/quran/SurahDetail';
 import { Surah } from '@/types/quran';
 import { cn } from '@/lib/utils';
 import { namesOfAllah } from '@/data/namesOfAllah';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export default function App() {
   const [selectedSurah, setSelectedSurah] = useState<Surah | null>(null);
@@ -141,17 +147,30 @@ export default function App() {
                   <SurahList onSelectSurah={handleSelectSurah} surahs={surahs} />
                 </>
               ) : (
-                <div className="grid gap-4">
+                <Accordion type="single" collapsible className="space-y-4">
                   {namesOfAllah.map((name) => (
-                    <div key={name.id} className="p-6 bg-card rounded-2xl border border-border flex justify-between items-center shadow-sm">
-                      <div className="space-y-1">
-                        <p className="text-emerald-600 font-bold text-xs uppercase tracking-widest">{name.transliteration}</p>
-                        <h3 className="text-lg font-bold">{name.lao}</h3>
-                      </div>
-                      <div className="arabic-text text-xl text-emerald-600" dir="rtl">{name.arabic}</div>
-                    </div>
+                    <AccordionItem 
+                      key={name.id} 
+                      value={`item-${name.id}`}
+                      className="bg-card rounded-2xl border border-border shadow-sm px-4 overflow-hidden"
+                    >
+                      <AccordionTrigger className="hover:no-underline py-6">
+                        <div className="flex justify-between items-center w-full pr-4">
+                          <div className="text-left">
+                            <p className="text-emerald-600 font-bold text-[10px] uppercase tracking-widest">{name.transliteration}</p>
+                            <h3 className="text-lg font-bold">{name.lao}</h3>
+                          </div>
+                          <div className="arabic-text text-xl text-emerald-600" dir="rtl">{name.arabic}</div>
+                        </div>
+                      </AccordionTrigger>
+                      <AccordionContent className="pb-6 text-muted-foreground leading-relaxed text-sm">
+                        <div className="pt-2 border-t border-border mt-2">
+                          {name.description}
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
                   ))}
-                </div>
+                </Accordion>
               )}
             </motion.div>
           )}
