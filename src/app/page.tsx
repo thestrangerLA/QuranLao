@@ -1,9 +1,8 @@
-
 'use client';
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Book, Heart, Moon, Sun } from 'lucide-react';
+import { Book, Moon, Sun } from 'lucide-react';
 import { SurahList } from '@/components/quran/SurahList';
 import { SurahDetail } from '@/components/quran/SurahDetail';
 import { Surah } from '@/types/quran';
@@ -11,7 +10,6 @@ import { cn } from '@/lib/utils';
 
 export default function App() {
   const [selectedSurah, setSelectedSurah] = useState<Surah | null>(null);
-  const [activeTab, setActiveTab] = useState('home');
   const [surahs, setSurahs] = useState<Surah[] | null>(null);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -145,16 +143,10 @@ export default function App() {
         <nav className="fixed bottom-0 left-0 right-0 bg-card/80 backdrop-blur-lg border-t px-8 py-4 z-50">
           <div className="max-w-md mx-auto flex justify-around items-center">
             <NavButton 
-              active={activeTab === 'home'} 
-              onClick={() => setActiveTab('home')}
+              active={true} 
+              onClick={() => {}}
               icon={<Book className="w-6 h-6" />}
               label="ອ່ານ"
-            />
-            <NavButton 
-              active={activeTab === 'saved'} 
-              onClick={() => setActiveTab('saved')}
-              icon={<Heart className="w-6 h-6" />}
-              label="ບັນທຶກ"
             />
           </div>
         </nav>
