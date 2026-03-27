@@ -1,22 +1,185 @@
+
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Book, Heart, Moon, Sun } from 'lucide-react';
+import { SurahList } from '@/components/quran/SurahList';
+import { SurahDetail } from '@/components/quran/SurahDetail';
+import { Surah } from '@/types/quran';
+import { cn } from '@/lib/utils';
 
 export default function App() {
+  const [selectedSurah, setSelectedSurah] = useState<Surah | null>(null);
+  const [activeTab, setActiveTab] = useState('home');
+  const [surahs, setSurahs] = useState<Surah[] | null>(null);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    // Check initial theme
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initialTheme = savedTheme === 'dark' || (!savedTheme && prefersDark);
+    setIsDarkMode(initialTheme);
+  }, []);
+
+  useEffect(() => {
+    const fetchSurahs = async () => {
+      try {
+        const { getSurahs } = await import('@/services/quranApi');
+        const data = await getSurahs();
+        setSurahs(data);
+        
+        // Handle initial load from hash
+        const hash = window.location.hash;
+        if (hash.startsWith('#surah-')) {
+          const id = parseInt(hash.replace('#surah-', ''));
+          const surah = data.find(s => s.id === id);
+          if (surah) {
+            setSelectedSurah(surah);
+          }
+        }
+      } catch (error) {
+        console.error('Error fetching surahs:', error);
+      }
+    };
+    fetchSurahs();
+  }, []);
+
+  useEffect(() => {
+    if (!surahs) return;
+
+    const handlePopState = (event: PopStateEvent) => {
+      if (event.state?.surahId) {
+        const surah = surahs.find(s => s.id === event.state.surahId);
+        if (surah) {
+          setSelectedSurah(surah);
+        }
+      } else {
+        setSelectedSurah(null);
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, [surahs]);
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [isDarkMode]);
+
+  const handleSelectSurah = (surah: Surah) => {
+    setSelectedSurah(surah);
+    window.history.pushState({ surahId: surah.id }, '', `#surah-${surah.id}`);
+  };
+
+  const handleBack = () => {
+    if (window.history.state?.surahId) {
+      window.history.back();
+    } else {
+      setSelectedSurah(null);
+    }
+  };
+
+  const toggleTheme = () => setIsDarkMode(!isDarkMode);
+
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-background text-foreground font-body p-4 text-center">
-      <h1 className="text-4xl font-bold tracking-tight">Starter Template</h1>
-      <p className="text-muted-foreground mt-4 max-w-md">
-        The project has been reset. You can now start building your new idea from scratch.
-      </p>
-      <div className="mt-8 flex gap-4">
-        <button 
-          className="bg-primary text-primary-foreground px-6 py-2 rounded-md font-medium hover:bg-primary/90 transition-colors"
-          onClick={() => console.log('Get started')}
-        >
-          Get Started
-        </button>
+    <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
+      <div className="max-w-md mx-auto px-4 pt-8 pb-32">
+        <AnimatePresence mode="wait">
+          {!selectedSurah ? (
+            <motion.div
+              key="home"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 20 }}
+              className="space-y-8"
+            >
+              <header className="flex justify-between items-start">
+                <div>
+                  <h1 className="text-3xl font-bold tracking-tight">
+                    ອັລກຸຣ໌ອານ
+                  </h1>
+                  <p className="text-muted-foreground mt-1">ສະບາຍດີ, ຂໍໃຫ້ເປັນມື້ທີ່ດີ</p>
+                </div>
+                <button 
+                  onClick={toggleTheme}
+                  className="p-2 bg-card border border-border rounded-full shadow-sm text-muted-foreground hover:text-primary transition-all active:scale-95"
+                >
+                  {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+                </button>
+              </header>
+
+              <div className="flex gap-4 border-b">
+                <button className="pb-4 border-b-2 border-primary text-primary font-bold text-sm">
+                  ຊູເຣາະ
+                </button>
+              </div>
+
+              <SurahList onSelectSurah={handleSelectSurah} surahs={surahs} />
+            </motion.div>
+          ) : (
+            <motion.div
+              key="detail"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+            >
+              <SurahDetail 
+                surah={selectedSurah} 
+                onBack={handleBack} 
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
+
+      {/* Bottom Navigation */}
+      {!selectedSurah && (
+        <nav className="fixed bottom-0 left-0 right-0 bg-card/80 backdrop-blur-lg border-t px-8 py-4 z-50">
+          <div className="max-w-md mx-auto flex justify-around items-center">
+            <NavButton 
+              active={activeTab === 'home'} 
+              onClick={() => setActiveTab('home')}
+              icon={<Book className="w-6 h-6" />}
+              label="ອ່ານ"
+            />
+            <NavButton 
+              active={activeTab === 'saved'} 
+              onClick={() => setActiveTab('saved')}
+              icon={<Heart className="w-6 h-6" />}
+              label="ບັນທຶກ"
+            />
+          </div>
+        </nav>
+      )}
     </div>
+  );
+}
+
+function NavButton({ active, icon, label, onClick }: { active: boolean, icon: React.ReactNode, label: string, onClick: () => void }) {
+  return (
+    <button 
+      onClick={onClick}
+      className={cn(
+        "flex flex-col items-center gap-1 transition-all",
+        active ? "text-primary scale-110" : "text-muted-foreground hover:text-foreground"
+      )}
+    >
+      {icon}
+      <span className="text-[10px] font-bold uppercase tracking-tighter">{label}</span>
+      {active && (
+        <motion.div 
+          layoutId="nav-indicator"
+          className="w-1 h-1 bg-primary rounded-full mt-0.5"
+        />
+      )}
+    </button>
   );
 }
