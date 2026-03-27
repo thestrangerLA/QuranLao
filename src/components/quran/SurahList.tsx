@@ -85,7 +85,7 @@ export const SurahList: React.FC<SurahListProps> = ({ onSelectSurah, surahs: ini
               </p>
             </div>
             <div className="text-right mr-4">
-              <div className="arabic-text text-2xl text-emerald-600">{surah.name_arabic}</div>
+              <div className="arabic-text text-xl text-emerald-600" dir="rtl">{surah.name_arabic}</div>
             </div>
             <ChevronRight className="text-muted group-hover:text-emerald-500 transition-colors" />
           </motion.button>
