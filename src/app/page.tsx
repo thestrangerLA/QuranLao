@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Book, Moon, Sun, Sparkles, LayoutList, ChevronRight, Quote } from 'lucide-react';
+import { Book, Moon, Sun, Sparkles, LayoutList, ChevronRight, Quote, MessageSquareQuote } from 'lucide-react';
 import { SurahList } from '@/components/quran/SurahList';
 import { SurahDetail } from '@/components/quran/SurahDetail';
 import { ArticleDetail } from '@/components/articles/ArticleDetail';
@@ -10,6 +10,7 @@ import { Surah } from '@/types/quran';
 import { cn } from '@/lib/utils';
 import { namesOfAllah } from '@/data/namesOfAllah';
 import { articles } from '@/data/articles';
+import { hadiths } from '@/data/hadiths';
 import {
   Accordion,
   AccordionContent,
@@ -126,6 +127,7 @@ export default function App() {
     switch (activeTab) {
       case 'quran': return 'ອັລກຸຣ໌ອານ';
       case 'names': return 'ພະນາມຂອງອັລລໍຫ໌';
+      case 'hadith': return 'ບົດຮາດີດ';
       case 'articles': return 'ບົດຄວາມຮູ້';
       default: return 'ອັລກຸຣ໌ອານ';
     }
@@ -195,14 +197,14 @@ export default function App() {
 
               {activeTab === 'names' && (
                 <div className="space-y-6">
-                  {/* Hadith Section */}
+                  {/* Hadith Section for Names */}
                   <div className="bg-emerald-600 rounded-3xl p-6 text-white shadow-lg relative overflow-hidden">
                     <div className="absolute top-0 right-0 p-4 opacity-10">
                       <Quote className="w-16 h-16" />
                     </div>
                     <div className="relative z-10">
                       <p className="arabic-text text-sm text-center mb-4 leading-relaxed" dir="rtl">
-                        إِنَّ لِلَّهِ تِسْعَةً وَتِسْعِينَ اسْمًا مِائَةً إِلَّا وَاحِدًا مَنْ أَحْصَاهَا دَخَلَ الْجَنَّةَ
+                        إِنَّ لِلَّهِ تِسْعَةً وَتِسْعِينَ اسْمًا مِائَةً إِلَّا وَاحِدًا مَنْ أَحْصَاهَا دະخَلَ الْجَنَّةَ
                       </p>
                       <p className="text-xs font-medium leading-relaxed italic border-l-2 border-white/30 pl-3">
                         "ແທ້ຈິງແລ້ວ ອັລລໍຫ໌ມີ 99 ພະນາມ, ໜຶ່ງຮ້ອຍລົບໜຶ່ງ. ຜູ້ໃດກໍຕາມທີ່ທ່ອງຈຳ (ຫຼື ເຂົ້າໃຈ ແລະ ປະຕິບັດຕາມ) ພວກມັນ ຈະໄດ້ເຂົ້າສວນສະຫວັນ."
@@ -237,6 +239,40 @@ export default function App() {
                       </AccordionItem>
                     ))}
                   </Accordion>
+                </div>
+              )}
+
+              {activeTab === 'hadith' && (
+                <div className="space-y-6">
+                  <div className="bg-emerald-600 rounded-3xl p-6 text-white shadow-lg mb-8">
+                    <h2 className="text-xl font-bold mb-2">ຮາດີດຄັດສັນ</h2>
+                    <p className="text-emerald-50 text-sm">ຄຳສອນອັນລ້ຳຄ່າຈາກທ່ານນົບພີ ມຸຮຳມັດ (ຊ.ລ) ເພື່ອການດຳເນີນຊີວິດ.</p>
+                  </div>
+                  <div className="space-y-4">
+                    {hadiths.map((hadith) => (
+                      <div key={hadith.id} className="bg-card rounded-2xl p-6 border border-border shadow-sm space-y-4">
+                        <div className="flex justify-between items-start">
+                          <Badge variant="secondary" className="bg-emerald-500/10 text-emerald-600 border-none px-2 py-0.5 text-[10px] font-bold">
+                            {hadith.category}
+                          </Badge>
+                          <span className="text-[10px] text-muted-foreground font-bold uppercase tracking-tighter">
+                            # {hadith.id}
+                          </span>
+                        </div>
+                        <p className="arabic-text text-sm text-right leading-loose text-emerald-600" dir="rtl">
+                          {hadith.arabic}
+                        </p>
+                        <div className="space-y-2">
+                          <p className="text-foreground text-sm leading-relaxed font-medium border-l-2 border-emerald-500/20 pl-3">
+                            "{hadith.lao}"
+                          </p>
+                          <p className="text-[10px] text-muted-foreground text-right italic font-bold">
+                            — {hadith.narrator}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               )}
 
@@ -277,7 +313,7 @@ export default function App() {
       </div>
 
       {!selectedSurah && !selectedArticle && (
-        <nav className="fixed bottom-0 left-0 right-0 bg-card/80 backdrop-blur-lg border-t border-border px-8 py-4 z-50">
+        <nav className="fixed bottom-0 left-0 right-0 bg-card/80 backdrop-blur-lg border-t border-border px-4 py-4 z-50">
           <div className="max-w-md mx-auto flex justify-around items-center">
             <NavButton 
               active={activeTab === 'quran'} 
@@ -290,6 +326,12 @@ export default function App() {
               onClick={() => setActiveTab('names')}
               icon={<Sparkles className="w-5 h-5" />}
               label="ພະນາມ"
+            />
+            <NavButton 
+              active={activeTab === 'hadith'} 
+              onClick={() => setActiveTab('hadith')}
+              icon={<MessageSquareQuote className="w-5 h-5" />}
+              label="ຮາດີດ"
             />
             <NavButton 
               active={activeTab === 'articles'} 
@@ -309,7 +351,7 @@ function NavButton({ active, icon, label, onClick }: { active: boolean, icon: Re
     <button 
       onClick={onClick}
       className={cn(
-        "flex flex-col items-center gap-1 transition-all",
+        "flex flex-col items-center gap-1 transition-all flex-1",
         active ? "text-emerald-600 scale-110" : "text-muted-foreground hover:text-foreground"
       )}
     >
