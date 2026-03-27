@@ -1,12 +1,12 @@
 import type {NextConfig} from 'next';
 
-const repo = process.env.GITHUB_REPOSITORY?.split('/')[1] ?? '';
+const repo = 'QuranLao';
 
 const nextConfig: NextConfig = {
-  /* config options here */
   output: 'export',
-  basePath: repo ? `/${repo}` : '',
-  assetPrefix: repo ? `/${repo}/` : '',
+  // Use repo name for basePath/assetPrefix on production (GitHub Pages)
+  basePath: process.env.NODE_ENV === 'production' ? `/${repo}` : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? `/${repo}/` : '',
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -15,14 +15,6 @@ const nextConfig: NextConfig = {
   },
   images: {
     unoptimized: true,
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'placehold.co',
-        port: '',
-        pathname: '/**',
-      },
-    ],
   },
 };
 

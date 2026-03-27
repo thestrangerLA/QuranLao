@@ -55,6 +55,13 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Mapping app-specific classes to theme variables
+        app: {
+          background: "hsl(var(--background))",
+          foreground: "hsl(var(--foreground))",
+          card: "hsl(var(--card))",
+          border: "hsl(var(--border))",
+        },
         chart: {
           '1': 'hsl(var(--chart-1))',
           '2': 'hsl(var(--chart-2))',
