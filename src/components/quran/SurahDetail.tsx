@@ -123,7 +123,7 @@ export const SurahDetail: React.FC<SurahDetailProps> = ({ surah, onBack }) => {
         className="relative overflow-hidden rounded-3xl bg-emerald-600 p-8 text-white shadow-xl"
       >
         <div className="relative z-10 text-center space-y-4">
-          <div className="arabic-text text-5xl mb-2">{surah.name_arabic}</div>
+          <div className="arabic-text text-5xl mb-2" dir="rtl">{surah.name_arabic}</div>
           <div className="h-px bg-white/20 w-24 mx-auto" />
           <p className="text-emerald-100 font-medium italic">
             {surah.translated_name?.name}
@@ -133,8 +133,8 @@ export const SurahDetail: React.FC<SurahDetailProps> = ({ surah, onBack }) => {
 
       {surah.id !== 1 && surah.id !== 9 && (
         <div className="text-center py-8">
-          <div className="arabic-text text-3xl text-emerald-600">
-            بِسْمِ اللَّهِ الرَّحْمَٰນِ الرَّحِيمِ
+          <div className="arabic-text text-4xl text-emerald-600" dir="rtl">
+            بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
           </div>
           <p className="text-muted text-sm mt-2">In the name of Allah, the Most Gracious, the Most Merciful</p>
         </div>
@@ -155,7 +155,7 @@ export const SurahDetail: React.FC<SurahDetailProps> = ({ surah, onBack }) => {
                   {verse.verse_number}
                 </div>
                 {showArabic && (
-                  <div className="flex-1 text-right">
+                  <div className="flex-1 text-right" dir="rtl">
                     <p className="arabic-text text-3xl leading-[2.5] text-app-foreground">
                       {highlightText(verse.text_uthmani, searchQuery)}
                     </p>
