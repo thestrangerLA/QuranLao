@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Book, Moon, Sun, Sparkles, LayoutList, ChevronRight } from 'lucide-react';
+import { Book, Moon, Sun, Sparkles, LayoutList, ChevronRight, Quote } from 'lucide-react';
 import { SurahList } from '@/components/quran/SurahList';
 import { SurahDetail } from '@/components/quran/SurahDetail';
 import { ArticleDetail } from '@/components/articles/ArticleDetail';
@@ -194,30 +194,50 @@ export default function App() {
               )}
 
               {activeTab === 'names' && (
-                <Accordion type="single" collapsible className="space-y-4">
-                  {namesOfAllah.map((name) => (
-                    <AccordionItem 
-                      key={name.id} 
-                      value={`item-${name.id}`}
-                      className="bg-card rounded-2xl border border-border shadow-sm px-4 overflow-hidden"
-                    >
-                      <AccordionTrigger className="hover:no-underline py-6">
-                        <div className="flex justify-between items-center w-full pr-4">
-                          <div className="text-left">
-                            <p className="text-emerald-600 font-bold text-[10px] uppercase tracking-widest">{name.transliteration}</p>
-                            <h3 className="text-lg font-bold">{name.lao}</h3>
+                <div className="space-y-6">
+                  {/* Hadith Section */}
+                  <div className="bg-emerald-600 rounded-3xl p-6 text-white shadow-lg relative overflow-hidden">
+                    <div className="absolute top-0 right-0 p-4 opacity-10">
+                      <Quote className="w-16 h-16" />
+                    </div>
+                    <div className="relative z-10">
+                      <p className="arabic-text text-sm text-center mb-4 leading-relaxed" dir="rtl">
+                        إِنَّ لِلَّهِ تِسْعَةً وَتِسْعِينَ اسْمًا مِائَةً إِلَّا وَاحِدًا مَنْ أَحْصَاهَا دَخَلَ الْجَنَّةَ
+                      </p>
+                      <p className="text-xs font-medium leading-relaxed italic border-l-2 border-white/30 pl-3">
+                        "ແທ້ຈິງແລ້ວ ອັລລໍຫ໌ມີ 99 ພະນາມ, ໜຶ່ງຮ້ອຍລົບໜຶ່ງ. ຜູ້ໃດກໍຕາມທີ່ທ່ອງຈຳ (ຫຼື ເຂົ້າໃຈ ແລະ ປະຕິບັດຕາມ) ພວກມັນ ຈະໄດ້ເຂົ້າສວນສະຫວັນ."
+                      </p>
+                      <p className="text-[10px] mt-2 opacity-70 text-right">
+                        — ບັນທຶກໂດຍ ບຸຄໍຣີ ແລະ ມຸສລິມ
+                      </p>
+                    </div>
+                  </div>
+
+                  <Accordion type="single" collapsible className="space-y-4">
+                    {namesOfAllah.map((name) => (
+                      <AccordionItem 
+                        key={name.id} 
+                        value={`item-${name.id}`}
+                        className="bg-card rounded-2xl border border-border shadow-sm px-4 overflow-hidden"
+                      >
+                        <AccordionTrigger className="hover:no-underline py-6">
+                          <div className="flex justify-between items-center w-full pr-4">
+                            <div className="text-left">
+                              <p className="text-emerald-600 font-bold text-[10px] uppercase tracking-widest">{name.transliteration}</p>
+                              <h3 className="text-lg font-bold">{name.lao}</h3>
+                            </div>
+                            <div className="arabic-text text-xl text-emerald-600" dir="rtl">{name.arabic}</div>
                           </div>
-                          <div className="arabic-text text-xl text-emerald-600" dir="rtl">{name.arabic}</div>
-                        </div>
-                      </AccordionTrigger>
-                      <AccordionContent className="pb-6 text-foreground leading-relaxed text-sm font-medium">
-                        <div className="pt-2 border-t border-border mt-2">
-                          {name.description}
-                        </div>
-                      </AccordionContent>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
+                        </AccordionTrigger>
+                        <AccordionContent className="pb-6 text-foreground leading-relaxed text-sm font-medium">
+                          <div className="pt-2 border-t border-border mt-2">
+                            {name.description}
+                          </div>
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
+                </div>
               )}
 
               {activeTab === 'articles' && (
