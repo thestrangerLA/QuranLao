@@ -2,10 +2,11 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Book, Moon, Sun, Sparkles, LayoutList, ChevronRight, Quote, MessageSquareQuote } from 'lucide-react';
+import { Book, Moon, Sun, Sparkles, LayoutList, ChevronRight, Quote, MessageSquareQuote, Library } from 'lucide-react';
 import { SurahList } from '@/components/quran/SurahList';
 import { SurahDetail } from '@/components/quran/SurahDetail';
 import { ArticleDetail } from '@/components/articles/ArticleDetail';
+import { HadithDetail } from '@/components/hadith/HadithDetail';
 import { Surah } from '@/types/quran';
 import { cn } from '@/lib/utils';
 import { namesOfAllah } from '@/data/namesOfAllah';
@@ -22,6 +23,7 @@ import { Badge } from "@/components/ui/badge";
 export default function App() {
   const [selectedSurah, setSelectedSurah] = useState<Surah | null>(null);
   const [selectedArticle, setSelectedArticle] = useState<any | null>(null);
+  const [showNawawiCollection, setShowNawawiCollection] = useState(false);
   const [activeTab, setActiveTab] = useState('quran');
   const [surahs, setSurahs] = useState<Surah[] | null>(null);
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -49,12 +51,6 @@ export default function App() {
           if (surah) {
             setSelectedSurah(surah);
           }
-        } else if (hash.startsWith('#article-')) {
-          const id = parseInt(hash.replace('#article-', ''));
-          const article = articles.find(a => a.id === id);
-          if (article) {
-            setSelectedArticle(article);
-          }
         }
       } catch (error) {
         console.error('Error fetching surahs:', error);
@@ -70,16 +66,23 @@ export default function App() {
         if (surah) {
           setSelectedSurah(surah);
           setSelectedArticle(null);
+          setShowNawawiCollection(false);
         }
       } else if (event.state?.articleId) {
         const article = articles.find(a => a.id === event.state.articleId);
         if (article) {
           setSelectedArticle(article);
           setSelectedSurah(null);
+          setShowNawawiCollection(false);
         }
+      } else if (event.state?.showNawawi) {
+        setShowNawawiCollection(true);
+        setSelectedSurah(null);
+        setSelectedArticle(null);
       } else {
         setSelectedSurah(null);
         setSelectedArticle(null);
+        setShowNawawiCollection(false);
       }
     };
 
@@ -101,21 +104,31 @@ export default function App() {
   const handleSelectSurah = (surah: Surah) => {
     setSelectedSurah(surah);
     setSelectedArticle(null);
+    setShowNawawiCollection(false);
     window.history.pushState({ surahId: surah.id }, '', `#surah-${surah.id}`);
   };
 
   const handleSelectArticle = (article: any) => {
     setSelectedArticle(article);
     setSelectedSurah(null);
+    setShowNawawiCollection(false);
     window.history.pushState({ articleId: article.id }, '', `#article-${article.id}`);
   };
 
+  const handleShowNawawi = () => {
+    setShowNawawiCollection(true);
+    setSelectedSurah(null);
+    setSelectedArticle(null);
+    window.history.pushState({ showNawawi: true }, '', '#hadith-nawawi');
+  };
+
   const handleBack = () => {
-    if (window.history.state?.surahId || window.history.state?.articleId) {
+    if (window.history.state?.surahId || window.history.state?.articleId || window.history.state?.showNawawi) {
       window.history.back();
     } else {
       setSelectedSurah(null);
       setSelectedArticle(null);
+      setShowNawawiCollection(false);
     }
   };
 
@@ -161,6 +174,17 @@ export default function App() {
                 onBack={handleBack} 
               />
             </motion.div>
+          ) : showNawawiCollection ? (
+            <motion.div
+              key="hadith-detail"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+            >
+              <HadithDetail 
+                onBack={handleBack} 
+              />
+            </motion.div>
           ) : (
             <motion.div
               key={activeTab}
@@ -197,14 +221,13 @@ export default function App() {
 
               {activeTab === 'names' && (
                 <div className="space-y-6">
-                  {/* Hadith Section for Names */}
                   <div className="bg-emerald-600 rounded-3xl p-6 text-white shadow-lg relative overflow-hidden">
                     <div className="absolute top-0 right-0 p-4 opacity-10">
                       <Quote className="w-16 h-16" />
                     </div>
                     <div className="relative z-10">
                       <p className="arabic-text text-sm text-center mb-4 leading-relaxed" dir="rtl">
-                        إِنَّ لِلَّهِ تِسْعَةً وَتِسْعِينَ اسْمًا مِائَةً إِلَّا وَاحِدًا مَنْ أَحْصَاهَا دະخَلَ الْجَنَّةَ
+                        إِنَّ لِلَّهِ تِسْعَةً وَتِسْعِينَ اسْمًا مِائَةً إِلَّا وَاحِدًا مَنْ أَحْصَاهَا دَخَلَ الْجَنَّةَ
                       </p>
                       <p className="text-xs font-medium leading-relaxed italic border-l-2 border-white/30 pl-3">
                         "ແທ້ຈິງແລ້ວ ອັລລໍຫ໌ມີ 99 ພະນາມ, ໜຶ່ງຮ້ອຍລົບໜຶ່ງ. ຜູ້ໃດກໍຕາມທີ່ທ່ອງຈຳ (ຫຼື ເຂົ້າໃຈ ແລະ ປະຕິບັດຕາມ) ພວກມັນ ຈະໄດ້ເຂົ້າສວນສະຫວັນ."
@@ -244,10 +267,23 @@ export default function App() {
 
               {activeTab === 'hadith' && (
                 <div className="space-y-6">
-                  <div className="bg-emerald-600 rounded-3xl p-6 text-white shadow-lg mb-8">
-                    <h2 className="text-xl font-bold mb-2">ຮາດີດຄັດສັນ</h2>
-                    <p className="text-emerald-50 text-sm">ຄຳສອນອັນລ້ຳຄ່າຈາກທ່ານນົບພີ ມຸຮຳມັດ (ຊ.ລ) ເພື່ອການດຳເນີນຊີວິດ.</p>
+                  <div className="bg-emerald-600 rounded-3xl p-6 text-white shadow-lg mb-8 relative overflow-hidden">
+                    <div className="absolute top-0 right-0 p-4 opacity-10">
+                      <Library className="w-16 h-16" />
+                    </div>
+                    <div className="relative z-10">
+                      <h2 className="text-xl font-bold mb-2">ຮາດີດ ນະບະວີ</h2>
+                      <p className="text-emerald-50 text-sm">ລວມບົດຮາດີດ 40 ບົດ ທີ່ເປັນຮາກຖານຂອງອິດສະລາມ.</p>
+                      <button 
+                        onClick={handleShowNawawi}
+                        className="mt-4 px-4 py-2 bg-white text-emerald-600 rounded-xl text-xs font-bold shadow-sm hover:bg-emerald-50 transition-colors"
+                      >
+                        ເບິ່ງທັງໝົດ 40 ບົດ
+                      </button>
+                    </div>
                   </div>
+
+                  <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-widest">ຮາດີດຄັດສັນ</h3>
                   <div className="space-y-4">
                     {hadiths.map((hadith) => (
                       <div key={hadith.id} className="bg-card rounded-2xl p-6 border border-border shadow-sm space-y-4">
@@ -312,7 +348,7 @@ export default function App() {
         </AnimatePresence>
       </div>
 
-      {!selectedSurah && !selectedArticle && (
+      {!selectedSurah && !selectedArticle && !showNawawiCollection && (
         <nav className="fixed bottom-0 left-0 right-0 bg-card/80 backdrop-blur-lg border-t border-border px-4 py-4 z-50">
           <div className="max-w-md mx-auto flex justify-around items-center">
             <NavButton 
