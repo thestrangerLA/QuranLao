@@ -1,22 +1,34 @@
-# QuranLao
+# QuranLao (ຣໍມະ)
 
-This is a Next.js application for reading the Quran with Lao translations.
+ແອັບພລິເຄຊັນອິດສະລາມໃນພາສາລາວ ທີ່ລວມເອົາຄຳພີອັນກຸຣອານ, ພະນາມຂອງອັລລໍຫ໌ ແລະ ບົດຄວາມຄວາມຮູ້ຕ່າງໆ.
 
-## Development
+## ຄຸນສົມບັດ (Features)
 
-To start the development server:
+- **ອັນກຸຣອານ (Quran):** ອ່ານກຸຣອານພ້ອມຄຳແປພາສາລາວ, ອັງກິດ ແລະ ໄທ.
+- **ພະນາມຂອງອັລລໍຫ໌ (99 Names of Allah):** ສຶກສາຄວາມໝາຍ ແລະ ລາຍລະອຽດຂອງ 99 ພະນາມອັນຍິ່ງໃຫຍ່.
+- **ບົດຄວາມ (Articles):** ເນື້ອຫາພື້ນຖານສຳລັບຜູ້ທີ່ສົນໃຈອິສລາມ ແລະ ມຸສລິມໃໝ່.
+- **ໂໝດມືດ (Dark Mode):** ຮອງຮັບການໃຊ້ງານທັງກາງເວັນ ແລະ ກາງຄືນ.
+
+## ການພັດທະນາ (Development)
+
+ເລີ່ມຕົ້ນ Server ສຳລັບການພັດທະນາ:
 ```bash
 npm run dev
 ```
 
-## Deployment to GitHub Pages
+## ການອັບເດດລົງ GitHub (Deployment to GitHub Pages)
 
-To update your deployment on GitHub, use these commands:
+ເມື່ອທ່ານຕ້ອງການອັບເດດການປ່ຽນແປງລົງໃນເວັບໄຊ GitHub Pages ຂອງທ່ານ, ໃຫ້ໃຊ້ຄຳສັ່ງລຸ່ມນີ້:
 
 ```bash
+# 1. ກຽມໄຟລ໌ທັງໝົດ
 git add .
-git commit -m "Update message"
+
+# 2. ບັນທຶກການປ່ຽນແປງ
+git commit -m "ຄຳອະທິບາຍການປ່ຽນແປງຂອງທ່ານ"
+
+# 3. ສົ່ງຂຶ້ນ GitHub
 git push origin main
 ```
 
-The GitHub Action will automatically trigger and deploy the latest version to your GitHub Pages site.
+ລະບົບ GitHub Action ຈະເຮັດວຽກໂດຍອັດຕະໂນມັດເພື່ອ Build ແລະ Deploy ເວັບໄຊຂອງທ່ານໃຫ້ເປັນເວີຊັນລ່າສຸດ.
