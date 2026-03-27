@@ -1,5 +1,4 @@
-
-import { Surah, Verse, Tafsir } from '../types/quran';
+import { Surah, Verse } from '../types/quran';
 
 const BASE_URL = 'https://api.quran.com/api/v4';
 
@@ -15,10 +14,4 @@ export const getSurahVerses = async (chapterId: number, translationIds: string):
   );
   const data = await response.json();
   return data.verses;
-};
-
-export const getTafsir = async (tafsirId: number, verseKey: string): Promise<Tafsir> => {
-  const response = await fetch(`${BASE_URL}/tafsirs/${tafsirId}/by_verse_key/${verseKey}`);
-  const data = await response.json();
-  return data.tafsir;
 };

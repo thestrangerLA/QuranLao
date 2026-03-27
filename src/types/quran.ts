@@ -1,4 +1,3 @@
-
 export interface Surah {
   id: number;
   revelation_place: string;
@@ -25,10 +24,4 @@ export interface Verse {
     resource_id: number;
     text: string;
   }>;
-}
-
-export interface Tafsir {
-  id: number;
-  resource_id: number;
-  text: string;
 }
