@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -8,16 +7,7 @@ import { SurahList } from '@/components/quran/SurahList';
 import { SurahDetail } from '@/components/quran/SurahDetail';
 import { Surah } from '@/types/quran';
 import { cn } from '@/lib/utils';
-
-// Simple data for the Names of Allah view
-const namesOfAllah = [
-  { id: 1, arabic: 'الرحمن', transliteration: 'Ar-Rahman', lao: 'ພຣະຜູ້ຊົງກະລຸນາປານີ' },
-  { id: 2, arabic: 'الرحيم', transliteration: 'Ar-Rahim', lao: 'ພຣະຜູ້ຊົງເມດຕາສະເໝີ' },
-  { id: 3, arabic: 'الملك', transliteration: 'Al-Malik', lao: 'ພຣະຜູ້ຊົງອຳນາດຍິ່ງໃຫຍ່' },
-  { id: 4, arabic: 'القدوس', transliteration: 'Al-Quddus', lao: 'ພຣະຜູ້ຊົງບໍລິສຸດຍິ່ງ' },
-  { id: 5, arabic: 'السلام', transliteration: 'As-Salam', lao: 'ພຣະຜູ້ຊົງປະທານຄວາມສັນຕິ' },
-  // More names can be added here
-];
+import { namesOfAllah } from '@/data/namesOfAllah';
 
 export default function App() {
   const [selectedSurah, setSelectedSurah] = useState<Surah | null>(null);
@@ -158,10 +148,9 @@ export default function App() {
                         <p className="text-emerald-600 font-bold text-xs uppercase tracking-widest">{name.transliteration}</p>
                         <h3 className="text-lg font-bold">{name.lao}</h3>
                       </div>
-                      <div className="arabic-text text-2xl text-emerald-600" dir="rtl">{name.arabic}</div>
+                      <div className="arabic-text text-xl text-emerald-600" dir="rtl">{name.arabic}</div>
                     </div>
                   ))}
-                  <p className="text-center text-xs text-muted-foreground py-8 italic">99 ພະນາມຈະມາໃນໄວໆນີ້...</p>
                 </div>
               )}
             </motion.div>
