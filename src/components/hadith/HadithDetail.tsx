@@ -41,8 +41,14 @@ export const HadithDetail: React.FC<HadithDetailProps> = ({ onBack }) => {
         </div>
 
         <div className="space-y-4">
-          {nawawiHadiths.map((hadith) => (
-            <div key={hadith.id} className="bg-card rounded-2xl p-6 border border-border shadow-sm space-y-4">
+          {nawawiHadiths.map((hadith, index) => (
+            <motion.div 
+              key={hadith.id}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.05 }}
+              className="bg-card rounded-2xl p-6 border border-border shadow-sm space-y-4"
+            >
               <div className="flex justify-between items-center">
                 <Badge variant="secondary" className="bg-emerald-500/10 text-emerald-600 border-none px-2 font-bold text-[10px]">
                   ບົດທີ {hadith.id}
@@ -52,17 +58,24 @@ export const HadithDetail: React.FC<HadithDetailProps> = ({ onBack }) => {
               <p className="arabic-text text-sm text-right leading-loose text-emerald-600" dir="rtl">
                 {hadith.arabic}
               </p>
-              <p className="text-foreground text-sm leading-relaxed font-medium">
-                "{hadith.lao}"
-              </p>
-              <p className="text-[10px] text-muted-foreground text-right italic font-bold">
-                — {hadith.narrator}
-              </p>
-            </div>
+              <div className="space-y-2 border-l-2 border-emerald-500/20 pl-4 py-1">
+                <p className="text-foreground text-sm leading-relaxed font-medium">
+                  "{hadith.lao}"
+                </p>
+                <p className="text-[10px] text-muted-foreground text-right italic font-bold">
+                  — {hadith.narrator}
+                </p>
+              </div>
+            </motion.div>
           ))}
           
-          <div className="text-center py-8">
-            <p className="text-muted-foreground text-xs italic">ກຳລັງອັບເດດເນື້ອຫາເພີ່ມເຕີມໃຫ້ຄົບ 40 ບົດ...</p>
+          <div className="text-center py-12 px-6">
+            <div className="inline-block p-3 rounded-full bg-emerald-500/10 mb-4">
+              <BookMarked className="w-6 h-6 text-emerald-600" />
+            </div>
+            <p className="text-muted-foreground text-xs italic leading-relaxed">
+              ກຳລັງທະຍອຍອັບເດດເນື້ອຫາໃຫ້ຄົບທັງໝົດ 40 ບົດ... ຂໍຂອບໃຈທີ່ຕິດຕາມ ແລະ ສຶກສາຮຽນຮູ້.
+            </p>
           </div>
         </div>
       </motion.div>
